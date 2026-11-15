@@ -257,7 +257,7 @@
   }
 
   /* ---------- страница кейса ---------- */
-  var CAT = { web: "Сайты", telegram: "Telegram", minecraft: "Minecraft" };
+  var CAT = { web: "Сайты", telegram: "Telegram", app: "Приложения", minecraft: "Minecraft" };
   function renderCase() {
     var host = document.getElementById("case-body");
     if (!host || !window.PROJECTS) return;
