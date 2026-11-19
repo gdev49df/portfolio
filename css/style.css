@@ -696,3 +696,5 @@ a.work { color: inherit; }
 
 /* на фоне одна точка света */
 .orb.o2, .orb.o3 { display: none; }
+
+.sc-card .cover.tilting, a.work .cover.tilting { transform: none; }

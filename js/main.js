@@ -433,10 +433,10 @@
 
   /* карточки проектов: наклоняются за курсором, на телефоне вращаются от свайпа вбок */
   (function () {
-    var SEL = ".sc-pic, .sc-card, a.work", cur = null, st = null, moved = 0, raf = 0;
+    var SEL = ".sc-pic", cur = null, st = null, moved = 0, raf = 0;
     function cover(el) { return el.querySelector(".cover"); }
     function apply(c, rx, ry, gx, gy, k) {
-      c.style.transform = "perspective(900px) rotateX(" + rx.toFixed(2) + "deg) rotateY(" + ry.toFixed(2) + "deg) scale(" + (1 + k * 0.03).toFixed(3) + ")";
+      c.style.transform = "perspective(900px) rotateX(" + rx.toFixed(2) + "deg) rotateY(" + ry.toFixed(2) + "deg) scale(" + (1 + k * 0.01).toFixed(3) + ")";
       c.style.setProperty("--gx", gx + "%"); c.style.setProperty("--gy", gy + "%");
     }
     function reset(c) {
@@ -447,8 +447,8 @@
     function move(c, e, el, drag) {
       var r = c.getBoundingClientRect();
       var px = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)), py = Math.max(0, Math.min(1, (e.clientY - r.top) / r.height));
-      var big = el.classList.contains("sc-pic"), max = big ? 11 : 16;
-      if (drag) max *= 2.2;
+      var max = 5;
+      if (drag) max *= 1.6;
       c.classList.remove("tilt-back"); c.classList.add("tilting");
       apply(c, (0.5 - py) * max, (px - 0.5) * max * 1.6, Math.round(px * 100), Math.round(py * 100), 1);
     }
