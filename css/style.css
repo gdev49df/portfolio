@@ -698,3 +698,8 @@ a.work { color: inherit; }
 .orb.o2, .orb.o3 { display: none; }
 
 .sc-card .cover.tilting, a.work .cover.tilting { transform: none; }
+
+/* этапы: на всю ширину экрана */
+@media (min-width: 1100px) {
+  .steps { width: min(1360px, 100vw - 80px); margin-left: 50%; transform: translateX(-50%); }
+}
