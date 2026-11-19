@@ -718,3 +718,16 @@ a.work { color: inherit; }
 @media (max-width: 900px) {
   .step::before { font: 800 34px/1 var(--display); color: var(--accent); margin-bottom: 26px; }
 }
+
+/* этапы: плавное раскрытие (перебивает transition от data-reveal) и ровные цифры без обводки */
+@media (min-width: 901px) {
+  .js .steps .step {
+    transition: opacity var(--slow) var(--ease) var(--d, 0s), filter var(--slow) var(--ease) var(--d, 0s), transform var(--slow) var(--ease) var(--d, 0s),
+      flex-grow 1s cubic-bezier(.65, 0, .25, 1), border-color .6s, background .8s;
+  }
+  .step::before { color: rgba(255, 255, 255, .07); -webkit-text-stroke: 0; transform: translateY(0) scale(1); transform-origin: 0 0; transition: color .6s, transform .9s cubic-bezier(.65, 0, .25, 1); }
+  .step.on::before { color: var(--accent); -webkit-text-stroke: 0; transform: translateY(2px) scale(1.25); }
+  .step h3, .step p { transform: translateX(-18px); }
+  .step.on h3, .step.on p { transform: none; }
+  .step.on p { transition-delay: .35s; }
+}
