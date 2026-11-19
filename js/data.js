@@ -2,6 +2,7 @@
 window.PROJECTS = [
   {
     id: "name-roulette",
+    demo: { url: "https://site.wsmp.workers.dev/", device: "phone" },
     img: "img/name-roulette.jpg",
     hero: "img/name-roulette-case.jpg",
     points: ["Рейтинг игроков", "Реферальная система", "Мини-игра «Минное поле»", "Покупки за Telegram Stars", "Сохранение прогресса на Cloudflare Workers и D1"],
@@ -21,6 +22,7 @@ window.PROJECTS = [
   },
   {
     id: "wardensmp",
+    demo: { url: "https://site.w-smp.in/", device: "laptop" },
     img: "img/wardensmp.jpg",
     hero: "img/wardensmp-case.jpg",
     points: ["Каталог привилегий с корзиной и пересчётом валют", "Страница мониторинга онлайна", "Правила и программа для медиа", "Паспорт игрока с рейтингом по времени игры и балансу"],
@@ -58,6 +60,7 @@ window.PROJECTS = [
   },
   {
     id: "kotiko",
+    demo: { url: "https://kotiko.w-smp.in/", device: "laptop" },
     img: "img/kotiko.jpg",
     hero: "img/kotiko-case.jpg",
     points: ["Сайт на чистых HTML, CSS и JavaScript", "Работает на собственном домене"],
@@ -75,6 +78,7 @@ window.PROJECTS = [
   },
   {
     id: "dinastiyastomclinic",
+    demo: { url: "https://dinastiyastomclinic.w-smp.in/", device: "laptop" },
     img: "img/dinastiyastomclinic.jpg",
     hero: "img/dinastiyastomclinic-case.jpg",
     points: ["Страницы услуг: имплантация, брекеты, лечение, ортопедия, детская стоматология", "Цены, рассрочка 0-0-24, команда и отзывы с оценками из 2ГИС", "Запись на приём и быстрая связь через WhatsApp"],
@@ -92,6 +96,7 @@ window.PROJECTS = [
   },
   {
     id: "shawarma",
+    demo: { url: "https://gdev49df.github.io/shawarma/", device: "laptop" },
     img: "img/shawarma.jpg",
     hero: "img/shawarma-case.jpg",
     points: ["Меню с фильтрами и конструктор «Собери свою» с подсчётом цены", "Корзина и оформление заказа через WhatsApp", "Статус «открыто / закрыто», условия доставки и контакты"],

@@ -628,3 +628,31 @@ a.work { color: inherit; }
 .cover::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .3s ease; background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255, 255, 255, .22), transparent 55%); }
 .cover.tilting::after { opacity: 1; }
 @media (hover: hover) { .sc-card:hover .cover, .sc-pic:hover .cover, a.work:hover .cover { transform: none; } .sc-card:hover .cover.tilting, .sc-pic:hover .cover.tilting { transform: unset; } }
+
+/* живой предпросмотр проекта */
+.case-cover { position: relative; }
+.demo-open { position: absolute; left: 50%; bottom: 7%; transform: translateX(-50%); z-index: 3; display: inline-flex; align-items: center; gap: 10px; padding: 13px 22px; border-radius: 999px; border: 1px solid rgba(255,255,255,.22); background: rgba(8,10,16,.72); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); color: #fff; font: 500 15px/1 var(--body); cursor: pointer; transition: background .4s var(--ease), border-color .4s var(--ease), transform .4s var(--ease); }
+.demo-open:hover { background: var(--accent); border-color: var(--accent); transform: translateX(-50%) translateY(-2px); }
+.demo-open .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 0 rgba(34,160,254,.6); animation: demoPulse 2.2s infinite; }
+.demo-open:hover .dot { background: #fff; }
+@keyframes demoPulse { 70% { box-shadow: 0 0 0 10px rgba(34,160,254,0); } 100% { box-shadow: 0 0 0 0 rgba(34,160,254,0); } }
+.case-cover.demo-on > .demo-open { display: none; }
+.demo { position: absolute; inset: 0; z-index: 4; overflow: auto; padding: 18px; border-radius: inherit; background: radial-gradient(ellipse 60% 45% at 50% 100%, rgba(34,160,254,.28), transparent 70%), #04050a; animation: demoIn .5s var(--ease); }
+@keyframes demoIn { from { opacity: 0; transform: scale(.98); } }
+.case-cover.demo-on { aspect-ratio: auto; min-height: 0; }
+.case-cover.demo-on > .cover { display: none; }
+.demo { position: relative; inset: auto; }
+.demo-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.demo-hint { color: var(--muted); font-size: 14px; }
+.demo-x { border: 1px solid var(--line); background: transparent; color: #fff; border-radius: 999px; padding: 8px 16px; font: 500 14px/1 var(--body); cursor: pointer; transition: border-color .3s ease, background .3s ease; }
+.demo-x:hover { border-color: var(--accent); background: rgba(34,160,254,.12); }
+.demo-dev { margin: 0 auto; background: #050506; border: 2px solid #34353a; border-radius: 22px 22px 4px 4px; padding: 12px; }
+.demo-laptop .demo-dev { max-width: 980px; }
+.demo-phone .demo-dev { max-width: 380px; border-radius: 42px; padding: 14px; }
+.demo-fit { position: relative; width: 100%; overflow: hidden; border-radius: 8px; background: #000; }
+.demo-phone .demo-fit { border-radius: 30px; }
+.demo-fit iframe { position: absolute; left: 0; top: 0; border: 0; transform-origin: 0 0; background: #fff; }
+.demo-load { position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); font-size: 14px; }
+.demo-base { max-width: 1060px; height: 16px; margin: 0 auto; background: linear-gradient(#8a8c92, #4a4b50 55%, #2a2b2f); border-radius: 0 0 22px 22px / 0 0 14px 14px; }
+@media (max-width: 680px) { .demo { padding: 12px; } .demo-dev { padding: 8px; } .demo-hint { font-size: 12px; } .demo-open { bottom: 5%; padding: 11px 16px; font-size: 14px; } }
+.demo { background: none; padding-inline: 0; }
