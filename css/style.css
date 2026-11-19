@@ -740,3 +740,33 @@ a.work { color: inherit; }
   color: var(--bg); -webkit-text-stroke: 2.5px rgba(255, 255, 255, .42); paint-order: stroke fill; }
 .band-track i { font: normal 400 clamp(22px, 3vw, 38px)/1 var(--display); color: var(--accent); }
 @keyframes band { to { transform: translateX(-100%); } }
+
+/* преимущества */
+.adv { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.adv-card { position: relative; overflow: hidden; padding: 30px 28px 34px; border: 1px solid var(--line); border-radius: var(--r); background: var(--card); transition: border-color .6s, transform .8s var(--ease); }
+.adv-card::after { content: ""; position: absolute; inset: -40% -20% auto auto; width: 70%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(167,139,250,.22), transparent 65%); opacity: 0; transition: opacity .9s var(--ease); pointer-events: none; }
+.adv-card:hover { border-color: var(--line2); }
+.adv-card:hover::after { opacity: 1; }
+.adv-ic { display: grid; place-items: center; width: 48px; height: 48px; margin-bottom: 56px; border-radius: 14px; color: var(--accent); background: rgba(167,139,250,.1); border: 1px solid rgba(167,139,250,.22); }
+.adv-card h3 { font-size: 20px; margin-bottom: 10px; }
+.adv-card p { color: var(--muted); font-size: 15px; line-height: 1.55; max-width: 32ch; }
+
+/* принципы */
+.prin { border-top: 1px solid var(--line); }
+.prin-row { display: grid; grid-template-columns: 90px minmax(0, 1fr) minmax(0, 1.2fr); align-items: baseline; gap: 12px 28px; padding: 30px 8px; border-bottom: 1px solid var(--line); transition: background .6s, padding .8s var(--ease); }
+.prin-row b { font: 400 14px/1 var(--display); color: var(--accent); }
+.prin-row h3 { font-size: clamp(20px, 2.4vw, 30px); transition: transform .8s var(--ease); }
+.prin-row p { color: var(--muted); font-size: 15px; line-height: 1.55; max-width: 46ch; }
+.prin-row:hover { background: linear-gradient(90deg, rgba(167,139,250,.07), transparent 70%); padding-left: 22px; }
+@media (max-width: 900px) {
+  .adv { grid-template-columns: 1fr; }
+  .adv-ic { margin-bottom: 30px; }
+  .prin-row { grid-template-columns: 1fr; padding: 24px 0; }
+  .prin-row:hover { padding-left: 0; }
+}
+
+/* этапы: текст плавно сужается вместе с карточкой */
+@media (min-width: 901px) {
+  .step h3, .step p { width: auto; max-width: 118px; transition: opacity .5s, transform .8s var(--ease), max-width 1s cubic-bezier(.65, 0, .25, 1); }
+  .step.on h3, .step.on p { max-width: 420px; }
+}
