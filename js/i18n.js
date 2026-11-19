@@ -293,6 +293,13 @@
     "Интернет-магазин": ["Интернет-дүкен", "Online store"],
     "Полноценный магазин с корзиной, оплатой и каталогом. Продажи онлайн 24/7.": ["Себеті, төлемі және каталогы бар толыққанды дүкен. Онлайн сату 24/7.", "A full store with a cart, payments and a catalog. Online sales 24/7."],
     "Представительный сайт компании: услуги, команда, кейсы и контакты в одной системе.": ["Компанияның көрнекті сайты: қызметтер, команда, кейстер және байланыстар бір жүйеде.", "A company's showcase site: services, team, cases and contacts in one system."],
+    "Tasqly": ["Tasqly", "Tasqly"],
+    "Рабочее пространство": ["Жұмыс кеңістігі", "Workspace"],
+    "Рабочее пространство для команд: задачи, заметки, чат, диск и ИИ.": ["Командаға арналған жұмыс кеңістігі: тапсырмалар, жазбалар, чат, диск және ЖИ.", "A workspace for teams: tasks, notes, chat, disk and AI."],
+    "Tasqly — рабочее пространство для команд в духе ClickUp: проекты трёх типов, задачи, заметки, чат, диск, трекер времени, календарь и ИИ-помощник в боковой панели. Строгий монохромный дизайн с одним лаймовым акцентом, лендинг с тарифами и личный кабинет.": ["Tasqly — ClickUp рухындағы командаға арналған жұмыс кеңістігі: үш түрлі жоба, тапсырмалар, жазбалар, чат, диск, уақыт трекері, күнтізбе және бүйір панельдегі ЖИ-көмекші. Бір лайм акцентті қатаң монохром дизайн, тарифтері бар лендинг және жеке кабинет.", "Tasqly is a ClickUp-style workspace for teams: three project types, tasks, notes, chat, disk, a time tracker, a calendar and an AI assistant in a side panel. A strict monochrome design with a single lime accent, a landing page with pricing and a personal dashboard."],
+    "Задачи, проекты, заметки, чат и диск в одном месте": ["Тапсырмалар, жобалар, жазбалар, чат және диск бір жерде", "Tasks, projects, notes, chat and disk in one place"],
+    "Трекер времени, календарь и ИИ-помощник сбоку": ["Уақыт трекері, күнтізбе және бүйірдегі ЖИ-көмекші", "Time tracker, calendar and an AI assistant on the side"],
+    "Строгий монохром с одним лаймовым акцентом": ["Бір лайм акцентті қатаң монохром", "Strict monochrome with a single lime accent"],
     "Все работы": ["Барлық жұмыстар", "All work"],
 
     /* ---------- обо мне ---------- */
@@ -306,9 +313,9 @@
       "Дизайнда да, әзірлеуде де жұмыс істеймін, сондықтан міндетті адамдар арасында беруге уақыт жоғалтпаймын. Сіз нәтижеге толық жауап беретін бір адаммен сөйлесесіз.",
       "I work in both design and development, so no time is lost handing the task between people. You talk to one person who is responsible for the whole result."
     ],
-    "Мои проекты: сайты для школы английского и котокафе, магазин и паспорт игрока для Minecraft-сервера, а также Telegram Mini App «Нейм-рулетка».": [
-      "Менің жобаларым: ағылшын тілі мектебі мен котокафеге арналған сайттар, Minecraft-серверге арналған дүкен және ойыншы паспорты, сондай-ақ «Нейм-рулетка» Telegram Mini App.",
-      "My projects: websites for an English school and a cat cafe, a store and player passport for a Minecraft server, and the Telegram Mini App “Name Roulette”."
+    "Мои проекты: сайты для школы английского, котокафе и стоматологии, ИИ-чат DDX AI и рабочее пространство Tasqly.": [
+      "Менің жобаларым: ағылшын тілі мектебі, котокафе және стоматологияға арналған сайттар, DDX AI ЖИ-чаты және Tasqly жұмыс кеңістігі.",
+      "My projects: websites for an English school, a cat cafe and a dental clinic, the DDX AI chat and the Tasqly workspace."
     ],
     "Роль": ["Рөлі", "Role"],
     "Дизайнер и разработчик": ["Дизайнер және әзірлеуші", "Designer and developer"],

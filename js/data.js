@@ -1,28 +1,8 @@
 // данные проектов. чтобы добавить скриншот, положи файл в img/ и впиши его в поле img, например img: "img/study-on.jpg"
 window.PROJECTS = [
   {
-    id: "wardensmp",
-    demo: { url: "https://site.w-smp.in/", device: "laptop" },
-    img: "img/wardensmp.jpg",
-    hero: "img/wardensmp-case.jpg",
-    points: ["Каталог привилегий с корзиной и пересчётом валют", "Страница мониторинга онлайна", "Правила и программа для медиа", "Паспорт игрока с рейтингом по времени игры и балансу"],
-    title: "WardenSMP",
-    type: "Сайт и магазин сервера",
-    cat: "web",
-    glyph: "W",
-    c1: "#0a4fa8",
-    c2: "#0b1020",
-    featured: true,
-    short: "Сайт Minecraft-сервера с магазином, мониторингом и паспортом игрока.",
-    desc: "Сайт сервера WardenSMP: каталог привилегий с корзиной и пересчётом валют, страница мониторинга онлайна, правила, программа для медиа и паспорт игрока с рейтингом по времени игры и балансу. Дизайн в фирменном синем цвете сервера, страницы переходят друг в друга плавно.",
-    stack: ["HTML", "CSS", "JavaScript", "GitHub Pages", "Cloudflare Workers", "D1"],
-    links: [
-      { label: "Открыть сайт", url: "https://site.w-smp.in" },
-      { label: "Telegram сервера", url: "https://t.me/w_smp" }
-    ]
-  },
-  {
     id: "study-on",
+    demo: { url: "https://gdev49df.github.io/study-on/", device: "laptop" },
     img: "img/study-on.jpg",
     hero: "img/study-on-case.jpg",
     points: ["Данные из карточки школы в 2ГИС", "Оформление в стиле школы", "Заявки с сайта уходят прямо в WhatsApp"],
@@ -40,7 +20,7 @@ window.PROJECTS = [
   },
   {
     id: "kotiko",
-    demo: { url: "https://kotiko.w-smp.in/", device: "laptop" },
+    demo: { url: "https://gdev49df.github.io/kotiko", device: "laptop" },
     img: "img/kotiko.jpg",
     hero: "img/kotiko-case.jpg",
     points: ["Сайт на чистых HTML, CSS и JavaScript", "Работает на собственном домене"],
@@ -58,7 +38,7 @@ window.PROJECTS = [
   },
   {
     id: "dinastiyastomclinic",
-    demo: { url: "https://dinastiyastomclinic.w-smp.in/", device: "laptop" },
+    demo: { url: "https://gdev49df.github.io/dinastiyastomclinic", device: "laptop" },
     img: "img/dinastiyastomclinic.jpg",
     hero: "img/dinastiyastomclinic-case.jpg",
     points: ["Страницы услуг: имплантация, брекеты, лечение, ортопедия, детская стоматология", "Цены, рассрочка 0-0-24, команда и отзывы с оценками из 2ГИС", "Запись на приём и быстрая связь через WhatsApp"],
@@ -94,6 +74,7 @@ window.PROJECTS = [
   },
   {
     id: "ddx-ai",
+    demo: { url: "https://gdev49df.github.io/ddx-ai/app/", device: "laptop" },
     img: "img/ddx-ai.jpg",
     hero: "img/ddx-ai-case.jpg",
     points: ["Чат с фото, файлами, голосом и поиском по интернету", "История чатов, проекты-папки, закрепление и персонализация", "Три модели на выбор, тарифы, версия для телефона и компьютера"],
@@ -107,6 +88,24 @@ window.PROJECTS = [
     short: "Личный ИИ-помощник: чат с историей, проектами, фото и голосом.",
     desc: "DDX AI — личный ИИ-ассистент в виде приложения и Telegram Mini App. Чат на любые вопросы с форматированием ответов, фото и файлами, голосовым вводом и поиском. Есть история чатов, проекты-папки, персонализация, несколько моделей, тарифы и версия для компьютера.",
     stack: ["HTML", "CSS", "JavaScript", "PWA", "Telegram Mini App", "Cloudflare Workers"],
+    links: []
+  },
+  {
+    id: "tasqly",
+    demo: { url: "https://tasqly.wsmp.workers.dev", device: "laptop" },
+    img: "img/tasqly.jpg",
+    hero: "img/tasqly-case.jpg",
+    points: ["Задачи, проекты, заметки, чат и диск в одном месте", "Трекер времени, календарь и ИИ-помощник сбоку", "Строгий монохром с одним лаймовым акцентом"],
+    title: "Tasqly",
+    type: "Рабочее пространство",
+    cat: "app",
+    glyph: "q",
+    c1: "#b8f13a",
+    c2: "#050608",
+    featured: false,
+    short: "Рабочее пространство для команд: задачи, заметки, чат, диск и ИИ.",
+    desc: "Tasqly — рабочее пространство для команд в духе ClickUp: проекты трёх типов, задачи, заметки, чат, диск, трекер времени, календарь и ИИ-помощник в боковой панели. Строгий монохромный дизайн с одним лаймовым акцентом, лендинг с тарифами и личный кабинет.",
+    stack: ["HTML", "CSS", "JavaScript", "Cloudflare Workers", "D1"],
     links: []
   }
 ];
