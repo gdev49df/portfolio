@@ -770,3 +770,14 @@ a.work { color: inherit; }
   .step h3, .step p { width: auto; max-width: 118px; transition: opacity .5s, transform .8s var(--ease), max-width 1s cubic-bezier(.65, 0, .25, 1); }
   .step.on h3, .step.on p { max-width: 420px; }
 }
+
+/* этапы: быстрее и углы меньше */
+.step { border-radius: 12px; }
+@media (min-width: 901px) {
+  .js .steps .step { transition: opacity var(--slow) var(--ease) var(--d, 0s), filter var(--slow) var(--ease) var(--d, 0s), transform var(--slow) var(--ease) var(--d, 0s),
+    flex-grow .6s cubic-bezier(.65, 0, .25, 1), border-color .4s, background .5s; }
+  .step::before { transition: color .4s, transform .6s cubic-bezier(.65, 0, .25, 1); }
+  .step h3, .step p { transition: opacity .35s, transform .55s var(--ease), max-width .6s cubic-bezier(.65, 0, .25, 1); }
+  .step.on h3, .step.on p { transition-delay: .15s; }
+  .step.on p { transition-delay: .2s; }
+}
