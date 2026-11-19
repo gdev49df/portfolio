@@ -617,3 +617,14 @@ a.work { color: inherit; }
 .showcase .sc-main, .showcase .sc-grid { transition: opacity .38s var(--ease), transform .38s var(--ease), filter .38s var(--ease) !important; }
 .showcase .sc-main.swap { opacity: 0 !important; transform: translateY(14px) scale(.99) !important; filter: blur(8px) !important; }
 .showcase .sc-grid.swap { opacity: 0 !important; transform: translateY(8px) !important; filter: blur(6px) !important; }
+
+/* наклон карточек проектов */
+.sc-pic, .sc-card, a.work { -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent; }
+.sc-pic, .sc-card .cover, a.work .cover { touch-action: pan-y; }
+.cover { will-change: transform; transform-style: preserve-3d; }
+.cover.tilting { transition: border-color .4s var(--ease), box-shadow .3s ease !important; box-shadow: 0 24px 60px rgba(0, 0, 0, .55), 0 0 40px rgba(34, 160, 254, .12); border-color: rgba(34, 160, 254, .55); }
+.cover.tilt-back { transition: transform .7s cubic-bezier(.2, .9, .25, 1.2), border-color .6s var(--ease), box-shadow .6s ease !important; }
+.cover.tilting img, .cover.tilting .glyph { transform: none !important; }
+.cover::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .3s ease; background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255, 255, 255, .22), transparent 55%); }
+.cover.tilting::after { opacity: 1; }
+@media (hover: hover) { .sc-card:hover .cover, .sc-pic:hover .cover, a.work:hover .cover { transform: none; } .sc-card:hover .cover.tilting, .sc-pic:hover .cover.tilting { transform: unset; } }

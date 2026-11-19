@@ -386,4 +386,58 @@
       else if (Math.abs(window.scrollY - cur) > 60) { cancelAnimationFrame(raf); raf = 0; cur = target = window.scrollY; }
     }, { passive: true });
   })();
+
+  /* карточки проектов: наклоняются за курсором, на телефоне вращаются от свайпа вбок */
+  (function () {
+    var SEL = ".sc-pic, .sc-card, a.work", cur = null, st = null, moved = 0, raf = 0;
+    function cover(el) { return el.querySelector(".cover"); }
+    function apply(c, rx, ry, gx, gy, k) {
+      c.style.transform = "perspective(900px) rotateX(" + rx.toFixed(2) + "deg) rotateY(" + ry.toFixed(2) + "deg) scale(" + (1 + k * 0.03).toFixed(3) + ")";
+      c.style.setProperty("--gx", gx + "%"); c.style.setProperty("--gy", gy + "%");
+    }
+    function reset(c) {
+      if (!c) return;
+      c.classList.remove("tilting"); c.classList.add("tilt-back");
+      c.style.transform = ""; c.style.removeProperty("--gx"); c.style.removeProperty("--gy");
+    }
+    function move(c, e, el, drag) {
+      var r = c.getBoundingClientRect();
+      var px = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)), py = Math.max(0, Math.min(1, (e.clientY - r.top) / r.height));
+      var big = el.classList.contains("sc-pic"), max = big ? 11 : 16;
+      if (drag) max *= 2.2;
+      c.classList.remove("tilt-back"); c.classList.add("tilting");
+      apply(c, (0.5 - py) * max, (px - 0.5) * max * 1.6, Math.round(px * 100), Math.round(py * 100), 1);
+    }
+    document.addEventListener("pointermove", function (e) {
+      if (st && st.id === e.pointerId) {
+        moved = Math.max(moved, Math.abs(e.clientX - st.x) + Math.abs(e.clientY - st.y));
+        if (e.pointerType === "touch") { if (Math.abs(e.clientX - st.x) < 4) return; }
+        move(st.c, e, st.el, true); return;
+      }
+      if (e.pointerType !== "mouse") return;
+      var el = e.target.closest && e.target.closest(SEL);
+      if (!el) { if (cur) { reset(cover(cur)); cur = null; } return; }
+      if (cur && cur !== el) reset(cover(cur));
+      cur = el; var c = cover(el); if (c) move(c, e, el, false);
+    }, { passive: true });
+    document.addEventListener("pointerdown", function (e) {
+      var el = e.target.closest && e.target.closest(SEL);
+      if (!el || (e.pointerType === "mouse" && e.button !== 0)) return;
+      var c = cover(el); if (!c) return;
+      st = { id: e.pointerId, x: e.clientX, y: e.clientY, el: el, c: c }; moved = 0;
+    }, { passive: true });
+    function up(e) {
+      if (!st || st.id !== e.pointerId) return;
+      var c = st.c; st = null;
+      if (e.pointerType === "mouse" && cur) { return; }
+      reset(c);
+    }
+    document.addEventListener("pointerup", up, { passive: true });
+    document.addEventListener("pointercancel", up, { passive: true });
+    document.addEventListener("click", function (e) {
+      if (moved > 8 && e.target.closest && e.target.closest(SEL)) { e.preventDefault(); e.stopPropagation(); }
+      moved = 0;
+    }, true);
+    document.addEventListener("dragstart", function (e) { if (e.target.closest && e.target.closest(SEL)) e.preventDefault(); });
+  })();
 })();
