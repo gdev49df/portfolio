@@ -324,10 +324,6 @@
   function initDemo(cover, p) {
     if (!cover) return;
     var phone = p.demo.device === "phone";
-    var btn = document.createElement("button");
-    btn.type = "button"; btn.className = "demo-open";
-    btn.innerHTML = '<span class="dot"></span>' + t("Потрогать сайт");
-    cover.appendChild(btn);
     var live = null;
     function fit() {
       if (!live) return;
@@ -337,19 +333,16 @@
       fr.style.width = w + "px"; fr.style.height = h + "px"; fr.style.transform = "scale(" + k + ")";
       box.style.height = Math.round(h * k) + "px";
     }
-    function close() { if (!live) return; live.remove(); live = null; cover.classList.remove("demo-on"); window.removeEventListener("resize", fit); }
-    btn.addEventListener("click", function () {
-      if (live) return;
+    (function () {
       live = document.createElement("div");
       live.className = "demo " + (phone ? "demo-phone" : "demo-laptop");
-      live.innerHTML = '<div class="demo-top"><span class="demo-hint">' + t("Это живой сайт: листай и нажимай") + '</span><button type="button" class="demo-x">' + t("Закрыть") + '</button></div>' +
+      live.innerHTML = '<div class="demo-top"><span class="demo-hint">' + t("Это живой сайт: листай и нажимай") + '</span></div>' +
         '<div class="demo-dev"><div class="demo-fit"><div class="demo-load">' + t("Загрузка…") + '</div><iframe title="' + t(p.title) + '" src="' + p.demo.url + '" loading="eager" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe></div></div>' + (phone ? "" : '<div class="demo-base"></div>');
       cover.classList.add("demo-on");
       cover.appendChild(live);
-      live.querySelector(".demo-x").addEventListener("click", close);
       live.querySelector("iframe").addEventListener("load", function () { var l = live && live.querySelector(".demo-load"); if (l) l.remove(); });
       window.addEventListener("resize", fit); fit();
-    });
+    })();
   }
 
   /* ---------- лента стека ---------- */

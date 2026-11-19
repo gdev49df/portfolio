@@ -1,26 +1,6 @@
 // данные проектов. чтобы добавить скриншот, положи файл в img/ и впиши его в поле img, например img: "img/study-on.jpg"
 window.PROJECTS = [
   {
-    id: "name-roulette",
-    demo: { url: "https://site.wsmp.workers.dev/", device: "phone" },
-    img: "img/name-roulette.jpg",
-    hero: "img/name-roulette-case.jpg",
-    points: ["Рейтинг игроков", "Реферальная система", "Мини-игра «Минное поле»", "Покупки за Telegram Stars", "Сохранение прогресса на Cloudflare Workers и D1"],
-    title: "Нейм-рулетка",
-    type: "Telegram Mini App · игра",
-    cat: "telegram",
-    glyph: "NR",
-    c1: "#0b3b8f",
-    c2: "#5b2fd0",
-    featured: true,
-    short: "Игра в Telegram: крутишь рулетку и собираешь юзернеймы.",
-    desc: "Telegram Mini App с рулеткой юзернеймов. В игре есть рейтинг игроков, реферальная система, мини-игра «Минное поле» и покупки за Telegram Stars. Прогресс сохраняется, серверная часть работает на Cloudflare Workers и D1.",
-    stack: ["HTML", "CSS", "JavaScript", "Telegram Mini App", "Cloudflare Workers", "D1"],
-    links: [
-      { label: "Бот в Telegram", url: "https://t.me/NumberRollyBot" }
-    ]
-  },
-  {
     id: "wardensmp",
     demo: { url: "https://site.w-smp.in/", device: "laptop" },
     img: "img/wardensmp.jpg",
@@ -110,23 +90,6 @@ window.PROJECTS = [
     short: "Сайт шаурмечной в Астане: меню, конструктор шаурмы и заказ через WhatsApp.",
     desc: "Сайт шаурмечной «Шаурма Ашота» в Астане на чистых HTML, CSS и JavaScript. Яркий главный экран, меню с фильтрами, конструктор, где гость собирает шаурму сам, корзина и оформление заказа в WhatsApp, условия доставки и контакты. Статус «открыто / закрыто» считается автоматически по часам работы.",
     stack: ["HTML", "CSS", "JavaScript"],
-    links: []
-  },
-  {
-    id: "ddx-planner",
-    img: "img/ddx-planner.jpg",
-    hero: "img/ddx-planner-case.jpg",
-    points: ["Задачи, заметки, привычки, финансы и фокус-режим в одном приложении", "Голосовой ввод, напоминания и ИИ-помощник DDX AI", "Аккаунты, тарифы Pro, Max и Ultra, работа без интернета"],
-    title: "DDX Planner",
-    type: "Приложение для iPhone",
-    cat: "app",
-    glyph: "P",
-    c1: "#8a8f9c",
-    c2: "#0b0c10",
-    featured: false,
-    short: "Тёмный планировщик для iPhone: задачи, заметки, привычки и ИИ-помощник.",
-    desc: "DDX Planner — приложение-планировщик для iPhone, которое ставится на экран «Домой» без App Store. Задачи с датами и напоминаниями, заметки, привычки, финансы и фокус-режим, голосовой ввод и ИИ-помощник, который отвечает на вопросы и узнаёт еду по фото. Есть аккаунты, тарифы Pro, Max и Ultra и работа без интернета.",
-    stack: ["HTML", "CSS", "JavaScript", "PWA", "Cloudflare Workers"],
     links: []
   },
   {
