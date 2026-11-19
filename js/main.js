@@ -178,15 +178,26 @@
   function renderServices() {
     var host = document.getElementById("svc-grid");
     if (!host || !window.SERVICES) return;
+    host.className = "sv-grid";
+    var go = '<span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>';
     var cards = window.SERVICES.map(function (s, i) {
-      return '<a class="svc" href="/quiz" data-reveal style="--d:' + ((i % 3) * 0.12) + 's">' +
+      var n = i + 1 < 10 ? "0" + (i + 1) : "" + (i + 1);
+      return '<a class="sv" href="/quiz" data-reveal style="--d:' + ((i % 3) * 0.1) + 's"><span class="n">' + n + "</span>" +
         "<h3>" + t(s.title) + "</h3><p>" + t(s.text) + "</p>" +
-        '<div class="meta"><b>' + window.I18N.priceFrom(s.price) + "</b><span>" + (s.days ? window.I18N.daysFrom(s.days) : t("срок обсуждается")) + "</span></div></a>";
+        '<div class="foot"><div class="meta"><b>' + window.I18N.priceFrom(s.price) + "</b><span>" + (s.days ? window.I18N.daysFrom(s.days) : t("срок обсуждается")) + "</span></div>" + go + "</div></a>";
     }).join("");
-    var quiz = '<div class="svc quiz-card" data-reveal>' +
-      '<div class="q">?</div><div><h3>' + t("Не знаете, что выбрать?") + "</h3><p>" + t("Ответьте на несколько вопросов, и по ответам я подскажу подходящий формат.") + "</p></div>" +
-      '<a class="btn light" href="/quiz">' + t("Пройти квиз") + "</a></div>";
+    var quiz = '<a class="sv sv-quiz" href="/quiz" data-reveal style="--d:.2s"><span class="n">?</span>' +
+      "<h3>" + t("Не знаете, что выбрать?") + "</h3><p>" + t("Ответьте на несколько вопросов, и по ответам я подскажу подходящий формат.") + "</p>" +
+      '<div class="foot"><div class="meta"><b class="q">' + t("Пройти квиз") + "</b></div>" + go + "</div></a>";
     host.innerHTML = cards + quiz;
+    host.querySelectorAll(".sv").forEach(function (c) {
+      c.addEventListener("pointermove", function (e) {
+        if (e.pointerType !== "mouse") return;
+        var r = c.getBoundingClientRect(), px = (e.clientX - r.left) / r.width - 0.5, py = (e.clientY - r.top) / r.height - 0.5;
+        c.style.transform = "perspective(900px) rotateX(" + (-py * 5).toFixed(2) + "deg) rotateY(" + (px * 6).toFixed(2) + "deg)";
+      });
+      c.addEventListener("pointerleave", function () { c.style.transform = ""; });
+    });
   }
 
   /* ---------- проекты ---------- */
