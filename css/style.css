@@ -794,3 +794,7 @@ a.work { color: inherit; }
 .prin-row:hover b { transform: translateX(-6px); }
 .js .adv-card:hover { transform: translateY(-6px); }
 @media (max-width: 900px) { .prin-row:hover h3, .prin-row:hover p, .prin-row:hover b { transform: none; } }
+@media (min-width: 901px) {
+  .step.on h3, .step.on p { max-width: 520px; }
+  .step p { font-size: 15.5px; line-height: 1.6; }
+}
