@@ -703,3 +703,18 @@ a.work { color: inherit; }
 @media (min-width: 1100px) {
   .steps { width: min(1360px, 100vw - 80px); margin-left: 50%; transform: translateX(-50%); }
 }
+
+/* этапы: раскрывающиеся карточки */
+@media (min-width: 901px) {
+  .steps { display: flex; gap: 14px; height: 420px; }
+  .step { position: relative; flex: 1 1 0; min-width: 0; overflow: hidden; cursor: pointer; padding: 26px 26px 30px; display: flex; flex-direction: column; justify-content: flex-end;
+    background: var(--card); transition: flex-grow .9s var(--ease), border-color .6s, background .6s; }
+  .step.on { flex-grow: 4.2; border-color: var(--line2); background: radial-gradient(120% 90% at 100% 0, rgba(167,139,250,.16), transparent 60%), #0c0d11; }
+  .step::before { position: absolute; left: 26px; top: 24px; margin: 0; font: 800 54px/1 var(--display); letter-spacing: -.02em; color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,.2); transition: color .6s, -webkit-text-stroke-color .6s; }
+  .step.on::before { color: var(--accent); -webkit-text-stroke-color: transparent; }
+  .step h3, .step p { opacity: 0; transform: translateY(10px); transition: opacity .6s, transform .8s var(--ease); width: min(420px, 100%); }
+  .step.on h3, .step.on p { opacity: 1; transform: none; transition-delay: .25s; }
+}
+@media (max-width: 900px) {
+  .step::before { font: 800 34px/1 var(--display); color: var(--accent); margin-bottom: 26px; }
+}

@@ -478,3 +478,16 @@
     document.addEventListener("dragstart", function (e) { if (e.target.closest && e.target.closest(SEL)) e.preventDefault(); });
   })();
 })();
+
+// этапы: раскрывается одна карточка, по наведению или нажатию
+(function () {
+  var box = document.querySelector(".steps");
+  if (!box) return;
+  var items = [].slice.call(box.querySelectorAll(".step"));
+  function on(el) { items.forEach(function (s) { s.classList.toggle("on", s === el); }); }
+  items.forEach(function (s) {
+    s.addEventListener("mouseenter", function () { if (matchMedia("(hover: hover)").matches) on(s); });
+    s.addEventListener("click", function () { on(s); });
+  });
+  on(items[0]);
+})();
