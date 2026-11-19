@@ -656,3 +656,7 @@ a.work { color: inherit; }
 .demo-base { max-width: 1060px; height: 16px; margin: 0 auto; background: linear-gradient(#8a8c92, #4a4b50 55%, #2a2b2f); border-radius: 0 0 22px 22px / 0 0 14px 14px; }
 @media (max-width: 680px) { .demo { padding: 12px; } .demo-dev { padding: 8px; } .demo-hint { font-size: 12px; } .demo-open { bottom: 5%; padding: 11px 16px; font-size: 14px; } }
 .demo { background: none; padding-inline: 0; }
+
+/* подписи типа проекта: моноширинный капс с разрядкой */
+.sc-type, #case-type { font: 400 13px/1.5 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: #5db8ff; }
+.sc-sub, .work-info .t { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
