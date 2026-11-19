@@ -686,3 +686,10 @@ a.work { color: inherit; }
 @media (max-width: 680px) { .sv-grid { grid-template-columns: minmax(0, 1fr); gap: 14px; } .sv { min-height: 0; padding: 26px 22px 24px; } .sv h3 { max-width: none; } }
 .demo-open:hover { color: #0a1204; }
 .demo-open:hover .dot { background: #0a1204; }
+
+/* карточки услуг: заголовок не вылезает, даже если подгрузился широкий шрифт */
+.sv { min-width: 0; overflow: hidden; }
+.sv h3 { font: 400 clamp(22px, 2vw, 28px)/1.12 var(--body); letter-spacing: -.01em; max-width: 100%; overflow-wrap: anywhere; hyphens: auto; }
+.sv .meta b { font-size: clamp(18px, 1.6vw, 22px); }
+.sv .go { transition: background .45s var(--ease), color .45s var(--ease), border-color .45s var(--ease), transform .5s var(--ease), border-radius .45s var(--ease); }
+.sv:hover .go { background: #fff; color: #05060a; border-color: #fff; }
