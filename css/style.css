@@ -781,3 +781,16 @@ a.work { color: inherit; }
   .step.on h3, .step.on p { transition-delay: .15s; }
   .step.on p { transition-delay: .2s; }
 }
+
+/* принципы и преимущества: наведение (перебивает transition от data-reveal) */
+.js .prin-row { position: relative; transition: opacity var(--slow) var(--ease) var(--d, 0s), filter var(--slow) var(--ease) var(--d, 0s), transform var(--slow) var(--ease) var(--d, 0s), background .5s, padding .6s var(--ease); }
+.js .adv-card { transition: opacity var(--slow) var(--ease) var(--d, 0s), filter var(--slow) var(--ease) var(--d, 0s), transform var(--slow) var(--ease) var(--d, 0s), border-color .5s; }
+.prin-row::before { content: ""; position: absolute; left: 0; top: -1px; height: 1px; width: 0; background: var(--accent); transition: width .8s var(--ease); }
+.prin-row:hover::before { width: 100%; }
+.prin-row b, .prin-row p { transition: transform .6s var(--ease), color .5s; }
+.prin-row h3 { transition: transform .6s var(--ease), color .5s; }
+.prin-row:hover h3 { transform: translateX(14px); }
+.prin-row:hover p { color: var(--text); transform: translateX(6px); }
+.prin-row:hover b { transform: translateX(-6px); }
+.js .adv-card:hover { transform: translateY(-6px); }
+@media (max-width: 900px) { .prin-row:hover h3, .prin-row:hover p, .prin-row:hover b { transform: none; } }
