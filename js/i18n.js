@@ -344,9 +344,9 @@
       "Дизайнда да, әзірлеуде де жұмыс істеймін, сондықтан міндетті адамдар арасында беруге уақыт жоғалтпаймын. Сіз нәтижеге толық жауап беретін бір адаммен сөйлесесіз.",
       "I work in both design and development, so no time is lost handing the task between people. You talk to one person who is responsible for the whole result."
     ],
-    "Мои проекты: сайты для школы английского, котокафе и стоматологии, ИИ-чат DDX AI и рабочее пространство Tasqly.": [
-      "Менің жобаларым: ағылшын тілі мектебі, котокафе және стоматологияға арналған сайттар, DDX AI ЖИ-чаты және Tasqly жұмыс кеңістігі.",
-      "My projects: websites for an English school, a cat cafe and a dental clinic, the DDX AI chat and the Tasqly workspace."
+    "Мои проекты: сайты для школы английского и стоматологии, ИИ-чат DDX AI и рабочее пространство Tasqly.": [
+      "Менің жобаларым: ағылшын тілі мектебі мен стоматологияға арналған сайттар, DDX AI ЖИ-чаты және Tasqly жұмыс кеңістігі.",
+      "My projects: websites for an English school and a dental clinic, the DDX AI chat and the Tasqly workspace."
     ],
     "Роль": ["Рөлі", "Role"],
     "Дизайнер и разработчик": ["Дизайнер және әзірлеуші", "Designer and developer"],

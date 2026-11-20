@@ -19,24 +19,6 @@ window.PROJECTS = [
     links: []
   },
   {
-    id: "kotiko",
-    demo: { url: "https://gdev49df.github.io/kotiko", device: "laptop" },
-    img: "img/kotiko.jpg",
-    hero: "img/kotiko-case.jpg",
-    points: ["Сайт на чистых HTML, CSS и JavaScript", "Работает на собственном домене"],
-    title: "Kotiko",
-    type: "Сайт котокафе",
-    cat: "web",
-    glyph: "K",
-    c1: "#c4562b",
-    c2: "#3b1230",
-    featured: false,
-    short: "Сайт котокафе в Астане.",
-    desc: "Сайт котокафе Kotiko в Астане на чистых HTML, CSS и JavaScript.",
-    stack: ["HTML", "CSS", "JavaScript"],
-    links: []
-  },
-  {
     id: "dinastiyastomclinic",
     demo: { url: "https://gdev49df.github.io/dinastiyastomclinic", device: "laptop" },
     img: "img/dinastiyastomclinic.jpg",
