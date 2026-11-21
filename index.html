@@ -5,145 +5,98 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>GwebStudio — сайты и PWA-приложения</title>
 <meta name="description" content="Дизайнер и разработчик из Астаны. Делаю сайты и PWA-приложения на чистом коде: быстро, адаптивно, с заявками в Telegram и WhatsApp.">
-<meta name="theme-color" content="#131315">
+<meta name="theme-color" content="#020203">
 <meta property="og:title" content="GwebStudio — сайты и PWA-приложения">
 <meta property="og:description" content="Сайты и PWA-приложения на чистом коде. Дизайн и разработка у одного человека.">
 <meta property="og:type" content="website">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500&family=Unbounded:wght@400;500;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
 <script>document.documentElement.className += " js";</script>
 </head>
 <body data-page="home">
+<script>try{if(!sessionStorage.getItem("gws")){sessionStorage.setItem("gws","1");document.write('<div class="intro" aria-hidden="true"><span>G<i>web</i>Studio</span></div>');}}catch(e){}</script>
 <div id="site-header"></div>
 
 <main id="main">
   <section class="hero">
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <h1>Сайты и PWA-приложения на чистом коде</h1>
-        <p class="sub">Делаю сайты для бизнеса и приложения, которые ставятся на экран телефона и открываются как обычные. Дизайн и разработка у одного человека, без конструкторов и шаблонов.</p>
-        <div class="cta"><a class="btn light" href="/quiz">Обсудить проект</a><a class="btn ghost" href="/portfolio">Смотреть работы</a></div>
-        <dl>
-          <div><dt>Роль</dt><dd>Дизайнер и разработчик</dd></div>
-          <div><dt>Город</dt><dd>Астана, Казахстан</dd></div>
-          <div><dt>Направления</dt><dd>Сайты и PWA-приложения</dd></div>
-        </dl>
-      </div>
-      <div id="device"></div>
-    </div>
-  </section>
-
-  <section class="sec" id="formats">
     <div class="wrap">
-      <div class="sec-head"><div><h2>Два формата работы</h2><p>Сайт приводит клиентов, приложение удерживает их. Можно взять что-то одно или оба сразу.</p></div></div>
-      <div class="fmt">
-        <article class="fmt-card">
-          <h3>Сайты</h3>
-          <p>Визитки, лендинги, многостраничные и корпоративные сайты, интернет-магазины. Быстро открываются, хорошо выглядят на телефоне и собирают заявки.</p>
-          <ul><li>Адаптивная вёрстка</li><li>Заявки в Telegram и WhatsApp</li><li>Основы для поиска</li><li>Размещение и домен</li></ul>
-          <div class="fmt-foot"><span data-from="web"></span><a class="link-arrow" href="/services">Все варианты</a></div>
-        </article>
-        <article class="fmt-card inv">
-          <h3>PWA-приложения</h3>
-          <p>Приложение, которое ставится на главный экран и открывается как обычное: без магазина приложений, с офлайн-режимом и уведомлениями.</p>
-          <ul><li>Установка на экран</li><li>Работает без сети</li><li>Уведомления</li><li>Один код для iPhone, Android и компьютера</li></ul>
-          <div class="fmt-foot"><span data-from="pwa"></span><a class="link-arrow" href="/services">Все варианты</a></div>
-        </article>
+      <p class="kicker" data-reveal>ОБО МНЕ</p>
+      <h1 data-split data-accent="приводят клиентов">Разработка сайтов, которые приводят клиентов</h1>
+      <p class="sub" data-reveal style="--d:.6s">Делаю сайты и PWA-приложения для бизнеса в Казахстане и России. Они не только хорошо выглядят, но и работают на результат: показывают, чем вы полезны, вызывают доверие и превращают посетителей в заявки.</p>
+      <div class="cta" data-reveal style="--d:.8s">
+        <a class="btn light" href="/portfolio">Смотреть работы</a>
+        <a class="btn ghost" href="/quiz">Обсудить проект →</a>
       </div>
     </div>
   </section>
 
-  <section class="sec" id="work">
-    <div class="wrap">
-      <div class="sec-head"><div><h2>Избранные работы</h2><p>Каждый проект открывается в живом окне. У каждого указан вес первой загрузки.</p></div><a class="link-arrow" href="/portfolio">Всё портфолио</a></div>
-      <div class="bento" id="works"></div>
-    </div>
-  </section>
+  <div class="ticker" id="ticker" data-reveal></div>
 
-  <section class="sec">
+  <section id="work">
     <div class="wrap">
-      <div class="sec-head"><div><h2>Что даёт PWA</h2><p>Один код вместо трёх приложений: сайт, который ведёт себя как приложение.</p></div></div>
-      <div class="pwa">
-        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 19h14"/></svg><h3>Устанавливается</h3><p>Иконка на главном экране, без App Store и Google Play.</p></div>
-        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18M8.5 8.8A9 9 0 0 0 3 11.5M5.6 14.6a9 9 0 0 1 3.4-2M10 17.2a4 4 0 0 1 4.3-.9M12 20.5h.01M13.8 7.2A9 9 0 0 1 21 11.5"/></svg><h3>Работает без сети</h3><p>Нужные данные хранятся на телефоне, интерфейс открывается даже без интернета.</p></div>
-        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 17V11a6 6 0 1 1 12 0v6l1.5 2h-15L6 17ZM10 21h4"/></svg><h3>Присылает уведомления</h3><p>Напоминания и новости клиентам. На iPhone работают после установки на экран.</p></div>
-        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.6-5.9M20 4v4.5h-4.5"/></svg><h3>Обновляется сразу</h3><p>Правки появляются у всех без ожидания проверки в магазине.</p></div>
+      <div class="sec-head" data-bg="Работы">
+        <div data-reveal>
+          <h2>Избранные работы</h2>
+          <p>Сайты и PWA-приложения. Нажмите на проект, чтобы открыть подробный кейс.</p>
+        </div>
+        <a class="link-arrow" href="/portfolio" data-reveal>Всё портфолио</a>
       </div>
+      <div class="showcase" id="works" data-showcase></div>
     </div>
   </section>
 
-  <section class="sec" id="estimate-sec">
+  <section id="services">
     <div class="wrap">
-      <div class="sec-head"><div><h2>Примерная стоимость за минуту</h2><p>Опишите, что нужно сделать. ИИ посчитает ориентир по моему прайсу. Точную цену назову после обсуждения.</p></div></div>
-      <div class="est" id="estimate"></div>
-    </div>
-  </section>
-
-  <section class="sec">
-    <div class="wrap proc">
-      <div class="proc-side"><h2>Как проходит работа</h2><p>Пять шагов от первого сообщения до запуска.</p></div>
-      <div class="srows"><div class="srow"><span class="n">01</span><h3>Бриф</h3><p>Вы описываете задачу, я задаю уточняющие вопросы. Разбираем цели сайта, аудиторию и примеры, которые вам нравятся. Обычно хватает одного созвона или переписки в Telegram.</p></div><div class="srow"><span class="n">02</span><h3>Структура</h3><p>Согласуем, какие страницы и блоки нужны. Собираю схему сайта и текстовый каркас: вы видите скелет заранее и говорите, что добавить или убрать.</p></div><div class="srow"><span class="n">03</span><h3>Дизайн</h3><p>Показываю стиль и анимации, вносим правки. Вы смотрите живой макет на телефоне и компьютере, и мы дорабатываем детали, пока результат не понравится.</p></div><div class="srow"><span class="n">04</span><h3>Разработка</h3><p>Пишу код и проверяю сайт на телефоне и компьютере. Подключаю формы, заявки в Telegram или WhatsApp, ускоряю загрузку и настраиваю основы для поиска.</p></div><div class="srow"><span class="n">05</span><h3>Запуск</h3><p>Размещаю сайт, подключаю домен и передаю вам доступ. Объясняю, как всё устроено, и остаюсь на связи, если понадобится правка или помощь после сдачи.</p></div></div>
-    </div>
-  </section>
-
-  <section class="sec" id="services">
-    <div class="wrap">
-      <div class="sec-head"><div><h2>Что вам нужно сделать?</h2><p>Выберите формат под задачу: в строке указаны цена и сроки. Если сомневаетесь, квиз поможет определиться.</p></div><a class="link-arrow" href="/services">Все услуги</a></div>
-      <div class="svt" id="svt"></div>
-    </div>
-  </section>
-
-  <section class="sec">
-    <div class="wrap">
-      <div class="sec-head"><div><h2>Чем я работаю</h2><p>Инструменты, которыми собраны проекты из портфолио.</p></div></div>
-      <div class="skills">
-        <div class="skill"><h3>Интерфейс</h3><ul><li>HTML и CSS</li><li>JavaScript</li><li>Адаптивная вёрстка</li><li>Анимации</li></ul></div>
-        <div class="skill"><h3>PWA</h3><ul><li>Service Worker</li><li>Манифест и установка</li><li>Офлайн-режим</li><li>Push-уведомления</li></ul></div>
-        <div class="skill"><h3>Сервер и запуск</h3><ul><li>Cloudflare Workers</li><li>Базы D1</li><li>GitHub Pages</li><li>Домен и SSL</li></ul></div>
+      <div class="sec-head" data-bg="Услуги">
+        <div data-reveal>
+          <h2>Что вам нужно сделать?</h2>
+          <p>Выберите формат под задачу: в карточке указаны цена и сроки. Если сомневаетесь, квиз поможет определиться.</p>
+        </div>
+        <a class="link-arrow" href="/services" data-reveal>Все услуги</a>
       </div>
+      <div class="svc-grid" id="svc-grid"></div>
     </div>
   </section>
 
-  <section class="sec">
+  <section id="estimate-sec">
     <div class="wrap">
-      <div class="sec-head"><div><h2>Мои принципы</h2></div></div>
-      <div class="prin">
-        <div class="prin-row"><h3>Сроки — это обещание</h3><p>Если договорились на дату — сдам в срок. Никаких «ещё пару дней».</p></div>
-        <div class="prin-row"><h3>Результат, не процесс</h3><p>Сайт должен приносить заявки, а не просто красиво выглядеть.</p></div>
-        <div class="prin-row"><h3>Честность в деталях</h3><p>Говорю о рисках заранее. Цена не растёт в процессе без причины.</p></div>
-        <div class="prin-row"><h3>Поддержка после сдачи</h3><p>Помогаю разобраться с сайтом. Не исчезаю после оплаты.</p></div>
+      <div class="sec-head" data-bg="Оценка">
+        <div data-reveal>
+          <h2>Примерная стоимость за минуту</h2>
+          <p>Опишите, что нужно сделать. ИИ посчитает ориентир по моему прайсу. Точную цену назову после обсуждения.</p>
+        </div>
       </div>
+      <div class="est" id="estimate" data-reveal></div>
     </div>
   </section>
 
-  <section class="sec">
-    <div class="wrap faq-wrap">
-      <div class="faq-side">
+  <section>
+    <div class="wrap faq-wrap" data-bg="Вопросы">
+      <div class="faq-side" data-reveal>
         <h2>Частые вопросы</h2>
         <p>Не нашли ответа? Заполните квиз или напишите в Telegram.</p>
-        <a class="btn light" href="/quiz">Обсудить проект</a>
+        <a class="btn light" href="/quiz">Обсудить проект →</a>
       </div>
-      <div class="faq">
-        <div class="qa open"><button type="button">Сколько стоит сайт?<span class="pm"></span></button><div class="ans"><div><p>Зависит от типа сайта и задачи. Ориентиры «от» указаны в карточках услуг: например, сайт-визитка — от $70, лендинг — от $80, PWA-приложение — от $130. Точную стоимость называю после того, как обсудим проект. Быструю прикидку даёт блок оценки выше.</p></div></div></div><div class="qa"><button type="button">Сколько времени занимает разработка?<span class="pm"></span></button><div class="ans"><div><p>Сайт-визитка — от 4 дней, лендинг — от 5, PWA-приложение, многостраничный и корпоративный сайт — от 7, интернет-магазин — от 14. Точный срок называю после обсуждения задачи.</p></div></div></div><div class="qa"><button type="button">Что такое PWA и чем оно лучше обычного приложения?<span class="pm"></span></button><div class="ans"><div><p>PWA — это сайт, который ставится на экран телефона и работает как приложение: открывается без адресной строки, хранит данные без сети и присылает уведомления. Не нужно проходить проверку в App Store и Google Play, а один код работает на iPhone, Android и компьютере. Из ограничений: в магазинах приложений такое приложение не появится, а часть возможностей iPhone, например фоновые задачи, урезана.</p></div></div></div><div class="qa"><button type="button">На чём вы делаете сайты?<span class="pm"></span></button><div class="ans"><div><p>На чистом HTML, CSS и JavaScript, без конструкторов. Так сайт быстро открывается и его легко менять. Размещаю на GitHub Pages или Cloudflare.</p></div></div></div><div class="qa"><button type="button">Смогу ли я вносить правки по ходу работы?<span class="pm"></span></button><div class="ans"><div><p>Да. Сначала согласуем структуру, потом внешний вид, и вы видите результат на каждом шаге.</p></div></div></div><div class="qa"><button type="button">Как с вами связаться?<span class="pm"></span></button><div class="ans"><div><p>Проще всего написать в Telegram: @ddwwks или в WhatsApp: +7 775 121 32 71. Можно также пройти квиз, и я получу готовое описание вашей задачи.</p></div></div></div>
+      <div class="faq" data-reveal style="--d:.12s">
+        <div class="qa open"><button type="button">Сколько стоит сайт?<span class="pm"></span></button><div class="ans"><div><p>Зависит от типа сайта и задачи. Ориентиры «от» указаны в карточках услуг: например, сайт-визитка — от $70, лендинг — от $80, PWA-приложение — от $130. Точную стоимость называю после того, как обсудим проект. Быструю прикидку даёт блок оценки выше.</p></div></div></div>
+        <div class="qa"><button type="button">Сколько времени занимает разработка?<span class="pm"></span></button><div class="ans"><div><p>Сайт-визитка — от 4 дней, лендинг — от 5, PWA-приложение, многостраничный и корпоративный сайт — от 7, интернет-магазин — от 14. Точный срок называю после обсуждения задачи.</p></div></div></div>
+        <div class="qa"><button type="button">На чём вы делаете сайты?<span class="pm"></span></button><div class="ans"><div><p>На чистом HTML, CSS и JavaScript, без конструкторов. Так сайт быстро открывается и его легко менять. Размещаю на GitHub Pages или Cloudflare.</p></div></div></div>
+        <div class="qa"><button type="button">Смогу ли я вносить правки по ходу работы?<span class="pm"></span></button><div class="ans"><div><p>Да. Сначала согласуем структуру, потом внешний вид, и вы видите результат на каждом шаге.</p></div></div></div>
+        <div class="qa"><button type="button">Что такое PWA и чем оно лучше обычного приложения?<span class="pm"></span></button><div class="ans"><div><p>PWA — это сайт, который ставится на экран телефона и работает как приложение: открывается без адресной строки, хранит данные без сети и присылает уведомления. Не нужно проходить проверку в App Store и Google Play, а один код работает на iPhone, Android и компьютере. Из ограничений: в магазинах приложений такое приложение не появится, а часть возможностей iPhone, например фоновые задачи, урезана.</p></div></div></div>
+        <div class="qa"><button type="button">Как с вами связаться?<span class="pm"></span></button><div class="ans"><div><p>Проще всего написать в Telegram: @ddwwks или в WhatsApp: +7 775 121 32 71. Можно также пройти квиз, и я получу готовое описание вашей задачи.</p></div></div></div>
       </div>
     </div>
   </section>
 
-  <section class="sec">
-    <div class="wrap cta-band">
-      <div><h2>Есть задача? Давайте обсудим</h2><p>Напишите в Telegram или WhatsApp либо ответьте на несколько вопросов в квизе. Я получу готовое описание проекта и отвечу по делу.</p></div>
-      <div class="acts"><a class="btn light" href="/quiz">Пройти квиз</a><a class="btn ghost" href="https://t.me/ddwwks" target="_blank" rel="noopener">Написать в Telegram</a></div>
-    </div>
-  </section>
 </main>
 
 <div id="site-footer"></div>
-<script src="/js/data.js"></script>
-<script src="/js/i18n.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/estimate.js"></script>
+<script src="js/data.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+<script src="js/estimate.js"></script>
 </body>
 </html>
