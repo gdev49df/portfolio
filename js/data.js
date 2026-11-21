@@ -2,7 +2,6 @@
 window.PROJECTS = [
   {
     id: "study-on",
-    spec: { kb: 116, req: 5 },
     demo: { url: "https://gdev49df.github.io/study-on/", device: "laptop" },
     img: "img/study-on.jpg",
     hero: "img/study-on-case.jpg",
@@ -21,7 +20,6 @@ window.PROJECTS = [
   },
   {
     id: "dinastiyastomclinic",
-    spec: { kb: 135, req: 6 },
     demo: { url: "https://gdev49df.github.io/dinastiyastomclinic", device: "laptop" },
     img: "img/dinastiyastomclinic.jpg",
     hero: "img/dinastiyastomclinic-case.jpg",
@@ -40,7 +38,6 @@ window.PROJECTS = [
   },
   {
     id: "shawarma",
-    spec: { kb: 301, req: 17 },
     demo: { url: "https://gdev49df.github.io/shawarma/", device: "laptop" },
     img: "img/shawarma.jpg",
     hero: "img/shawarma-case.jpg",
@@ -59,7 +56,6 @@ window.PROJECTS = [
   },
   {
     id: "ddx-ai",
-    spec: { kb: 627, req: 11 },
     demo: { url: "https://gdev49df.github.io/ddx-ai/app/", device: "laptop" },
     img: "img/ddx-ai.jpg",
     hero: "img/ddx-ai-case.jpg",
@@ -78,7 +74,6 @@ window.PROJECTS = [
   },
   {
     id: "tasqly",
-    spec: { kb: 411, req: 5 },
     demo: { url: "https://tasqly.wsmp.workers.dev", device: "laptop" },
     img: "img/tasqly.jpg",
     hero: "img/tasqly-case.jpg",

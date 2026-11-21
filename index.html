@@ -5,115 +5,85 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>GwebStudio — сайты и игры для Telegram Mini App</title>
 <meta name="description" content="Дизайнер и разработчик из Астаны. Делаю сайты на чистом коде, игры для Telegram Mini App и плагины для Minecraft.">
-<meta name="theme-color" content="#0a0a0b">
+<meta name="theme-color" content="#020203">
 <meta property="og:title" content="GwebStudio — сайты и игры для Telegram Mini App">
-<meta property="og:description" content="Дизайнер и разработчик из Астаны. Делаю сайты на чистом коде, игры для Telegram Mini App и плагины для Minecraft.">
+<meta property="og:description" content="Дизайнер и разработчик из Астаны. Сайты, Telegram Mini App и плагины.">
 <meta property="og:type" content="website">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500&family=Unbounded:wght@400;500;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
 <script>document.documentElement.className += " js";</script>
 </head>
 <body data-page="home">
+<script>try{if(!sessionStorage.getItem("gws")){sessionStorage.setItem("gws","1");document.write('<div class="intro" aria-hidden="true"><span>G<i>web</i>Studio</span></div>');}}catch(e){}</script>
 <div id="site-header"></div>
 
 <main id="main">
   <section class="hero">
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <h1>Сайты, которые приводят клиентов</h1>
-        <p class="sub">Делаю сайты для бизнеса в Казахстане и России. Они не только хорошо выглядят, но и работают на результат: показывают, чем вы полезны, вызывают доверие и превращают посетителей в заявки.</p>
-        <div class="cta"><a class="btn light" href="/quiz">Обсудить проект</a><a class="btn ghost" href="/portfolio">Смотреть работы</a></div>
-        <dl>
-          <div><dt>Роль</dt><dd>Дизайнер и разработчик</dd></div>
-          <div><dt>Город</dt><dd>Астана, Казахстан</dd></div>
-          <div><dt>Направления</dt><dd>Сайты, Telegram Mini App, боты</dd></div>
-        </dl>
-      </div>
-      <div id="device"></div>
-    </div>
-  </section>
-
-  <section class="sec" id="work">
     <div class="wrap">
-      <div class="sec-head"><div><h2>Избранные работы</h2><p>Каждый проект открывается в живом окне. У каждого указан вес первой загрузки.</p></div><span class="count" id="works-count"></span></div>
-      <div class="wlist" id="works"></div>
-    </div>
-  </section>
-
-  <section class="sec">
-    <div class="wrap proc">
-      <div class="proc-side"><h2>Как проходит работа</h2><p>Пять шагов от первого сообщения до запуска.</p></div>
-      <div class="pst">
-        <div class="step"><small>1 / 5</small><h3>Бриф</h3><p>Вы описываете задачу, я задаю уточняющие вопросы. Разбираем цели сайта, аудиторию и примеры, которые вам нравятся. Обычно хватает одного созвона или переписки в Telegram.</p></div>
-        <div class="step"><small>2 / 5</small><h3>Структура</h3><p>Согласуем, какие страницы и блоки нужны. Собираю схему сайта и текстовый каркас: вы видите скелет заранее и говорите, что добавить или убрать.</p></div>
-        <div class="step"><small>3 / 5</small><h3>Дизайн</h3><p>Показываю стиль и анимации, вносим правки. Вы смотрите живой макет на телефоне и компьютере, и мы дорабатываем детали, пока результат не понравится.</p></div>
-        <div class="step"><small>4 / 5</small><h3>Разработка</h3><p>Пишу код и проверяю сайт на телефоне и компьютере. Подключаю формы, заявки в Telegram или WhatsApp, ускоряю загрузку и настраиваю основы для поиска.</p></div>
-        <div class="step"><small>5 / 5</small><h3>Запуск</h3><p>Размещаю сайт, подключаю домен и передаю вам доступ. Объясняю, как всё устроено, и остаюсь на связи, если понадобится правка или помощь после сдачи.</p></div>
+      <p class="kicker" data-reveal>ОБО МНЕ</p>
+      <h1 data-split data-accent="приводят клиентов">Разработка сайтов, которые приводят клиентов</h1>
+      <p class="sub" data-reveal style="--d:.6s">Делаю сайты для бизнеса в Казахстане и России. Они не только хорошо выглядят, но и работают на результат: показывают, чем вы полезны, вызывают доверие и превращают посетителей в заявки.</p>
+      <div class="cta" data-reveal style="--d:.8s">
+        <a class="btn light" href="/portfolio">Смотреть работы</a>
+        <a class="btn ghost" href="/quiz">Обсудить проект →</a>
       </div>
     </div>
   </section>
 
-  <section class="sec" id="services">
-    <div class="wrap">
-      <div class="sec-head"><div><h2>Что вам нужно сделать?</h2><p>Выберите формат под задачу: в строке указаны цена и сроки. Если сомневаетесь, квиз поможет определиться.</p></div><a class="link-arrow" href="/services">Все услуги</a></div>
-      <div class="svt" id="svt"></div>
-    </div>
-  </section>
+  <div class="ticker" id="ticker" data-reveal></div>
 
-  <section class="sec">
+  <section id="work">
     <div class="wrap">
-      <div class="sec-head"><div><h2>Чем я работаю</h2><p>Инструменты, которыми собраны проекты из портфолио.</p></div></div>
-      <div class="skills">
-        <div class="skill"><h3>Сайты</h3><ul><li>HTML и CSS</li><li>JavaScript</li><li>Адаптивная вёрстка</li><li>GitHub Pages</li></ul></div>
-        <div class="skill"><h3>Telegram и серверы</h3><ul><li>Telegram Mini App</li><li>Telegram-боты и Stars</li><li>Cloudflare Workers</li><li>Базы D1</li></ul></div>
-        <div class="skill"><h3>Minecraft</h3><ul><li>Java</li><li>Paper и Maven</li><li>SQLite</li><li>Сайты для серверов</li></ul></div>
+      <div class="sec-head" data-bg="Работы">
+        <div data-reveal>
+          <h2>Избранные работы</h2>
+          <p>Сайты, игры и плагины. Нажмите на проект, чтобы открыть подробный кейс.</p>
+        </div>
+        <a class="link-arrow" href="/portfolio" data-reveal>Всё портфолио</a>
       </div>
+      <div class="showcase" id="works" data-showcase></div>
     </div>
   </section>
 
-  <section class="sec">
+  <section id="services">
     <div class="wrap">
-      <div class="sec-head"><div><h2>Мои принципы</h2></div></div>
-      <div class="prin">
-        <div class="prin-row"><h3>Сроки — это обещание</h3><p>Если договорились на дату — сдам в срок. Никаких «ещё пару дней».</p></div>
-        <div class="prin-row"><h3>Результат, не процесс</h3><p>Сайт должен приносить заявки, а не просто красиво выглядеть.</p></div>
-        <div class="prin-row"><h3>Честность в деталях</h3><p>Говорю о рисках заранее. Цена не растёт в процессе без причины.</p></div>
-        <div class="prin-row"><h3>Поддержка после сдачи</h3><p>Помогаю разобраться с сайтом. Не исчезаю после оплаты.</p></div>
+      <div class="sec-head" data-bg="Услуги">
+        <div data-reveal>
+          <h2>Что вам нужно сделать?</h2>
+          <p>Выберите формат под задачу: в карточке указаны цена и сроки. Если сомневаетесь, квиз поможет определиться.</p>
+        </div>
+        <a class="link-arrow" href="/services" data-reveal>Все услуги</a>
       </div>
+      <div class="svc-grid" id="svc-grid"></div>
     </div>
   </section>
 
-  <section class="sec">
-    <div class="wrap faq-wrap">
-      <div class="faq-side">
+  <section>
+    <div class="wrap faq-wrap" data-bg="Вопросы">
+      <div class="faq-side" data-reveal>
         <h2>Частые вопросы</h2>
         <p>Не нашли ответа? Заполните квиз или напишите в Telegram.</p>
-        <a class="btn light" href="/quiz">Обсудить проект</a>
+        <a class="btn light" href="/quiz">Обсудить проект →</a>
       </div>
-      <div class="faq">
+      <div class="faq" data-reveal style="--d:.12s">
         <div class="qa open"><button type="button">Сколько стоит сайт?<span class="pm"></span></button><div class="ans"><div><p>Зависит от типа сайта и задачи. Ориентиры «от» указаны в карточках услуг: например, сайт-визитка — от $60, лендинг — от $80. Точную стоимость называю после того, как обсудим проект.</p></div></div></div>
         <div class="qa"><button type="button">Сколько времени занимает разработка?<span class="pm"></span></button><div class="ans"><div><p>Сайт-визитка — от 3 дней, лендинг и Telegram Mini App — от 5, многостраничный и корпоративный сайт — от 7. Точный срок называю после обсуждения задачи.</p></div></div></div>
         <div class="qa"><button type="button">На чём вы делаете сайты?<span class="pm"></span></button><div class="ans"><div><p>На чистом HTML, CSS и JavaScript, без конструкторов. Так сайт быстро открывается и его легко менять. Размещаю на GitHub Pages или Cloudflare.</p></div></div></div>
         <div class="qa"><button type="button">Смогу ли я вносить правки по ходу работы?<span class="pm"></span></button><div class="ans"><div><p>Да. Сначала согласуем структуру, потом внешний вид, и вы видите результат на каждом шаге.</p></div></div></div>
         <div class="qa"><button type="button">Делаете ли вы игры для Telegram?<span class="pm"></span></button><div class="ans"><div><p>Да, это одно из моих основных направлений.</p></div></div></div>
-        <div class="qa"><button type="button">Как с вами связаться?<span class="pm"></span></button><div class="ans"><div><p>Проще всего написать в Telegram: @ddwwks или в WhatsApp: +7 775 121 32 71. Можно также пройти квиз, и я получу готовое описание вашей задачи.</p></div></div></div></div>
+        <div class="qa"><button type="button">Как с вами связаться?<span class="pm"></span></button><div class="ans"><div><p>Проще всего написать в Telegram: @ddwwks или в WhatsApp: +7 775 121 32 71. Можно также пройти квиз, и я получу готовое описание вашей задачи.</p></div></div></div>
+      </div>
     </div>
   </section>
 
-  <section class="sec">
-    <div class="wrap cta-band">
-      <div><h2>Есть задача? Давайте обсудим</h2><p>Напишите в Telegram или WhatsApp либо ответьте на несколько вопросов в квизе. Я получу готовое описание проекта и отвечу по делу.</p></div>
-      <div class="acts"><a class="btn light" href="/quiz">Пройти квиз</a><a class="btn ghost" href="https://t.me/ddwwks" target="_blank" rel="noopener">Написать в Telegram</a></div>
-    </div>
-  </section>
 </main>
 
 <div id="site-footer"></div>
-<script src="/js/data.js"></script>
-<script src="/js/i18n.js"></script>
-<script src="/js/main.js"></script>
+<script src="js/data.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

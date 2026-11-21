@@ -5,34 +5,42 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Портфолио — GwebStudio</title>
 <meta name="description" content="Работы GwebStudio: сайты для бизнеса, игры для Telegram Mini App, боты и плагины для Minecraft.">
-<meta name="theme-color" content="#0a0a0b">
-<meta property="og:title" content="Портфолио — GwebStudio">
-<meta property="og:description" content="Работы GwebStudio: сайты для бизнеса, игры для Telegram Mini App, боты и плагины для Minecraft.">
-<meta property="og:type" content="website">
+<meta name="theme-color" content="#020203">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500&family=Unbounded:wght@400;500;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
 <script>document.documentElement.className += " js";</script>
 </head>
 <body data-page="portfolio">
+<script>try{if(!sessionStorage.getItem("gws")){sessionStorage.setItem("gws","1");document.write('<div class="intro" aria-hidden="true"><span>G<i>web</i>Studio</span></div>');}}catch(e){}</script>
 <div id="site-header"></div>
 
 <main id="main">
-  <div class="page-hero"><div class="wrap">
-    <h1>Портфолио</h1>
-    <p>Нажмите на любую работу, чтобы открыть кейс: описание, стек и живой сайт.</p>
-  </div></div>
-  <section class="sec"><div class="wrap">
-    <div class="filters" id="filters"></div>
-    <div class="pgrid" id="pgrid"></div>
-  </div></section>
+  <div class="page-hero">
+    <div class="wrap" data-bg="Работы">
+      <h1 data-split>Портфолио</h1>
+      <p data-reveal style="--d:.5s">Сайты, игры, боты и плагины. Нажмите на любую работу, чтобы открыть кейс с описанием, технологиями и ссылками.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="filters" id="filters" data-reveal>
+        <button class="chip" type="button" data-cat="all" aria-pressed="true">Все</button>
+        <button class="chip" type="button" data-cat="web" aria-pressed="false">Сайты</button>
+        <button class="chip" type="button" data-cat="app" aria-pressed="false">Приложения</button>
+      </div>
+      <div class="grid" id="works"></div>
+    </div>
+  </section>
+
 </main>
 
 <div id="site-footer"></div>
-<script src="/js/data.js"></script>
-<script src="/js/i18n.js"></script>
-<script src="/js/main.js"></script>
+<script src="js/data.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
