@@ -74,7 +74,7 @@
     var text = ta.value.trim();
     if (text.length < 8) { out.innerHTML = '<p class="est-empty">' + t("Опишите проект хотя бы в нескольких словах.") + "</p>"; ta.focus(); return; }
     go.disabled = true;
-    out.innerHTML = '<div class="est-load"><i></i>' + t("Считаю…") + "</div>";
+    out.innerHTML = '<div class="est-load"><i></i>' + t("Считаю…") + '</div><div class="est-sk" aria-hidden="true"><b></b><s></s><s></s><s></s></div>';
     ask(text).catch(function () { return local(text); }).then(function (d) { show(d, text); go.disabled = false; });
   });
 })();

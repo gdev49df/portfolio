@@ -840,7 +840,12 @@ a.work { color: inherit; }
 .est-list b { font: 400 14px/1.5 var(--mono); color: var(--text); white-space: nowrap; }
 .est-note { color: var(--muted); font-size: 13px; line-height: 1.5; }
 .est-act { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; }
-.est-load { margin: auto 0; display: flex; align-items: center; gap: 12px; color: var(--muted); }
+.est-load { display: flex; align-items: center; gap: 12px; color: var(--muted); font: 400 13px/1 var(--mono); }
+.est-sk { display: grid; gap: 14px; }
+.est-sk b { display: block; width: 62%; height: 44px; border-radius: 10px; background: rgba(167,139,250, .14); animation: estpulse 1.2s ease-in-out infinite; }
+.est-sk s { display: block; height: 14px; border-radius: 6px; background: rgba(255,255,255,.06); animation: estpulse 1.2s ease-in-out infinite; }
+.est-sk s:nth-child(3) { width: 80%; animation-delay: .15s; }
+.est-sk s:nth-child(4) { width: 55%; animation-delay: .3s; }
 .est-load i { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 16px var(--accent); animation: estpulse 1s ease-in-out infinite; }
 @keyframes estpulse { 50% { opacity: .25; } }
 .cat { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
