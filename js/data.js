@@ -2,6 +2,7 @@
 window.PROJECTS = [
   {
     id: "study-on",
+    spec: { kb: 116, req: 5 },
     demo: { url: "https://gdev49df.github.io/study-on/", device: "laptop" },
     img: "img/study-on.jpg",
     hero: "img/study-on-case.jpg",
@@ -20,6 +21,7 @@ window.PROJECTS = [
   },
   {
     id: "dinastiyastomclinic",
+    spec: { kb: 135, req: 6 },
     demo: { url: "https://gdev49df.github.io/dinastiyastomclinic", device: "laptop" },
     img: "img/dinastiyastomclinic.jpg",
     hero: "img/dinastiyastomclinic-case.jpg",
@@ -38,6 +40,7 @@ window.PROJECTS = [
   },
   {
     id: "shawarma",
+    spec: { kb: 301, req: 17 },
     demo: { url: "https://gdev49df.github.io/shawarma/", device: "laptop" },
     img: "img/shawarma.jpg",
     hero: "img/shawarma-case.jpg",
@@ -56,7 +59,8 @@ window.PROJECTS = [
   },
   {
     id: "ddx-ai",
-    demo: { url: "https://gdev49df.github.io/ddx-ai/app/", device: "laptop" },
+    spec: { kb: 627, req: 11 },
+    demo: { url: "https://gdev49df.github.io/ddx-ai/app/", device: "phone" },
     img: "img/ddx-ai.jpg",
     hero: "img/ddx-ai-case.jpg",
     points: ["Чат с фото, файлами, голосом и поиском по интернету", "История чатов, проекты-папки, закрепление и персонализация", "Три модели на выбор, тарифы, версия для телефона и компьютера"],
@@ -68,12 +72,13 @@ window.PROJECTS = [
     c2: "#0b0c10",
     featured: false,
     short: "Личный ИИ-помощник: чат с историей, проектами, фото и голосом.",
-    desc: "DDX AI — личный ИИ-ассистент в виде приложения и Telegram Mini App. Чат на любые вопросы с форматированием ответов, фото и файлами, голосовым вводом и поиском. Есть история чатов, проекты-папки, персонализация, несколько моделей, тарифы и версия для компьютера.",
-    stack: ["HTML", "CSS", "JavaScript", "PWA", "Telegram Mini App", "Cloudflare Workers"],
+    desc: "DDX AI — личный ИИ-ассистент в виде PWA-приложения, которое устанавливается на экран телефона. Чат на любые вопросы с форматированием ответов, фото и файлами, голосовым вводом и поиском. Есть история чатов, проекты-папки, персонализация, несколько моделей, тарифы и версия для компьютера.",
+    stack: ["HTML", "CSS", "JavaScript", "PWA", "Service Worker", "Cloudflare Workers"],
     links: []
   },
   {
     id: "tasqly",
+    spec: { kb: 411, req: 5 },
     demo: { url: "https://tasqly.wsmp.workers.dev", device: "laptop" },
     img: "img/tasqly.jpg",
     hero: "img/tasqly-case.jpg",
@@ -97,10 +102,11 @@ window.SERVICES = [
   { id: "multi", title: "Многостраничный сайт", text: "Полноценный сайт компании с несколькими разделами. Вызывает доверие у клиентов.", price: 190, days: 7 },
   { id: "card", title: "Сайт-визитка", text: "Компактное онлайн-представительство. Подходит для специалистов и малого бизнеса.", price: 70, days: 4 },
   { id: "shop", title: "Интернет-магазин", text: "Полноценный магазин с корзиной, оплатой и каталогом. Продажи онлайн 24/7.", price: 310, days: 14 },
+  { id: "pwa", title: "PWA-приложение", text: "Приложение, которое ставится на экран телефона, работает без сети и открывается как обычное.", price: 130, days: 7 },
   { id: "corp", title: "Корпоративный сайт", text: "Представительный сайт компании: услуги, команда, кейсы и контакты в одной системе.", price: 190, days: 7 }
 ];
 
-window.STACK = ["HTML", "CSS", "JavaScript", "Telegram Mini App", "Telegram-боты", "Cloudflare Workers", "D1", "GitHub Pages", "Java", "Paper", "Maven", "SQLite"];
+window.STACK = ["HTML", "CSS", "JavaScript", "PWA", "Service Worker", "Cloudflare Workers", "D1", "GitHub Pages"];
 
 // иконки соцсетей
 (function () {

@@ -4,41 +4,40 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Обо мне — GwebStudio</title>
-<meta name="description" content="GwebStudio: дизайнер и разработчик из Астаны. Делаю сайты, игры для Telegram Mini App, боты и плагины.">
-<meta name="theme-color" content="#020203">
+<meta name="description" content="GwebStudio: дизайнер и разработчик из Астаны. Делаю сайты и PWA-приложения на чистом коде.">
+<meta name="theme-color" content="#131315">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500&family=Unbounded:wght@400;500;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
 <script>document.documentElement.className += " js";</script>
 </head>
 <body data-page="about">
-<script>try{if(!sessionStorage.getItem("gws")){sessionStorage.setItem("gws","1");document.write('<div class="intro" aria-hidden="true"><span>G<i>web</i>Studio</span></div>');}}catch(e){}</script>
 <div id="site-header"></div>
 
 <main id="main">
   <div class="page-hero">
-    <div class="wrap" data-bg="Обо мне">
-      <h1 data-split>Я дизайнер и разработчик</h1>
+    <div class="wrap">
+      <h1>Я дизайнер и разработчик</h1>
     </div>
   </div>
 
-  <section>
+  <section class="sec">
     <div class="wrap about">
-      <div class="portrait" data-reveal>
+      <div class="portrait">
         <img src="/img/me.jpg" alt="GwebStudio" loading="lazy">
         <small>Астана</small>
         <b>G<i>web</i>Studio</b>
       </div>
-      <div class="prose" data-reveal style="--d:.25s">
-        <p>Я Ғалым, мне 14 лет. Дизайнер и разработчик из Астаны, делаю сайты и игры для Telegram. Мне нравится, когда у проекта есть свой характер, поэтому я не беру готовые шаблоны: сам подбираю цвета, шрифты и анимации под каждую тему.</p>
+      <div class="prose">
+        <p>Я Ғалым, мне 14 лет. Дизайнер и разработчик из Астаны, делаю сайты и PWA-приложения. Мне нравится, когда у проекта есть свой характер, поэтому я не беру готовые шаблоны: сам подбираю цвета, шрифты и анимации под каждую тему.</p>
         <p>Работаю и в дизайне, и в разработке, поэтому не теряю время на передачу задачи между людьми. Вы общаетесь с одним человеком, который отвечает за результат целиком.</p>
         <p>Мои проекты: сайты для школы английского и стоматологии, ИИ-чат DDX AI и рабочее пространство Tasqly.</p>
         <ul class="facts">
           <li><span>Роль</span><b>Дизайнер и разработчик</b></li>
           <li><span>Город</span><b>Астана, Казахстан</b></li>
-          <li><span>Направления</span><b>Сайты, Telegram Mini App, боты, плагины</b></li>
+          <li><span>Направления</span><b>Сайты и PWA-приложения</b></li>
           <li><span>Telegram</span><b><a href="https://t.me/ddwwks" target="_blank" rel="noopener">@ddwwks</a></b></li>
           <li><span>WhatsApp</span><b><a href="https://wa.me/77751213271" target="_blank" rel="noopener">+7 775 121 32 71</a></b></li>
           <li><span>Instagram и TikTok</span><b><a href="https://www.instagram.com/bauyrzhanov_12_/" target="_blank" rel="noopener">@bauyrzhanov_12_</a></b></li>
@@ -47,18 +46,18 @@
     </div>
   </section>
 
-  <section>
+  <section class="sec">
     <div class="wrap">
-      <div class="sec-head" data-bg="Навыки">
-        <div data-reveal>
+      <div class="sec-head">
+        <div>
           <h2>Чем я работаю</h2>
           <p>Инструменты, которыми собраны проекты из портфолио.</p>
         </div>
       </div>
       <div class="skills">
-        <div class="skill" data-reveal><h3>Сайты</h3><ul><li>HTML и CSS</li><li>JavaScript</li><li>Адаптивная вёрстка</li><li>GitHub Pages</li></ul></div>
-        <div class="skill" data-reveal style="--d:.18s"><h3>Telegram и серверы</h3><ul><li>Telegram Mini App</li><li>Telegram-боты и Stars</li><li>Cloudflare Workers</li><li>Базы D1</li></ul></div>
-        <div class="skill" data-reveal style="--d:.36s"><h3>Minecraft</h3><ul><li>Java</li><li>Paper и Maven</li><li>SQLite</li><li>Сайты для серверов</li></ul></div>
+        <div class="skill"><h3>Интерфейс</h3><ul><li>HTML и CSS</li><li>JavaScript</li><li>Адаптивная вёрстка</li><li>Анимации</li></ul></div>
+        <div class="skill"><h3>PWA</h3><ul><li>Service Worker</li><li>Манифест и установка</li><li>Офлайн-режим</li><li>Push-уведомления</li></ul></div>
+        <div class="skill"><h3>Сервер и запуск</h3><ul><li>Cloudflare Workers</li><li>Базы D1</li><li>GitHub Pages</li><li>Домен и SSL</li></ul></div>
       </div>
     </div>
   </section>
@@ -66,8 +65,8 @@
 </main>
 
 <div id="site-footer"></div>
-<script src="js/data.js"></script>
-<script src="js/i18n.js"></script>
-<script src="js/main.js"></script>
+<script src="/js/data.js"></script>
+<script src="/js/i18n.js"></script>
+<script src="/js/main.js"></script>
 </body>
 </html>
