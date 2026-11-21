@@ -798,3 +798,22 @@ a.work { color: inherit; }
   .step.on h3, .step.on p { max-width: 520px; }
   .step p { font-size: 15.5px; line-height: 1.6; }
 }
+
+/* подвал: новый вид */
+.ftr { padding: clamp(64px, 9vw, 120px) 0 0; }
+.ftr-top { display: flex; justify-content: space-between; align-items: center; gap: 32px; flex-wrap: wrap; padding-bottom: clamp(44px, 6vw, 80px); border-bottom: 1px solid var(--line); }
+.ftr-top h2 { font: 300 clamp(30px, 5vw, 68px)/1.05 var(--body); letter-spacing: -.035em; max-width: 14ch; }
+.ftr-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 40px; padding: clamp(36px, 5vw, 60px) 0; }
+.ftr-mark { font: 800 20px/1 var(--display); letter-spacing: -.04em; color: var(--text); }
+.ftr-mark i { font-style: normal; color: var(--accent); }
+.ftr-brand p { margin-top: 18px; color: var(--muted); max-width: 40ch; font-size: 15px; line-height: 1.7; }
+.ftr-col { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; font: 400 15px/1.2 var(--body); }
+.ftr-col h4 { font: 400 13px/1 var(--mono); color: var(--muted); margin-bottom: 8px; }
+.ftr-col a { color: var(--text); background: linear-gradient(var(--accent), var(--accent)) 0 100% / 0 1px no-repeat; padding-bottom: 3px; transition: color .5s var(--ease), background-size .6s var(--ease); }
+.ftr-col a:hover { color: var(--accent); background-size: 100% 1px; }
+.ftr-bot { margin-top: 0; }
+.big-logo { margin: clamp(30px, 5vw, 60px) 0 0; font-size: clamp(48px, 15.5vw, 250px); line-height: .78; text-align: center; transform: translateY(14%); user-select: none;
+  background: linear-gradient(180deg, rgba(242, 244, 247, .16), rgba(242, 244, 247, 0) 85%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.big-logo i { color: transparent; background: linear-gradient(180deg, rgba(167, 139, 250, .5), rgba(167, 139, 250, 0) 85%); -webkit-background-clip: text; background-clip: text; }
+.big-logo b { background: linear-gradient(180deg, rgba(167, 139, 250, .5), rgba(167, 139, 250, 0)); }
+@media (max-width: 900px) { .ftr-grid { grid-template-columns: 1fr 1fr; } .ftr-brand { grid-column: 1 / -1; } }

@@ -49,7 +49,7 @@
         '<div class="aurora" aria-hidden="true"><i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i></div>' +
         '<header class="hdr">' +
         '<a class="logo" href="/" aria-label="GwebStudio, ' + t("на главную") + '">' + LOGO + "</a>" +
-        '<div class="clock" aria-hidden="true"><span>АСТ<b data-tz="5">--:--</b></span><span>МСК<b data-tz="3">--:--</b></span></div>' +
+        '<div class="clock" aria-hidden="true"><span>АСТ<b data-tz="5">--:--</b></span></div>' +
         '<div class="lang" role="group" aria-label="' + t("Язык") + '">' + langs + "</div>" +
         '<a class="btn light hdr-cta" href="/quiz">' + t("Обсудить проект") + "</a>" +
         '<button class="menu-btn" type="button" aria-label="' + t("Открыть меню") + '" aria-expanded="false"><span class="lbl">' + t("Меню") + '</span><span class="lines"><i></i><i></i></span></button>' +
@@ -65,15 +65,18 @@
 
     var ftr = document.getElementById("site-footer");
     if (ftr) {
-      var flinks = NAV.map(function (n) { return '<a href="' + n[1] + '">' + n[2] + "</a>"; }).join("") + '<a href="/quiz">' + t("Обсудить проект") + "</a>";
+      var flinks = NAV.map(function (n) { return '<a href="' + n[1] + '">' + n[2] + "</a>"; }).join("");
+      var cons = [["Telegram", TG], ["WhatsApp", WA], ["Instagram", IG], ["TikTok", TT]].map(function (c) { return '<a href="' + c[1] + '" target="_blank" rel="noopener">' + c[0] + "</a>"; }).join("");
       ftr.innerHTML =
         '<footer class="ftr"><div class="wrap">' +
-        '<a class="big-logo" href="/" aria-label="GwebStudio, ' + t("на главную") + '">' + LOGO + "<b></b></a>" +
-        '<div class="ftr-mid"><p>' + t("Делаю современные сайты для бизнеса в Казахстане и России: от первой идеи до результата, который приводит клиентов и заявки.") + "</p>" +
-        '<nav class="ftr-nav" aria-label="' + t("Разделы") + '">' + flinks + "</nav></div>" +
+        '<div class="ftr-top"><h2>' + t("Есть задача? Давайте обсудим") + '</h2><a class="btn light" href="/quiz">' + t("Обсудить проект") + "</a></div>" +
+        '<div class="ftr-grid">' +
+        '<div class="ftr-brand"><a class="ftr-mark" href="/" aria-label="GwebStudio, ' + t("на главную") + '">' + LOGO + "</a><p>" + t("Делаю современные сайты для бизнеса в Казахстане и России: от первой идеи до результата, который приводит клиентов и заявки.") + "</p></div>" +
+        '<nav class="ftr-col" aria-label="' + t("Разделы") + '"><h4>' + t("Разделы") + "</h4>" + flinks + "</nav>" +
+        '<div class="ftr-col"><h4>' + t("Связаться") + "</h4>" + cons + "</div></div>" +
         '<div class="ftr-bot"><span>© <span id="y"></span> GwebStudio. ' + t("Создано") + ' <a href="' + IG + '" target="_blank" rel="noopener">@bauyrzhanov_12_</a></span>' +
-        '<a href="/privacy">' + t("Политика конфиденциальности") + "</a>" +
-        '<div class="icons">' + soc("tg") + soc("wa") + soc("ig") + soc("tt") + "</div></div>" +
+        '<a href="/privacy">' + t("Политика конфиденциальности") + "</a></div>" +
+        '<a class="big-logo" href="/" aria-hidden="true" tabindex="-1">' + LOGO + "<b></b></a>" +
         "</div></footer>";
       var y = document.getElementById("y");
       if (y) y.textContent = new Date().getFullYear();
