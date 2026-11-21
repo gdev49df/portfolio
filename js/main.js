@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  // адрес без .html: /services.html -> /services, /index.html -> /
+  // адрес без .html: /services.html -> /services
   (function cleanUrl() {
     var p = location.pathname;
     if (/\.html$/.test(p) && window.history && history.replaceState) {
@@ -15,481 +15,313 @@
   var TT = "https://www.tiktok.com/@bauyrzhanov_12_";
   var WA = "https://wa.me/77751213271";
   var t = window.t || function (x) { return x; };
-  var LABEL = { tg: "Telegram", wa: "WhatsApp", ig: "Instagram", tt: "TikTok" };
-  var LINK = { tg: TG, wa: WA, ig: IG, tt: TT };
-  function soc(key, i) {
-    return '<a href="' + LINK[key] + '"' + (i == null ? "" : ' style="--i:' + i + '"') + ' target="_blank" rel="noopener" aria-label="' + LABEL[key] + '">' + window.ICONS[key] + "</a>";
-  }
   var page = document.body.getAttribute("data-page") || "";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>';
+  var CAT = { web: "Сайты", app: "Приложения" };
+  var LOGO = "G<i>web</i>Studio";
 
-  var ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>';
-  var LOGO = 'G<i>web</i>Studio';
+  function $(s, r) { return (r || document).querySelector(s); }
+  function $$(s, r) { return [].slice.call((r || document).querySelectorAll(s)); }
+  function pad(n) { return n < 10 ? "0" + n : "" + n; }
+  function kb(p) { return p.spec ? p.spec.kb + " " + t("КБ") : ""; }
 
-  var NAV = [
-    ["home", "/", t("Главная")],
-    ["services", "/services", t("Услуги")],
-    ["portfolio", "/portfolio", t("Портфолио")],
-    ["about", "/about", t("Обо мне")],
-    ["contacts", "/contacts", t("Контакты")]
-  ];
-
-  /* ---------- шапка и подвал ---------- */
+  /* ---------- шапка, меню, подвал ---------- */
   function buildLayout() {
-    var hdr = document.getElementById("site-header");
+    var NAV = [["portfolio", "/portfolio", t("Портфолио")], ["services", "/services", t("Услуги")], ["about", "/about", t("Обо мне")], ["contacts", "/contacts", t("Контакты")]];
+    var cur = (window.I18N && window.I18N.lang) || "ru";
+    var langs = [["ru", "RU"], ["kk", "KZ"], ["en", "EN"]].map(function (l) {
+      return '<button type="button" data-l="' + l[0] + '" aria-pressed="' + (l[0] === cur) + '" lang="' + l[0] + '">' + l[1] + "</button>";
+    }).join("");
+    var hdr = $("#site-header");
     if (hdr) {
-      var items = NAV.filter(function (n) { return n[0] !== "contacts"; }).concat([["quiz", "/quiz", t("Обсудить проект")]]);
-      var mlinks = items.map(function (n, i) {
-        return '<a href="' + n[1] + '" style="--i:' + i + '"' + (n[0] === page ? ' aria-current="page"' : "") + ">" + n[2] + "</a>";
-      }).join("");
-      var cur = (window.I18N && window.I18N.lang) || "ru";
-      var langs = [["ru", "RU"], ["kk", "KZ"], ["en", "EN"]].map(function (l) {
-        return '<button type="button" data-l="' + l[0] + '" aria-pressed="' + (l[0] === cur) + '" lang="' + l[0] + '">' + l[1] + "</button>";
-      }).join("");
+      var links = NAV.map(function (n) { return '<a href="' + n[1] + '"' + (n[0] === page ? ' aria-current="page"' : "") + ">" + n[2] + "</a>"; }).join("");
+      var mlinks = NAV.concat([["quiz", "/quiz", t("Обсудить проект")]]).map(function (n) { return '<a class="m" href="' + n[1] + '">' + n[2] + ARROW + "</a>"; }).join("");
+      var soc = [["tg", TG], ["wa", WA], ["ig", IG], ["tt", TT]].map(function (s) { return '<a href="' + s[1] + '" target="_blank" rel="noopener" aria-label="' + s[0] + '">' + window.ICONS[s[0]] + "</a>"; }).join("");
       hdr.innerHTML =
-        '<div class="aurora" aria-hidden="true"><i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i></div>' +
-        '<header class="hdr">' +
-        '<a class="logo" href="/" aria-label="GwebStudio, ' + t("на главную") + '">' + LOGO + "</a>" +
-        '<div class="clock" aria-hidden="true"><span>АСТ<b data-tz="5">--:--</b></span></div>' +
+        '<header class="hdr"><a class="logo" href="/" aria-label="GwebStudio, ' + t("на главную") + '">' + LOGO + "</a>" +
+        '<nav class="nav" aria-label="' + t("Основное меню") + '">' + links + "</nav>" +
+        '<div class="clock" aria-hidden="true"><span>' + t("Астана") + '</span><b data-tz="5">--:--</b></div>' +
         '<div class="lang" role="group" aria-label="' + t("Язык") + '">' + langs + "</div>" +
         '<a class="btn light hdr-cta" href="/quiz">' + t("Обсудить проект") + "</a>" +
-        '<button class="menu-btn" type="button" aria-label="' + t("Открыть меню") + '" aria-expanded="false"><span class="lbl">' + t("Меню") + '</span><span class="lines"><i></i><i></i></span></button>' +
-        "</header>" +
-        '<nav class="mnav" aria-label="' + t("Основное меню") + '" aria-hidden="true">' + mlinks +
-        '<div class="soc">' + soc("tg", items.length) + soc("wa", items.length + 1) + soc("ig", items.length + 2) + soc("tt", items.length + 3) + "</div></nav>";
-      hdr.querySelectorAll(".lang button").forEach(function (b) {
-        b.addEventListener("click", function () {
-          if (b.getAttribute("data-l") !== cur) window.setLang(b.getAttribute("data-l"));
-        });
+        '<button class="menu-btn" type="button" aria-label="' + t("Открыть меню") + '" aria-expanded="false"><i></i></button></header>' +
+        '<nav class="mnav" aria-label="' + t("Основное меню") + '">' + mlinks + '<div class="lang" role="group">' + langs + '</div><div class="soc">' + soc + "</div></nav>";
+      $$(".lang button", hdr).forEach(function (b) {
+        b.addEventListener("click", function () { if (b.getAttribute("data-l") !== cur) window.setLang(b.getAttribute("data-l")); });
       });
+      var btn = $(".menu-btn", hdr);
+      function setMenu(o) {
+        document.documentElement.classList.toggle("menu-open", o);
+        btn.setAttribute("aria-expanded", o ? "true" : "false");
+        document.body.style.overflow = o ? "hidden" : "";
+      }
+      btn.addEventListener("click", function () { setMenu(!document.documentElement.classList.contains("menu-open")); });
+      $$(".mnav a", hdr).forEach(function (a) { a.addEventListener("click", function () { setMenu(false); }); });
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape") setMenu(false); });
+      var tick = function () {
+        var d = new Date(), u = d.getTime() + d.getTimezoneOffset() * 60000;
+        $$("[data-tz]", hdr).forEach(function (el) {
+          var x = new Date(u + 3600000 * +el.getAttribute("data-tz"));
+          el.textContent = pad(x.getHours()) + ":" + pad(x.getMinutes());
+        });
+      };
+      tick();
+      setInterval(tick, 15000);
     }
 
-    var ftr = document.getElementById("site-footer");
+    var ftr = $("#site-footer");
     if (ftr) {
       var flinks = NAV.map(function (n) { return '<a href="' + n[1] + '">' + n[2] + "</a>"; }).join("");
       var cons = [["Telegram", TG], ["WhatsApp", WA], ["Instagram", IG], ["TikTok", TT]].map(function (c) { return '<a href="' + c[1] + '" target="_blank" rel="noopener">' + c[0] + "</a>"; }).join("");
       ftr.innerHTML =
-        '<footer class="ftr"><div class="wrap">' +
-        '<div class="ftr-top"><h2>' + t("Есть задача? Давайте обсудим") + '</h2><a class="btn light" href="/quiz">' + t("Обсудить проект") + "</a></div>" +
-        '<div class="ftr-grid">' +
-        '<div class="ftr-brand"><a class="ftr-mark" href="/" aria-label="GwebStudio, ' + t("на главную") + '">' + LOGO + "</a><p>" + t("Делаю современные сайты для бизнеса в Казахстане и России: от первой идеи до результата, который приводит клиентов и заявки.") + "</p></div>" +
+        '<footer class="ftr"><div class="wrap"><div class="ftr-grid">' +
+        '<div class="ftr-brand"><a class="logo" href="/" aria-label="GwebStudio, ' + t("на главную") + '">' + LOGO + "</a><p>" + t("Делаю современные сайты для бизнеса в Казахстане и России: от первой идеи до результата, который приводит клиентов и заявки.") + "</p></div>" +
         '<nav class="ftr-col" aria-label="' + t("Разделы") + '"><h4>' + t("Разделы") + "</h4>" + flinks + "</nav>" +
         '<div class="ftr-col"><h4>' + t("Связаться") + "</h4>" + cons + "</div></div>" +
         '<div class="ftr-bot"><span>© <span id="y"></span> GwebStudio. ' + t("Создано") + ' <a href="' + IG + '" target="_blank" rel="noopener">@bauyrzhanov_12_</a></span>' +
-        '<a href="/privacy">' + t("Политика конфиденциальности") + "</a></div>" +
-        "</div></footer>";
-      var y = document.getElementById("y");
-      if (y) y.textContent = new Date().getFullYear();
-    }
-
-    var veil = document.createElement("div");
-    veil.className = "veil";
-    document.body.appendChild(veil);
-  }
-
-  /* ---------- меню ---------- */
-  function initMenu() {
-    var b = document.querySelector(".menu-btn");
-    var m = document.querySelector(".mnav");
-    var h = document.querySelector(".hdr");
-    if (!b) return;
-    var lbl = b.querySelector(".lbl");
-    function set(open) {
-      document.body.classList.toggle("menu-open", open);
-      b.setAttribute("aria-expanded", open ? "true" : "false");
-      b.setAttribute("aria-label", open ? t("Закрыть меню") : t("Открыть меню"));
-      if (lbl) lbl.textContent = open ? t("Закрыть") : t("Меню");
-      if (m) m.setAttribute("aria-hidden", open ? "false" : "true");
-      document.body.style.overflow = open ? "hidden" : "";
-    }
-    b.addEventListener("click", function () { set(!document.body.classList.contains("menu-open")); });
-    document.addEventListener("keydown", function (e) { if (e.key === "Escape") set(false); });
-    function onScroll() { if (h) h.classList.toggle("scrolled", window.scrollY > 24); }
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-
-    // время астаны (UTC+5) и москвы (UTC+3)
-    function tick() {
-      var now = Date.now();
-      document.querySelectorAll(".clock b").forEach(function (el) {
-        var d = new Date(now + Number(el.getAttribute("data-tz")) * 3600000);
-        el.textContent = String(d.getUTCHours()).padStart(2, "0") + ":" + String(d.getUTCMinutes()).padStart(2, "0");
-      });
-    }
-    tick();
-    setInterval(tick, 15000);
-  }
-
-  /* ---------- плавный переход между страницами ---------- */
-  function initTransitions() {
-    document.addEventListener("click", function (e) {
-      var a = e.target.closest && e.target.closest("a[href]");
-      if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-      if (a.target === "_blank" || a.hasAttribute("download")) return;
-      var url;
-      try { url = new URL(a.href, location.href); } catch (err) { return; }
-      if (url.origin !== location.origin) return;
-      if (url.pathname === location.pathname && url.search === location.search) return;
-      e.preventDefault();
-      document.body.classList.add("leaving");
-      setTimeout(function () { location.href = a.href; }, 360);
-    });
-    window.addEventListener("pageshow", function (e) {
-      if (e.persisted) {
-        document.body.classList.remove("leaving", "menu-open");
-        document.body.style.overflow = "";
-      }
-    });
-  }
-
-  /* ---------- появление при прокрутке ---------- */
-  function splitWords() {
-    document.querySelectorAll("[data-split]").forEach(function (el) {
-      var text = el.textContent.trim();
-      var words = text.split(/\s+/);
-      var acc = (el.getAttribute("data-accent") || "").toLowerCase();
-      var from = acc ? text.toLowerCase().indexOf(acc) : -1;
-      var to = from > -1 ? from + acc.length : -1;
-      var pos = 0;
-      el.setAttribute("aria-label", text);
-      el.innerHTML = words.map(function (w, i) {
-        var start = text.indexOf(w, pos);
-        pos = start + w.length;
-        var on = from > -1 && start >= from && start < to;
-        return '<span class="w' + (on ? " acc" : "") + '" aria-hidden="true" style="--i:' + i + '">' + w + "</span>";
-      }).join(" ");
-      el.classList.add("split");
-    });
-  }
-
-
-  function initReveal() {
-    var els = document.querySelectorAll("[data-reveal], .split, [data-bg]");
-    if (!("IntersectionObserver" in window)) {
-      els.forEach(function (el) { el.classList.add("in"); });
-      return;
-    }
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
-      });
-    }, { threshold: 0, rootMargin: "0px 0px -4% 0px" });
-    els.forEach(function (el) { io.observe(el); });
-  }
-
-  /* ---------- услуги ---------- */
-  function renderServices() {
-    var host = document.getElementById("svc-grid");
-    if (!host || !window.SERVICES) return;
-    host.className = "sv-grid";
-    var go = '<span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>';
-    var cards = window.SERVICES.map(function (s, i) {
-      var n = i + 1 < 10 ? "0" + (i + 1) : "" + (i + 1);
-      return '<a class="sv" href="/quiz" data-reveal style="--d:' + ((i % 3) * 0.1) + 's"><span class="n">' + n + "</span>" +
-        "<h3>" + t(s.title) + "</h3><p>" + t(s.text) + "</p>" +
-        '<div class="foot"><div class="meta"><b>' + window.I18N.priceFrom(s.price) + "</b><span>" + (s.days ? window.I18N.daysFrom(s.days) : t("срок обсуждается")) + "</span></div>" + go + "</div></a>";
-    }).join("");
-    var quiz = '<a class="sv sv-quiz" href="/quiz" data-reveal style="--d:.2s"><span class="n">?</span>' +
-      "<h3>" + t("Не знаете, что выбрать?") + "</h3><p>" + t("Ответьте на несколько вопросов, и по ответам я подскажу подходящий формат.") + "</p>" +
-      '<div class="foot"><div class="meta"><b class="q">' + t("Пройти квиз") + "</b></div>" + go + "</div></a>";
-    host.innerHTML = cards + quiz;
-    host.querySelectorAll(".sv").forEach(function (c) {
-      c.addEventListener("pointermove", function (e) {
-        if (e.pointerType !== "mouse") return;
-        var r = c.getBoundingClientRect(), px = (e.clientX - r.left) / r.width - 0.5, py = (e.clientY - r.top) / r.height - 0.5;
-        c.style.transform = "perspective(900px) rotateX(" + (-py * 5).toFixed(2) + "deg) rotateY(" + (px * 6).toFixed(2) + "deg)";
-      });
-      c.addEventListener("pointerleave", function () { c.style.transform = ""; });
-    });
-  }
-
-  /* ---------- проекты ---------- */
-  var coverHTML = function (p, big) {
-    var src = big && p.hero ? p.hero : p.img;
-    return '<div class="cover" style="--c1:' + p.c1 + ";--c2:" + p.c2 + '">' +
-      (src ? '<img src="/' + src + '" alt="' + t(p.title) + '" loading="lazy">' : '<span class="glyph" aria-hidden="true">' + p.glyph + "</span>") +
-      "</div>";
-  };
-
-  /* главная: одна большая работа, остальные маленькие; клик по маленькой открывает её в большой карточке */
-  function renderShowcase(host) {
-    var all = window.PROJECTS, cur = (all.filter(function (x) { return x.id === "shawarma"; })[0] || all[0]).id, busy = false;
-    host.innerHTML = '<div class="sc-main" id="sc-main" data-reveal></div><div class="sc-grid" id="sc-grid" data-reveal style="--d:.1s"></div>';
-    var main = document.getElementById("sc-main"), grid = document.getElementById("sc-grid");
-    function cv(p) { return '<div class="cover" style="--c1:' + p.c1 + ";--c2:" + p.c2 + '">' + (p.hero || p.img ? '<img src="/' + (p.hero || p.img) + '" alt="' + t(p.title) + '" loading="lazy">' : '<span class="glyph" aria-hidden="true">' + p.glyph + "</span>") + "</div>"; }
-    function draw() {
-      var p = all.filter(function (x) { return x.id === cur; })[0];
-      main.innerHTML = '<a class="sc-pic" href="/work/' + p.id + '" aria-label="' + t(p.title) + '">' + cv(p) + "</a>" +
-        '<div class="sc-info"><p class="sc-type">' + t(p.type) + "</p><h3>" + t(p.title) + "</h3><p class=\"sc-text\">" + t(p.short) + '</p><a class="btn" href="/work/' + p.id + '">' + t("Открыть проект") + " " + ARROW + "</a></div>";
-      var rest = all.filter(function (x) { return x.id !== cur; });
-      grid.style.setProperty("--cols", Math.min(rest.length, 4));
-      grid.innerHTML = rest.map(function (x) {
-        return '<button type="button" class="sc-card" data-id="' + x.id + '">' + cv(x) + '<span class="sc-name">' + t(x.title) + '</span><span class="sc-sub">' + t(x.type) + "</span></button>";
-      }).join("");
-    }
-    draw();
-    grid.addEventListener("click", function (e) {
-      var b = e.target.closest(".sc-card");
-      if (!b) return;
-      if (busy) return;
-      busy = true;
-      main.classList.add("swap"); grid.classList.add("swap");
-      if (window.innerWidth < 900) main.scrollIntoView({ behavior: "smooth", block: "center" });
-      setTimeout(function () {
-        cur = b.getAttribute("data-id");
-        draw();
-        void main.offsetWidth;
-        main.classList.remove("swap"); grid.classList.remove("swap");
-        setTimeout(function () { busy = false; }, 450);
-      }, 300);
-    });
-  }
-
-  function renderWorks() {
-    var host = document.getElementById("works");
-    if (!host || !window.PROJECTS) return;
-    if (host.hasAttribute("data-showcase")) { renderShowcase(host); return; }
-    var list = window.PROJECTS.filter(function (p) { return host.hasAttribute("data-featured") ? p.featured : true; });
-    host.innerHTML = list.map(function (p, i) {
-      return '<a class="work" href="/work/' + p.id + '" data-cat="' + p.cat + '" data-reveal style="--d:' + ((i % 2) * 0.12) + 's">' +
-        coverHTML(p) +
-        '<div class="work-info"><div class="t">' + t(p.type) + "</div><h3>" + t(p.title) + ARROW + "</h3><p>" + t(p.short) + "</p></div></a>";
-    }).join("");
-
-    var f = document.getElementById("filters");
-    if (f) {
-      f.addEventListener("click", function (e) {
-        var c = e.target.closest(".chip");
-        if (!c) return;
-        f.querySelectorAll(".chip").forEach(function (x) { x.setAttribute("aria-pressed", x === c ? "true" : "false"); });
-        var cat = c.getAttribute("data-cat");
-        host.querySelectorAll(".work").forEach(function (w) {
-          w.classList.toggle("hide", cat !== "all" && w.getAttribute("data-cat") !== cat);
-        });
-      });
+        '<a href="/privacy">' + t("Политика конфиденциальности") + "</a></div></div></footer>";
+      $("#y").textContent = new Date().getFullYear();
     }
   }
 
-  /* ---------- страница кейса ---------- */
-  var CAT = { web: "Сайты", telegram: "Telegram", app: "Приложения", minecraft: "Minecraft" };
-  function renderCase() {
-    var host = document.getElementById("case-body");
-    if (!host || !window.PROJECTS) return;
-    var id = document.body.getAttribute("data-id");
-    var list = window.PROJECTS;
-    var i = list.map(function (x) { return x.id; }).indexOf(id);
-    if (i < 0) return;
-    var p = list[i];
-    var prev = list[(i + list.length - 1) % list.length];
-    var next = list[(i + 1) % list.length];
-    document.title = t(p.title) + " — " + t("Кейс") + " — GwebStudio";
-
-    var crumbs = document.getElementById("case-crumbs");
-    if (crumbs) crumbs.innerHTML = '<a href="/">' + t("Главная") + '</a><i>/</i><a href="/portfolio">' + t("Портфолио") + "</a><i>/</i><span>" + t(p.type) + "</span>";
-    var kick = document.getElementById("case-type");
-    var h1 = document.getElementById("case-title");
-    if (kick) kick.textContent = t(p.type);
-    if (h1) h1.textContent = t(p.title);
-    var act = document.getElementById("case-actions");
-    if (act) {
-      act.innerHTML = (p.links[0] ? '<a class="btn light" href="' + p.links[0].url + '" target="_blank" rel="noopener">' + t(p.links[0].label) + ARROW.replace("<svg", '<svg width="16" height="16"') + "</a>" : "") +
-        '<a class="btn ghost" href="/portfolio">' + t("Все работы") + "</a>";
+  /* ---------- пружина: как у Apple, скорость передаётся из жеста ---------- */
+  function spring(from, vel, to, response, damping, step, done) {
+    var x = from, v = vel, w = 2 * Math.PI / response, k = w * w, c = 2 * damping * w, last = performance.now(), raf;
+    function frame(now) {
+      var dt = Math.max(0, Math.min((now - last) / 1000, 1 / 30));
+      last = now;
+      v += (-k * (x - to) - c * v) * dt;
+      x += v * dt;
+      if (Math.abs(x - to) < 0.01 && Math.abs(v) < 0.05) { step(to); if (done) done(); return; }
+      step(x);
+      raf = requestAnimationFrame(frame);
     }
+    raf = requestAnimationFrame(frame);
+    return function cancel() { cancelAnimationFrame(raf); };
+  }
+  function rubber(over, dim) { var c = 0.55; return (over * dim * c) / (dim + c * Math.abs(over)); }
 
-    var host0 = p.links[0] ? p.links[0].url.replace(/^https?:\/\//, "").replace(/\/$/, "") : "";
-    var facts = [
-      [t("Тип проекта"), t(p.type)],
-      [t("Направление"), t(CAT[p.cat] || p.cat)],
-      [t("Год"), "2026"],
-      [t("Технологии"), p.stack.join(", ")]
-    ];
-    if (host0) facts.push([t("Ссылка"), '<a href="' + p.links[0].url + '" target="_blank" rel="noopener">' + host0 + "</a>"]);
-    var more = p.links.slice(1).map(function (l) {
-      return '<a class="btn ghost" href="' + l.url + '" target="_blank" rel="noopener">' + t(l.label) + ARROW.replace("<svg", '<svg width="16" height="16"') + "</a>";
-    }).join("");
-
+  /* ---------- устройство с живым сайтом ---------- */
+  function buildDevice(host, list, startId, withMeta) {
+    var cur = Math.max(0, list.map(function (p) { return p.id; }).indexOf(startId));
     host.innerHTML =
-      '<div class="case-cover" data-reveal>' + coverHTML(p, true) + "</div>" +
-      '<div class="case-grid">' +
-      '<aside class="case-side" data-reveal><ul class="case-facts">' + facts.map(function (f) { return "<li><span>" + f[0] + "</span><b>" + f[1] + "</b></li>"; }).join("") + "</ul>" +
-      (more ? '<div class="sheet-links">' + more + "</div>" : "") +
-      "</aside>" +
-      '<div data-reveal style="--d:.12s"><h2>' + t("О проекте") + '</h2><p class="case-desc">' + t(p.desc) + "</p>" +
-      "<h3>" + t("Что внутри") + '</h3><ul class="pts">' + p.points.map(function (x) { return "<li>" + t(x) + "</li>"; }).join("") + "</ul></div></div>" +
-      '<div class="case-nav" data-reveal>' +
-      '<a class="link-card" href="/work/' + prev.id + '"><div><span>' + t("Предыдущий проект") + "</span><b>" + t(prev.title) + "</b></div>" + ARROW + "</a>" +
-      '<a class="link-card" href="/work/' + next.id + '"><div><span>' + t("Следующий проект") + "</span><b>" + t(next.title) + "</b></div>" + ARROW + "</a></div>" +
-      '<div class="case-cta" data-reveal><div><h2>' + t("Нужен похожий проект?") + "</h2><p>" + t("Расскажите о задаче, и я предложу подходящий формат и следующий шаг.") + '</p></div><a class="btn light" href="/quiz">' + t("Обсудить проект") + "</a></div>";
-    if (p.demo) initDemo(host.querySelector(".case-cover"), p);
-  }
+      '<div class="stage"><div class="dev"><div class="dev-lid"><div class="dev-screen"><iframe title="" sandbox="allow-scripts allow-same-origin allow-forms allow-popups" referrerpolicy="no-referrer" loading="lazy"></iframe><div class="dev-load">' + t("Загрузка…") + '</div></div></div><div class="dev-base"></div></div></div>' +
+      (withMeta ? '<div class="dev-meta"><div class="dev-tabs" role="group" aria-label="' + t("Проекты") + '"></div><div class="dev-spec"></div><p class="dev-hint">' + t("Экран живой: листайте и нажимайте. Рамку можно потянуть.") + "</p></div>" : "");
+    var dev = $(".dev", host), screen = $(".dev-screen", host), frame = $("iframe", host);
+    var tabs = $(".dev-tabs", host), specEl = $(".dev-spec", host);
 
-  /* живой предпросмотр: сайт открывается прямо в рамке ноутбука или телефона */
-  function initDemo(cover, p) {
-    if (!cover) return;
-    var phone = p.demo.device === "phone";
-    var live = null;
-    function fit() {
-      if (!live) return;
-      var w = phone ? 390 : 1280, h = phone ? 780 : 800, box = live.querySelector(".demo-fit");
-      var k = Math.min(1, box.clientWidth / w);
-      var fr = live.querySelector("iframe");
-      fr.style.width = w + "px"; fr.style.height = h + "px"; fr.style.transform = "scale(" + k + ")";
-      box.style.height = Math.round(h * k) + "px";
+    function fit() { frame.style.transform = "scale(" + (screen.clientWidth / 1280) + ")"; }
+    if (window.ResizeObserver) new ResizeObserver(fit).observe(screen); else window.addEventListener("resize", fit);
+    fit();
+
+    function show(i, instant) {
+      cur = i;
+      var p = list[i];
+      frame.title = p.title;
+      screen.classList.remove("ready");
+      var timer = setTimeout(function () { screen.classList.add("ready"); }, 7000);
+      frame.onload = function () { clearTimeout(timer); screen.classList.add("ready"); };
+      frame.src = p.demo.url;
+      if (tabs) $$("button", tabs).forEach(function (b, j) { b.setAttribute("aria-pressed", j === i); });
+      if (specEl) {
+        specEl.innerHTML = "<span>" + t("Вес первой загрузки") + "<b>" + kb(p) + "</b></span><span>" + t("Запросов") + "<b>" + p.spec.req + "</b></span><span>" + t("Стек") + "<b>" + p.stack.slice(0, 3).join(", ") + "</b></span>" +
+          '<a class="link-arrow" href="/work/' + p.id + '">' + t("Открыть кейс") + "</a>";
+      }
+      if (!instant && !reduce) { // новый экран «подъезжает» с лёгким наклоном
+        pose.ry = -22; pose.rx = 8; render();
+        go();
+      }
     }
-    (function () {
-      live = document.createElement("div");
-      live.className = "demo " + (phone ? "demo-phone" : "demo-laptop");
-      live.innerHTML = '<div class="demo-top"><span class="demo-hint">' + t("Это живой сайт: листай и нажимай") + '</span></div>' +
-        '<div class="demo-dev"><div class="demo-fit"><div class="demo-load">' + t("Загрузка…") + '</div><iframe title="' + t(p.title) + '" src="' + p.demo.url + '" loading="eager" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe></div></div>' + (phone ? "" : '<div class="demo-base"></div>');
-      cover.classList.add("demo-on");
-      cover.appendChild(live);
-      live.querySelector("iframe").addEventListener("load", function () { var l = live && live.querySelector(".demo-load"); if (l) l.remove(); });
-      window.addEventListener("resize", fit); fit();
-    })();
+    if (tabs) {
+      tabs.innerHTML = list.map(function (p, i) { return '<button type="button" aria-pressed="false">' + t(p.title) + "</button>"; }).join("");
+      $$("button", tabs).forEach(function (b, i) { b.addEventListener("click", function () { if (i !== cur) show(i); }); });
+    }
+
+    /* наклон и бросок */
+    var rest = { rx: window.innerWidth < 900 ? 2 : 3, ry: window.innerWidth < 900 ? -5 : -9 };
+    var pose = { rx: rest.rx, ry: rest.ry }, cancels = [];
+    function render() { dev.style.setProperty("--rx", pose.rx.toFixed(2) + "deg"); dev.style.setProperty("--ry", pose.ry.toFixed(2) + "deg"); }
+    function stop() { cancels.forEach(function (c) { c(); }); cancels = []; }
+    function go(vx, vy) {
+      stop();
+      cancels.push(spring(pose.ry, vx || 0, rest.ry, 0.5, 0.78, function (v) { pose.ry = v; render(); }));
+      cancels.push(spring(pose.rx, vy || 0, rest.rx, 0.5, 0.78, function (v) { pose.rx = v; render(); }));
+    }
+    var drag = null, hist = [];
+    dev.addEventListener("pointerdown", function (e) {
+      if (e.target.closest(".dev-screen") || (e.pointerType === "mouse" && e.button !== 0)) return;
+      stop();
+      drag = { x: e.clientX, y: e.clientY, rx: pose.rx, ry: pose.ry };
+      hist = [{ x: e.clientX, y: e.clientY, t: performance.now() }];
+      try { dev.setPointerCapture(e.pointerId); } catch (_) {}
+      dev.classList.add("drag");
+    });
+    window.addEventListener("pointermove", function (e) {
+      if (!drag) return;
+      var dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+      var ry = drag.ry + dx * 0.22, rx = drag.rx - dy * 0.18;
+      var lim = 34;
+      if (Math.abs(ry) > lim) ry = Math.sign(ry) * (lim + rubber(Math.abs(ry) - lim, 40));
+      if (Math.abs(rx) > lim) rx = Math.sign(rx) * (lim + rubber(Math.abs(rx) - lim, 40));
+      pose.ry = ry; pose.rx = rx; render();
+      hist.push({ x: e.clientX, y: e.clientY, t: performance.now() });
+      if (hist.length > 6) hist.shift();
+    });
+    function release() {
+      if (!drag) return;
+      drag = null;
+      dev.classList.remove("drag");
+      var a = hist[0], b = hist[hist.length - 1], dt = Math.max((b.t - a.t) / 1000, 0.016);
+      var recent = performance.now() - b.t < 80;
+      go(recent ? ((b.x - a.x) / dt) * 0.22 : 0, recent ? (-(b.y - a.y) / dt) * 0.18 : 0);
+    }
+    window.addEventListener("pointerup", release);
+    window.addEventListener("pointercancel", release);
+    window.addEventListener("blur", release);
+    render();
+    show(cur, true);
+    return { show: show };
   }
 
-  /* ---------- лента стека ---------- */
-  function renderTicker() {
-    var tk = document.getElementById("ticker");
-    if (!tk || !window.STACK) return;
-    var items = window.STACK.map(function (s) { return "<span>" + t(s) + "</span>"; }).join("");
-    tk.innerHTML = '<div class="ticker-track" aria-hidden="true">' + items + items + "</div>";
+  /* ---------- главная ---------- */
+  function initHome() {
+    var host = $("#device");
+    if (!host || !window.PROJECTS) return;
+    var list = window.PROJECTS.filter(function (p) { return p.demo; });
+    var first = list.map(function (p) { return p.id; }).indexOf("shawarma");
+    buildDevice(host, list, list[first < 0 ? 0 : first].id, true);
   }
 
-  /* ---------- faq ---------- */
+  function rowHTML(p, i) {
+    return '<a class="wrow" href="/work/' + p.id + '" data-img="/' + p.img + '"><span class="i">' + pad(i + 1) + "</span><h3>" + t(p.title) + '</h3><span class="ty">' + t(p.type) + '</span><span class="st">' + p.stack.slice(0, 3).join(", ") + '</span><span class="kb">' + kb(p) + "</span>" + ARROW + "</a>";
+  }
+  function renderWorks() {
+    var host = $("#works");
+    if (!host || !window.PROJECTS) return;
+    host.innerHTML = window.PROJECTS.map(rowHTML).join("");
+    var cnt = $("#works-count");
+    if (cnt) cnt.textContent = window.PROJECTS.length + " " + t("проектов");
+    // превью следует за курсором
+    if (!window.matchMedia("(hover: hover)").matches) return;
+    var pv = document.createElement("div");
+    pv.className = "wprev";
+    document.body.appendChild(pv);
+    var tx = 0, ty = 0, x = 0, y = 0, raf = 0;
+    function loop() {
+      x += (tx - x) * 0.16; y += (ty - y) * 0.16;
+      pv.style.transform = "translate(" + x.toFixed(1) + "px," + y.toFixed(1) + "px)";
+      raf = pv.classList.contains("on") || Math.abs(tx - x) > 0.5 ? requestAnimationFrame(loop) : 0;
+    }
+    $$(".wrow", host).forEach(function (r) {
+      r.addEventListener("pointerenter", function (e) {
+        pv.style.backgroundImage = "url(" + r.getAttribute("data-img") + ")";
+        tx = e.clientX + 28; ty = e.clientY - 100;
+        if (!pv.classList.contains("on")) { x = tx; y = ty; }
+        pv.classList.add("on");
+        if (!raf) raf = requestAnimationFrame(loop);
+      });
+      r.addEventListener("pointermove", function (e) { tx = e.clientX + 28; ty = e.clientY - 100; });
+      r.addEventListener("pointerleave", function () { pv.classList.remove("on"); });
+    });
+  }
+
+  function renderServices() {
+    var host = $("#svt");
+    if (!host || !window.SERVICES) return;
+    host.innerHTML = window.SERVICES.map(function (s) {
+      return '<a class="svr" href="/quiz"><h3>' + t(s.title) + "</h3><p>" + t(s.text) + '</p><span class="pr">' + window.I18N.priceFrom(s.price) + '</span><span class="dy">' + (s.days ? window.I18N.daysFrom(s.days) : t("срок обсуждается")) + "</span>" + ARROW + "</a>";
+    }).join("");
+  }
+
+  function initProcess() {
+    var box = $(".pst");
+    if (!box) return;
+    var steps = $$(".step", box), ticking = false;
+    function update() {
+      ticking = false;
+      var vh = window.innerHeight, line = vh * 0.55, r = box.getBoundingClientRect();
+      var p = Math.min(1, Math.max(0, (line - r.top) / r.height));
+      box.style.setProperty("--p", p.toFixed(3));
+      steps.forEach(function (s) { s.classList.toggle("on", s.getBoundingClientRect().top < line); });
+    }
+    window.addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+  }
+
   function initFaq() {
-    var all = document.querySelectorAll(".qa");
+    var all = $$(".qa");
     all.forEach(function (qa) {
-      var b = qa.querySelector("button");
+      var b = $("button", qa);
       b.setAttribute("aria-expanded", qa.classList.contains("open") ? "true" : "false");
       b.addEventListener("click", function () {
-        var willOpen = !qa.classList.contains("open");
-        // открыт только один вопрос: остальные закрываются
-        all.forEach(function (o) {
-          o.classList.remove("open");
-          o.querySelector("button").setAttribute("aria-expanded", "false");
-        });
-        if (willOpen) {
-          qa.classList.add("open");
-          b.setAttribute("aria-expanded", "true");
-        }
+        var open = !qa.classList.contains("open");
+        all.forEach(function (o) { o.classList.remove("open"); $("button", o).setAttribute("aria-expanded", "false"); });
+        if (open) { qa.classList.add("open"); b.setAttribute("aria-expanded", "true"); }
       });
     });
+  }
+
+  /* ---------- портфолио ---------- */
+  function renderPortfolio() {
+    var host = $("#pgrid");
+    if (!host || !window.PROJECTS) return;
+    var fl = $("#filters");
+    var cats = ["all"].concat(window.PROJECTS.map(function (p) { return p.cat; }).filter(function (c, i, a) { return CAT[c] && a.indexOf(c) === i; }));
+    var cur = "all";
+    function draw() {
+      var items = window.PROJECTS.filter(function (p) { return cur === "all" || p.cat === cur; });
+      host.innerHTML = items.map(function (p) {
+        return '<a class="pcard" href="/work/' + p.id + '"><div class="pic"><img src="/' + p.img + '" alt="' + t(p.title) + '" loading="lazy" width="1280" height="800"></div><div class="row"><h3>' + t(p.title) + '</h3><span class="kb">' + kb(p) + "</span></div><p>" + t(p.short) + "</p></a>";
+      }).join("");
+    }
+    if (fl) {
+      fl.innerHTML = cats.map(function (c) { return '<button type="button" class="chip" data-c="' + c + '" aria-pressed="' + (c === cur) + '">' + t(c === "all" ? "Все" : CAT[c]) + "</button>"; }).join("");
+      $$(".chip", fl).forEach(function (b) {
+        b.addEventListener("click", function () {
+          cur = b.getAttribute("data-c");
+          $$(".chip", fl).forEach(function (x) { x.setAttribute("aria-pressed", x === b); });
+          draw();
+        });
+      });
+    }
+    draw();
+  }
+
+  /* ---------- кейс ---------- */
+  function renderCase() {
+    var host = $("#case");
+    if (!host || !window.PROJECTS) return;
+    var id = document.body.getAttribute("data-id"), list = window.PROJECTS;
+    var i = list.map(function (x) { return x.id; }).indexOf(id);
+    if (i < 0) return;
+    var p = list[i], prev = list[(i + list.length - 1) % list.length], next = list[(i + 1) % list.length];
+    document.title = t(p.title) + " — " + t("Кейс") + " — GwebStudio";
+    host.innerHTML =
+      '<div class="wrap"><div class="case-head"><nav class="crumbs" aria-label="breadcrumb"><a href="/">' + t("Главная") + "</a><i>/</i><a href=\"/portfolio\">" + t("Портфолио") + "</a><i>/</i><span>" + t(p.title) + "</span></nav>" +
+      "<h1>" + t(p.title) + '</h1><p class="lead">' + t(p.short) + "</p></div>" +
+      '<div class="case-layout"><aside class="passport"><h2>' + t("Паспорт проекта") + "</h2><dl>" +
+      "<div><dt>" + t("Тип") + "</dt><dd>" + t(p.type) + "</dd></div>" +
+      "<div><dt>" + t("Направление") + "</dt><dd>" + t(CAT[p.cat] || p.cat) + "</dd></div>" +
+      "<div><dt>" + t("Вес первой загрузки") + '</dt><dd class="num">' + kb(p) + "</dd></div>" +
+      "<div><dt>" + t("Запросов") + '</dt><dd class="num">' + p.spec.req + "</dd></div>" +
+      "<div><dt>" + t("Стек") + "</dt><dd>" + p.stack.join(", ") + "</dd></div>" +
+      "<div><dt>" + t("Адаптив") + "</dt><dd>" + t("Телефон, планшет, компьютер") + "</dd></div></dl></aside>" +
+      '<div class="case-main"><div id="case-device"></div>' +
+      '<div class="case-text"><div><h2>' + t("О проекте") + "</h2><p>" + t(p.desc) + '</p></div><div><h2>' + t("Что внутри") + '</h2><ul class="pts">' + p.points.map(function (x) { return "<li>" + t(x) + "</li>"; }).join("") + "</ul></div></div></div></div></div>" +
+      '<div class="wrap"><nav class="case-nav" aria-label="' + t("Другие проекты") + '"><a href="/work/' + prev.id + '"><span>' + t("Предыдущий проект") + "</span><b>" + t(prev.title) + '</b></a><a href="/work/' + next.id + '"><span>' + t("Следующий проект") + "</span><b>" + t(next.title) + "</b></a></nav></div>";
+    var dv = $("#case-device");
+    if (p.demo) buildDevice(dv, [p], p.id, false);
+    else dv.innerHTML = '<div class="case-cover"><img src="/' + (p.hero || p.img) + '" alt="' + t(p.title) + '"></div>';
   }
 
   /* ---------- запуск ---------- */
   buildLayout();
-  initMenu();
-  initTransitions();
-  renderServices();
+  initHome();
   renderWorks();
+  renderServices();
+  renderPortfolio();
   renderCase();
-  renderTicker();
+  initProcess();
   initFaq();
-  splitWords();
-  // небольшая пауза, чтобы первая анимация успела проиграться после загрузки шрифтов
-  var intro = document.querySelector(".intro");
-  var wait = intro ? (window.matchMedia("(max-width: 680px)").matches ? 900 : 1250) : 120;
-  if (intro) {
-    intro.addEventListener("animationend", function (e) { if (e.animationName === "introOut") intro.remove(); });
-    setTimeout(function () { if (intro.parentNode) intro.remove(); }, 4000);
-  }
-  var started = false;
-  function startReveal() { if (started) return; started = true; setTimeout(initReveal, wait); }
-  window.addEventListener("load", startReveal);
-  if (document.readyState === "complete") startReveal();
-
-  /* мягкая прокрутка колёсиком, лёгкое скольжение (только мышь/трекпад, на телефоне родная) */
-  (function () {
-    var target = window.scrollY, cur = target, raf = 0;
-    function max() { return document.documentElement.scrollHeight - window.innerHeight; }
-    function jump(y) { window.scrollTo({ top: y, left: 0, behavior: "instant" }); }
-    function tick() {
-      var d = target - cur;
-      if (Math.abs(d) < 0.4) { cur = target; jump(cur); raf = 0; return; }
-      cur += d * 0.065;
-      jump(cur);
-      raf = requestAnimationFrame(tick);
-    }
-    window.addEventListener("wheel", function (e) {
-      if (e.ctrlKey || e.defaultPrevented || document.body.classList.contains("menu-open")) return;
-      if (e.target.closest && e.target.closest("textarea, input, select, [data-native-scroll]")) return;
-      e.preventDefault();
-      if (!raf) { cur = window.scrollY; target = cur; }
-      var dy = e.deltaMode === 1 ? e.deltaY * 32 : e.deltaMode === 2 ? e.deltaY * window.innerHeight : e.deltaY;
-      target = Math.max(0, Math.min(max(), target + dy * 0.8));
-      if (!raf) raf = requestAnimationFrame(tick);
-    }, { passive: false });
-    // клавиши, якоря и перетаскивание ползунка двигают страницу сами: синхронизируемся
-    window.addEventListener("scroll", function () {
-      if (!raf) { cur = target = window.scrollY; }
-      else if (Math.abs(window.scrollY - cur) > 60) { cancelAnimationFrame(raf); raf = 0; cur = target = window.scrollY; }
-    }, { passive: true });
-  })();
-
-  /* карточки проектов: наклоняются за курсором, на телефоне вращаются от свайпа вбок */
-  (function () {
-    var SEL = ".sc-pic", cur = null, st = null, moved = 0, raf = 0;
-    function cover(el) { return el.querySelector(".cover"); }
-    function apply(c, rx, ry, gx, gy, k) {
-      c.style.transform = "perspective(900px) rotateX(" + rx.toFixed(2) + "deg) rotateY(" + ry.toFixed(2) + "deg) scale(" + (1 + k * 0.01).toFixed(3) + ")";
-      c.style.setProperty("--gx", gx + "%"); c.style.setProperty("--gy", gy + "%");
-    }
-    function reset(c) {
-      if (!c) return;
-      c.classList.remove("tilting"); c.classList.add("tilt-back");
-      c.style.transform = ""; c.style.removeProperty("--gx"); c.style.removeProperty("--gy");
-    }
-    function move(c, e, el, drag) {
-      var r = c.getBoundingClientRect();
-      var px = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)), py = Math.max(0, Math.min(1, (e.clientY - r.top) / r.height));
-      var max = 5;
-      if (drag) max *= 1.6;
-      c.classList.remove("tilt-back"); c.classList.add("tilting");
-      apply(c, (0.5 - py) * max, (px - 0.5) * max * 1.6, Math.round(px * 100), Math.round(py * 100), 1);
-    }
-    document.addEventListener("pointermove", function (e) {
-      if (st && st.id === e.pointerId) {
-        moved = Math.max(moved, Math.abs(e.clientX - st.x) + Math.abs(e.clientY - st.y));
-        if (e.pointerType === "touch") { if (Math.abs(e.clientX - st.x) < 4) return; }
-        move(st.c, e, st.el, true); return;
-      }
-      if (e.pointerType !== "mouse") return;
-      var el = e.target.closest && e.target.closest(SEL);
-      if (!el) { if (cur) { reset(cover(cur)); cur = null; } return; }
-      if (cur && cur !== el) reset(cover(cur));
-      cur = el; var c = cover(el); if (c) move(c, e, el, false);
-    }, { passive: true });
-    document.addEventListener("pointerdown", function (e) {
-      var el = e.target.closest && e.target.closest(SEL);
-      if (!el || (e.pointerType === "mouse" && e.button !== 0)) return;
-      var c = cover(el); if (!c) return;
-      st = { id: e.pointerId, x: e.clientX, y: e.clientY, el: el, c: c }; moved = 0;
-    }, { passive: true });
-    function up(e) {
-      if (!st || st.id !== e.pointerId) return;
-      var c = st.c; st = null;
-      if (e.pointerType === "mouse" && cur) { return; }
-      reset(c);
-    }
-    document.addEventListener("pointerup", up, { passive: true });
-    document.addEventListener("pointercancel", up, { passive: true });
-    document.addEventListener("click", function (e) {
-      if (moved > 8 && e.target.closest && e.target.closest(SEL)) { e.preventDefault(); e.stopPropagation(); }
-      moved = 0;
-    }, true);
-    document.addEventListener("dragstart", function (e) { if (e.target.closest && e.target.closest(SEL)) e.preventDefault(); });
-  })();
-})();
-
-// этапы: раскрывается одна карточка, по наведению или нажатию
-(function () {
-  var box = document.querySelector(".steps");
-  if (!box) return;
-  var items = [].slice.call(box.querySelectorAll(".step"));
-  function on(el) { items.forEach(function (s) { s.classList.toggle("on", s === el); }); }
-  items.forEach(function (s) {
-    s.addEventListener("mouseenter", function () { if (matchMedia("(hover: hover)").matches) on(s); });
-    s.addEventListener("click", function () { on(s); });
-  });
-  on(items[0]);
 })();
