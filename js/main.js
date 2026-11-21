@@ -76,7 +76,6 @@
         '<div class="ftr-col"><h4>' + t("Связаться") + "</h4>" + cons + "</div></div>" +
         '<div class="ftr-bot"><span>© <span id="y"></span> GwebStudio. ' + t("Создано") + ' <a href="' + IG + '" target="_blank" rel="noopener">@bauyrzhanov_12_</a></span>' +
         '<a href="/privacy">' + t("Политика конфиденциальности") + "</a></div>" +
-        '<a class="big-logo" href="/" aria-hidden="true" tabindex="-1">' + LOGO + "<b></b></a>" +
         "</div></footer>";
       var y = document.getElementById("y");
       if (y) y.textContent = new Date().getFullYear();
