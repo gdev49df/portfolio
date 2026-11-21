@@ -817,3 +817,4 @@ a.work { color: inherit; }
 .big-logo i { color: transparent; background: linear-gradient(180deg, rgba(167, 139, 250, .5), rgba(167, 139, 250, 0) 85%); -webkit-background-clip: text; background-clip: text; }
 .big-logo b { background: linear-gradient(180deg, rgba(167, 139, 250, .5), rgba(167, 139, 250, 0)); }
 @media (max-width: 900px) { .ftr-grid { grid-template-columns: 1fr 1fr; } .ftr-brand { grid-column: 1 / -1; } }
+.big-logo { width: fit-content; max-width: 100%; margin-inline: auto; font-size: min(14vw, 250px); padding-right: .04em; }
