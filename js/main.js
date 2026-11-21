@@ -491,3 +491,37 @@
   });
   on(items[0]);
 })();
+
+// старый телевизор на первом экране: шум, линии, мерцание
+(function () {
+  var hero = document.querySelector(".hero");
+  if (!hero) return;
+  var crt = document.createElement("div");
+  crt.className = "crt";
+  crt.setAttribute("aria-hidden", "true");
+  crt.innerHTML = '<canvas class="crt-noise"></canvas><i class="crt-scan"></i><i class="crt-bar"></i><i class="crt-vig"></i>';
+  hero.insertBefore(crt, hero.firstChild);
+  hero.classList.add("has-crt");
+  var cv = crt.querySelector("canvas"), ctx = cv.getContext("2d");
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var W = cv.width = 320, H = cv.height = 180, img = ctx.createImageData(W, H), d = img.data;
+  function frame() {
+    for (var i = 0; i < d.length; i += 4) { var v = Math.random() * 255; d[i] = d[i + 1] = d[i + 2] = v; d[i + 3] = 255; }
+    ctx.putImageData(img, 0, 0);
+  }
+  frame();
+  if (reduce) return;
+  var vis = true, last = 0;
+  new IntersectionObserver(function (e) { vis = e[0].isIntersecting; }, { threshold: 0 }).observe(hero);
+  (function loop(t) {
+    if (vis && t - last > 70) { last = t; frame(); }
+    requestAnimationFrame(loop);
+  })(0);
+  // редкий сбой картинки
+  (function glitch() {
+    setTimeout(function () {
+      if (vis) { hero.classList.add("glitch"); setTimeout(function () { hero.classList.remove("glitch"); }, 260); }
+      glitch();
+    }, 4200 + Math.random() * 5200);
+  })();
+})();
