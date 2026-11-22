@@ -489,6 +489,15 @@
     "Делаю сайты и PWA-приложения для бизнеса в Казахстане и России. Они не только хорошо выглядят, но и работают на результат: показывают, чем вы полезны, вызывают доверие и превращают посетителей в заявки.": ["Қазақстан мен Ресейдегі бизнеске сайттар мен PWA-қосымшалар жасаймын. Олар тек әдемі көрінбейді, нәтиже береді: сізге не үшін керек екенін көрсетеді, сенім тудырады және келушілерді өтінімге айналдырады.", "I build websites and PWA apps for businesses in Kazakhstan and Russia. They do not just look good, they deliver results: they show how you are useful, build trust and turn visitors into leads."],
     "Сайты и PWA-приложения. Нажмите на проект, чтобы открыть подробный кейс.": ["Сайттар мен PWA-қосымшалар. Толық кейсті ашу үшін жобаны басыңыз.", "Websites and PWA apps. Click a project to open the full case."],
     "Сайты и PWA-приложения. Нажмите на любую работу, чтобы открыть кейс с описанием, технологиями и ссылками.": ["Сайттар мен PWA-қосымшалар. Сипаттамасы, технологиялары және сілтемелері бар кейсті ашу үшін кез келген жұмысты басыңыз.", "Websites and PWA apps. Click any work to open a case with a description, technologies and links."],
+    "Для чего сайт или приложение": ["Сайт немесе қосымша не үшін", "What is the site or app for"],
+    "Например: барбершоп, нужна запись клиентов и заявки в WhatsApp": ["Мысалы: барбершоп, клиенттерді жазу және WhatsApp-қа өтінімдер керек", "For example: a barbershop, needs client booking and WhatsApp requests"],
+    "Что добавить": ["Не қосу керек", "What to add"],
+    "Уточнить с ИИ": ["ЖИ-мен нақтылау", "Refine with AI"],
+    "Выберите тип и дополнения, и здесь появится ориентир по цене и срокам.": ["Түрін және қосымшаларды таңдаңыз, мұнда баға мен мерзім бағдары шығады.", "Pick a type and extras and a price and time estimate will appear here."],
+    "Опишите, для чего нужен проект, чтобы уточнить расчёт с ИИ.": ["Есепті ЖИ-мен нақтылау үшін жобаның не үшін керегін сипаттаңыз.", "Describe what the project is for to refine the estimate with AI."],
+    "Не получилось уточнить с ИИ. Выберите тип, и я посчитаю по прайсу.": ["ЖИ-мен нақтылау болмады. Түрін таңдаңыз, мен прайс бойынша есептеймін.", "Couldn't refine with AI. Pick a type and I'll calculate from the price list."],
+    "PWA-версия сайта": ["Сайттың PWA-нұсқасы", "PWA version of the site"],
+    "Выберите тип и дополнения, цена посчитается сразу. Опишите проект словами, и ИИ уточнит расчёт. Точную цену назову после обсуждения.": ["Түрін және қосымшаларды таңдаңыз, баға бірден есептеледі. Жобаны сөзбен сипаттаңыз, ЖИ есепті нақтылайды. Нақты бағаны талқылаудан кейін айтамын.", "Pick a type and extras and the price is calculated instantly. Describe the project in words and AI will refine the estimate. I'll give the exact price after we talk."],
     "Все работы": ["Барлық жұмыстар", "All work"],
 
     /* ---------- обо мне ---------- */
