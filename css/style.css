@@ -883,3 +883,4 @@ a.work { color: inherit; }
 @media (max-width: 680px) { #est-ai { width: 100%; } }
 .tags button:disabled { opacity: .3; cursor: not-allowed; }
 .tags button:disabled:hover { color: var(--muted); border-color: var(--line); }
+.est-list small { display: block; margin-top: 4px; font-size: 13px; line-height: 1.4; opacity: .7; }

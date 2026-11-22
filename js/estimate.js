@@ -19,7 +19,7 @@
     { id: "shop", name: "Интернет-магазин", price: 310, days: 14 }
   ];
   var PWA = { name: "PWA-приложение", price: 130, days: 7 };
-  var PWA_SITE = { name: "PWA-версия сайта", price: 60, days: 3 }; // установка и офлайн для сайта
+  var PWA_SITE = { name: "PWA-версия сайта", price: 50, days: 3, why: "Манифест, иконки, офлайн-режим через Service Worker и установка на экран телефона" }; // установка и офлайн для сайта
   var ADD = [
     { id: "pay", name: "Онлайн-оплата", price: 80, days: 3 },
     { id: "book", name: "Онлайн-запись", price: 60, days: 2 },
@@ -39,7 +39,7 @@
     var type = TYPES.filter(function (x) { return x.id === st.type; })[0];
     if (!type && !st.pwa) return null;
     var items = [], sum = 0, days = 0;
-    function put(x) { items.push({ name: t(x.name), price: x.price }); sum += x.price; days += x.days; }
+    function put(x) { items.push({ name: t(x.name), price: x.price, why: x.why ? t(x.why) : "" }); sum += x.price; days += x.days; }
     if (type) put(type);
     if (st.pwa) put(type ? PWA_SITE : PWA);
     ADD.forEach(function (a) { if (st.add[a.id]) put(a); });
@@ -73,7 +73,7 @@
       '<div class="est-act"><a class="btn light" target="_blank" rel="noopener" href="' + TG + "?text=" + encodeURIComponent(msg) + '">' + t("Обсудить в Telegram") + '</a><a class="btn ghost" href="/quiz">' + t("Пройти квиз") + "</a></div>";
     out.querySelector(".est-top span:last-child").textContent = d.src === "ai" ? t("Расчёт ИИ") : t("Расчёт по прайсу") + (d.why ? " · " + d.why : "");
     var sp = out.querySelectorAll(".est-list li span"), pr = out.querySelectorAll(".est-list li b");
-    d.items.forEach(function (i, k) { sp[k].textContent = i.name; pr[k].textContent = money(i.price); }); // текст ИИ вставляем как текст
+    d.items.forEach(function (i, k) { sp[k].textContent = i.name; if (i.why) { var w = document.createElement("small"); w.textContent = i.why; sp[k].appendChild(w); } pr[k].textContent = money(i.price); }); // текст ИИ вставляем как текст
     out.querySelector(".est-note").textContent = (d.note ? d.note + " " : "") + t("Это ориентир, не оферта. Точную цену назову после обсуждения.");
   }
 

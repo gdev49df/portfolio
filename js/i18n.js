@@ -501,6 +501,7 @@
     "Нужно PWA-приложение": ["PWA-қосымша керек", "Needs the PWA app"],
     "Недоступно для сайта-визитки": ["Визитка сайт үшін қолжетімсіз", "Not available for a business card site"],
     "Недоступно для лендинга": ["Лендинг үшін қолжетімсіз", "Not available for a landing page"],
+    "Манифест, иконки, офлайн-режим через Service Worker и установка на экран телефона": ["Манифест, белгішелер, Service Worker арқылы офлайн-режим және телефон экранына орнату", "Manifest, icons, offline mode via a Service Worker and installing to the phone home screen"],
     "Все работы": ["Барлық жұмыстар", "All work"],
 
     /* ---------- обо мне ---------- */
