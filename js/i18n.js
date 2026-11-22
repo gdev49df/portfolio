@@ -498,6 +498,9 @@
     "Не получилось уточнить с ИИ. Выберите тип, и я посчитаю по прайсу.": ["ЖИ-мен нақтылау болмады. Түрін таңдаңыз, мен прайс бойынша есептеймін.", "Couldn't refine with AI. Pick a type and I'll calculate from the price list."],
     "PWA-версия сайта": ["Сайттың PWA-нұсқасы", "PWA version of the site"],
     "Выберите тип и дополнения, цена посчитается сразу. Опишите проект словами, и ИИ уточнит расчёт. Точную цену назову после обсуждения.": ["Түрін және қосымшаларды таңдаңыз, баға бірден есептеледі. Жобаны сөзбен сипаттаңыз, ЖИ есепті нақтылайды. Нақты бағаны талқылаудан кейін айтамын.", "Pick a type and extras and the price is calculated instantly. Describe the project in words and AI will refine the estimate. I'll give the exact price after we talk."],
+    "Нужно PWA-приложение": ["PWA-қосымша керек", "Needs the PWA app"],
+    "Недоступно для сайта-визитки": ["Визитка сайт үшін қолжетімсіз", "Not available for a business card site"],
+    "Недоступно для лендинга": ["Лендинг үшін қолжетімсіз", "Not available for a landing page"],
     "Все работы": ["Барлық жұмыстар", "All work"],
 
     /* ---------- обо мне ---------- */

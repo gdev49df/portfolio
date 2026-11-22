@@ -77,7 +77,22 @@
     out.querySelector(".est-note").textContent = (d.note ? d.note + " " : "") + t("Это ориентир, не оферта. Точную цену назову после обсуждения.");
   }
 
-  function refresh() { ai = null; show(calc()); }
+  // что с чем несовместимо: недоступное затемняем, а уже выбранное снимаем
+  function blocked(id) {
+    if (id === "push" && !st.pwa) return "Нужно PWA-приложение";
+    if (st.type === "card" && ["pay", "acc", "adm", "ai"].indexOf(id) > -1) return "Недоступно для сайта-визитки";
+    if (st.type === "land" && ["acc", "adm"].indexOf(id) > -1) return "Недоступно для лендинга";
+    return "";
+  }
+  function applyRules() {
+    Array.prototype.forEach.call(host.querySelectorAll("#est-add button"), function (b) {
+      var k = b.getAttribute("data-k"), why = blocked(k);
+      if (why && st.add[k]) { st.add[k] = false; b.setAttribute("aria-pressed", "false"); }
+      b.disabled = !!why;
+      if (why) b.title = t(why); else b.removeAttribute("title");
+    });
+  }
+  function refresh() { ai = null; applyRules(); show(calc()); }
 
   host.addEventListener("click", function (e) {
     var b = e.target.closest(".tags button");
@@ -121,5 +136,6 @@
     }).then(function () { aiBtn.disabled = false; });
   });
 
+  applyRules();
   show(null);
 })();
