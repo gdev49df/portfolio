@@ -742,14 +742,6 @@ a.work { color: inherit; }
 @keyframes band { to { transform: translateX(-100%); } }
 
 /* преимущества */
-.adv { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-.adv-card { position: relative; overflow: hidden; padding: 30px 28px 34px; border: 1px solid var(--line); border-radius: var(--r); background: var(--card); transition: border-color .6s, transform .8s var(--ease); }
-.adv-card::after { content: ""; position: absolute; inset: -40% -20% auto auto; width: 70%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(167,139,250,.22), transparent 65%); opacity: 0; transition: opacity .9s var(--ease); pointer-events: none; }
-.adv-card:hover { border-color: var(--line2); }
-.adv-card:hover::after { opacity: 1; }
-.adv-ic { display: grid; place-items: center; width: 48px; height: 48px; margin-bottom: 56px; border-radius: 14px; color: var(--accent); background: rgba(167,139,250,.1); border: 1px solid rgba(167,139,250,.22); }
-.adv-card h3 { font-size: 20px; margin-bottom: 10px; }
-.adv-card p { color: var(--muted); font-size: 15px; line-height: 1.55; max-width: 32ch; }
 
 /* принципы */
 .prin { border-top: 1px solid var(--line); }
@@ -759,8 +751,6 @@ a.work { color: inherit; }
 .prin-row p { color: var(--muted); font-size: 15px; line-height: 1.55; max-width: 46ch; }
 .prin-row:hover { background: linear-gradient(90deg, rgba(167,139,250,.07), transparent 70%); padding-left: 22px; }
 @media (max-width: 900px) {
-  .adv { grid-template-columns: 1fr; }
-  .adv-ic { margin-bottom: 30px; }
   .prin-row { grid-template-columns: 1fr; padding: 24px 0; }
   .prin-row:hover { padding-left: 0; }
 }
@@ -784,7 +774,6 @@ a.work { color: inherit; }
 
 /* принципы и преимущества: наведение (перебивает transition от data-reveal) */
 .js .prin-row { position: relative; transition: opacity var(--slow) var(--ease) var(--d, 0s), filter var(--slow) var(--ease) var(--d, 0s), transform var(--slow) var(--ease) var(--d, 0s), background .5s, padding .6s var(--ease); }
-.js .adv-card { transition: opacity var(--slow) var(--ease) var(--d, 0s), filter var(--slow) var(--ease) var(--d, 0s), transform var(--slow) var(--ease) var(--d, 0s), border-color .5s; }
 .prin-row::before { content: ""; position: absolute; left: 0; top: -1px; height: 1px; width: 0; background: var(--accent); transition: width .8s var(--ease); }
 .prin-row:hover::before { width: 100%; }
 .prin-row b, .prin-row p { transition: transform .6s var(--ease), color .5s; }
@@ -792,7 +781,6 @@ a.work { color: inherit; }
 .prin-row:hover h3 { transform: translateX(14px); }
 .prin-row:hover p { color: var(--text); transform: translateX(6px); }
 .prin-row:hover b { transform: translateX(-6px); }
-.js .adv-card:hover { transform: translateY(-6px); }
 @media (max-width: 900px) { .prin-row:hover h3, .prin-row:hover p, .prin-row:hover b { transform: none; } }
 @media (min-width: 901px) {
   .step.on h3, .step.on p { max-width: 520px; }
