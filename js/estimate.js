@@ -72,7 +72,7 @@
 
   function row(i) {
     var li = document.createElement("li");
-    li.innerHTML = '<div class="row"><div class="rin"><span></span><b></b></div></div>';
+    li.innerHTML = '<div class="e-row"><div class="e-in"><span></span><b></b></div></div>';
     li.setAttribute("data-n", i.name);
     if (calm) li.className = "off";
     return li;

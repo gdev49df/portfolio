@@ -886,8 +886,8 @@ a.work { color: inherit; }
 
 .est-list li { display: grid; grid-template-rows: 1fr; opacity: 1; transition: grid-template-rows .38s cubic-bezier(.2,.7,.2,1), opacity .3s ease; }
 .est-list li.off { grid-template-rows: 0fr; opacity: 0; }
-.est-list .row { min-height: 0; overflow: hidden; }
-.est-list .rin { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 15px; }
+.est-list .e-row { min-height: 0; overflow: hidden; }
+.est-list .e-in { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 15px; }
 .est-out { transition: opacity .18s ease, transform .18s ease; }
 .est-out.fade { opacity: 0; transform: translateY(6px); }
 .est-out > * { animation: estin .4s cubic-bezier(.2,.7,.2,1) both; }
