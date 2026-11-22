@@ -13,7 +13,7 @@
   var BASE = [
     { re: /магазин|shop|store/i, name: "Интернет-магазин", price: 310, days: 14 },
     { re: /pwa|приложен|app\b|кабинет|офлайн|без сети|установ/i, name: "PWA-приложение", price: 130, days: 7 },
-    { re: /многостранич|корпоратив|компани|клиник|школ|студи/i, name: "Многостраничный сайт", price: 190, days: 7 },
+    { re: /много\s*страни[цч]|несколько\s+страниц|корпоратив|(^|[^\d])([2-9]|[1-9]\d)\s*(страниц|стр\b|раздел)/i, name: "Многостраничный сайт", price: 190, days: 7 },
     { re: /визитк/i, name: "Сайт-визитка", price: 70, days: 4 },
     { re: /./, name: "Одностраничный лендинг", price: 80, days: 5 }
   ];
@@ -29,18 +29,19 @@
     { re: /seo|поисков/i, name: "SEO-основы", price: 25, days: 1 }
   ];
 
-  function local(text) {
+  function local(text, why) {
+    text = text.toLowerCase().replace(/ё/g, "е");
     var b = BASE.filter(function (x) { return x.re.test(text); })[0];
     var items = [{ name: t(b.name), price: b.price }], sum = b.price, days = b.days;
     ADD.forEach(function (a) { if (a.re.test(text)) { items.push({ name: t(a.name), price: a.price }); sum += a.price; days += a.days; } });
-    return { min: sum, max: Math.round(sum * 1.3 / 10) * 10, dmin: days, dmax: Math.ceil(days * 1.4), items: items, note: t("Цена зависит от объёма текстов, дизайна и числа страниц."), src: "price" };
+    return { min: sum, max: Math.round(sum * 1.3 / 10) * 10, dmin: days, dmax: Math.ceil(days * 1.4), items: items, note: t("Цена зависит от объёма текстов, дизайна и числа страниц."), src: "price", why: why };
   }
 
   function ask(text) {
     var ctl = window.AbortController ? new AbortController() : null;
     var timer = setTimeout(function () { if (ctl) ctl.abort(); }, 9000);
     return fetch(API, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ text: text, lang: lang }), signal: ctl ? ctl.signal : undefined })
-      .then(function (r) { clearTimeout(timer); if (!r.ok) throw new Error("http " + r.status); return r.json(); })
+      .then(function (r) { clearTimeout(timer); if (!r.ok) return r.json().catch(function () { return {}; }).then(function (j) { throw new Error("http " + r.status + (j.error ? " " + j.error : "")); }); return r.json(); })
       .then(function (d) { if (d.error === "off_topic") return d; if (d.error || !d.min) throw new Error("bad"); d.src = "ai"; return d; });
   }
 
@@ -60,7 +61,7 @@
     var unit = lang === "kk" ? "күн" : lang === "en" ? "days" : "дней";
     var msg = t("Здравствуйте! Хочу заказать:") + " " + text + " (" + t("ориентир") + " " + money(d.min) + "–" + money(d.max) + ")";
     out.innerHTML =
-      '<div class="est-top"><span>' + t("Ориентир") + "</span><span>" + (d.src === "ai" ? t("Расчёт ИИ") : t("Расчёт по прайсу")) + "</span></div>" +
+      '<div class="est-top"><span>' + t("Ориентир") + "</span><span>" + (d.src === "ai" ? t("Расчёт ИИ") : t("Расчёт по прайсу") + (d.why ? " · " + d.why : "")) + "</span></div>" +
       "<div><div class=\"est-sum\">" + money(d.min) + " – " + money(d.max) + '</div><p class="est-days">' + t("Срок") + ": " + d.dmin + "–" + d.dmax + " " + unit + "</p></div>" +
       '<ul class="est-list">' + d.items.map(function (i) { return "<li><span></span><b>" + money(i.price) + "</b></li>"; }).join("") + "</ul>" +
       '<p class="est-note"></p>' +
@@ -75,6 +76,6 @@
     if (text.length < 8) { out.innerHTML = '<p class="est-empty">' + t("Опишите проект хотя бы в нескольких словах.") + "</p>"; ta.focus(); return; }
     go.disabled = true;
     out.innerHTML = '<div class="est-load"><i></i>' + t("Считаю…") + '</div><div class="est-sk" aria-hidden="true"><b></b><s></s><s></s><s></s></div>';
-    ask(text).catch(function () { return local(text); }).then(function (d) { show(d, text); go.disabled = false; });
+    ask(text).catch(function (e) { if (window.console) console.warn("estimate: ИИ недоступен,", e && e.message); return local(text, (e && e.message) || "error"); }).then(function (d) { show(d, text); go.disabled = false; });
   });
 })();

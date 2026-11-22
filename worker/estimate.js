@@ -67,6 +67,8 @@ export default {
     const lang = ["ru", "kk", "en"].includes(body.lang) ? body.lang : "ru";
     if (text.length < 8) return json({ error: "short" }, 400);
 
+    if (!env.GROQ_API_KEY) return json({ error: "no_key" }, 500);
+    let last = 0;
     for (const model of MODELS) {
       try {
         const r = await fetch(GROQ, {
@@ -78,13 +80,13 @@ export default {
             messages: [{ role: "system", content: SYSTEM }, { role: "user", content: "lang: " + lang + "\nописание проекта:\n" + text }],
           }),
         });
-        if (!r.ok) continue;
+        if (!r.ok) { last = r.status; continue; }
         const d = await r.json();
         const o = JSON.parse(d.choices[0].message.content);
         if (o.error) return json({ error: "off_topic" });
         return json(clean(o));
       } catch (e) { /* пробуем следующую модель */ }
     }
-    return json({ error: "ai_down" }, 502);
+    return json({ error: "ai_down_" + last }, 502);
   },
 };
