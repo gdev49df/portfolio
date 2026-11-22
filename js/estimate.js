@@ -60,21 +60,94 @@
 
   function money(n) { return "$" + n; }
 
+  var calm = !(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
+  var shown = null, swapT = 0, tweenId = 0;
+
+  function swap(html, then) { // плавная смена целого блока: гасим, меняем, показываем
+    clearTimeout(swapT);
+    if (!calm) { out.innerHTML = html; if (then) then(); return; }
+    out.classList.add("fade");
+    swapT = setTimeout(function () { out.innerHTML = html; if (then) then(); out.classList.remove("fade"); }, out.children.length ? 180 : 0);
+  }
+
+  function row(i) {
+    var li = document.createElement("li");
+    li.innerHTML = '<div class="row"><div class="rin"><span></span><b></b></div></div>';
+    li.setAttribute("data-n", i.name);
+    if (calm) li.className = "off";
+    return li;
+  }
+  function fillRow(li, i) {
+    var sp = li.querySelector("span"); sp.textContent = i.name;
+    if (i.why) { var w = document.createElement("small"); w.textContent = i.why; sp.appendChild(w); }
+    li.querySelector("b").textContent = money(i.price);
+  }
+  function syncList(ul, items) {
+    var keep = {};
+    items.forEach(function (i) { keep[i.name] = true; });
+    Array.prototype.forEach.call(ul.children, function (li) {
+      if (!keep[li.getAttribute("data-n")] && !li.classList.contains("leaving")) {
+        if (!calm) { li.remove(); return; }
+        li.classList.add("leaving", "off");
+        setTimeout(function () { li.remove(); }, 420);
+      }
+    });
+    var prev = null;
+    items.forEach(function (i) {
+      var li = null;
+      Array.prototype.forEach.call(ul.children, function (x) { if (x.getAttribute("data-n") === i.name && !x.classList.contains("leaving")) li = x; });
+      var fresh = !li;
+      if (fresh) li = row(i);
+      fillRow(li, i);
+      var at = prev ? prev.nextSibling : ul.firstChild;
+      while (at && at.classList && at.classList.contains("leaving")) at = at.nextSibling;
+      if (li !== at) ul.insertBefore(li, at);
+      if (fresh && calm) { void li.offsetHeight; requestAnimationFrame(function () { li.classList.remove("off"); }); }
+      prev = li;
+    });
+  }
+
   function show(d) {
-    if (!d) { out.innerHTML = '<p class="est-empty">' + t("Выберите тип и дополнения, и здесь появится ориентир по цене и срокам.") + "</p>"; return; }
+    if (!d) {
+      shown = null;
+      swap('<p class="est-empty">' + t("Выберите тип и дополнения, и здесь появится ориентир по цене и срокам.") + "</p>");
+      return;
+    }
     var unit = lang === "kk" ? "күн" : lang === "en" ? "days" : "дней";
     var tags = (st.type ? [t(TYPES.filter(function (x) { return x.id === st.type; })[0].name)] : []).concat(st.pwa ? [t(PWA.name)] : [], ADD.filter(function (a) { return st.add[a.id]; }).map(function (a) { return t(a.name); }));
     var msg = t("Здравствуйте! Хочу заказать:") + " " + (ta.value.trim() ? ta.value.trim() + ". " : "") + tags.join(", ") + " (" + t("ориентир") + " " + money(d.min) + "–" + money(d.max) + ")";
-    out.innerHTML =
+    var label = d.src === "ai" ? t("Расчёт ИИ") : t("Расчёт по прайсу") + (d.why ? " · " + d.why : "");
+    var note = (d.note ? d.note + " " : "") + t("Это ориентир, не оферта. Точную цену назову после обсуждения.");
+    var href = TG + "?text=" + encodeURIComponent(msg);
+
+    function fill(from) {
+      var f = from || { min: d.min, max: d.max };
+      out.querySelector(".est-top span:last-child").textContent = label;
+      var sum = out.querySelector(".est-sum"), a = f.min, b = f.max;
+      if (from) {
+        sum.dataset.tw = "1"; var id = ++tweenId, t0 = performance.now();
+        (function step(now) {
+          if (id !== tweenId) return;
+          var k = calm ? Math.min(1, (now - t0) / 380) : 1, e = 1 - Math.pow(1 - k, 3);
+          sum.textContent = money(Math.round(a + (d.min - a) * e)) + " – " + money(Math.round(b + (d.max - b) * e));
+          if (k < 1) requestAnimationFrame(step);
+        })(t0);
+      } else sum.textContent = money(d.min) + " – " + money(d.max);
+      out.querySelector(".est-days").textContent = t("Срок") + ": " + d.dmin + "–" + d.dmax + " " + unit;
+      out.querySelector(".est-note").textContent = note;
+      out.querySelector(".est-act .btn.light").setAttribute("href", href);
+      syncList(out.querySelector(".est-list"), d.items);
+    }
+
+    if (shown && out.querySelector(".est-list")) { var from = shown; shown = { min: d.min, max: d.max }; fill(from); return; }
+    shown = { min: d.min, max: d.max };
+    swap(
       '<div class="est-top"><span>' + t("Ориентир") + "</span><span></span></div>" +
-      '<div><div class="est-sum">' + money(d.min) + " – " + money(d.max) + '</div><p class="est-days">' + t("Срок") + ": " + d.dmin + "–" + d.dmax + " " + unit + "</p></div>" +
-      '<ul class="est-list">' + d.items.map(function () { return "<li><span></span><b></b></li>"; }).join("") + "</ul>" +
-      '<p class="est-note"></p>' +
-      '<div class="est-act"><a class="btn light" target="_blank" rel="noopener" href="' + TG + "?text=" + encodeURIComponent(msg) + '">' + t("Обсудить в Telegram") + '</a><a class="btn ghost" href="/quiz">' + t("Пройти квиз") + "</a></div>";
-    out.querySelector(".est-top span:last-child").textContent = d.src === "ai" ? t("Расчёт ИИ") : t("Расчёт по прайсу") + (d.why ? " · " + d.why : "");
-    var sp = out.querySelectorAll(".est-list li span"), pr = out.querySelectorAll(".est-list li b");
-    d.items.forEach(function (i, k) { sp[k].textContent = i.name; if (i.why) { var w = document.createElement("small"); w.textContent = i.why; sp[k].appendChild(w); } pr[k].textContent = money(i.price); }); // текст ИИ вставляем как текст
-    out.querySelector(".est-note").textContent = (d.note ? d.note + " " : "") + t("Это ориентир, не оферта. Точную цену назову после обсуждения.");
+      '<div><div class="est-sum"></div><p class="est-days"></p></div>' +
+      '<ul class="est-list"></ul><p class="est-note"></p>' +
+      '<div class="est-act"><a class="btn light" target="_blank" rel="noopener">' + t("Обсудить в Telegram") + '</a><a class="btn ghost" href="/quiz">' + t("Пройти квиз") + "</a></div>",
+      function () { fill(null); }
+    );
   }
 
   // что с чем несовместимо: недоступное затемняем, а уже выбранное снимаем
