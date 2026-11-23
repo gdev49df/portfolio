@@ -53,10 +53,10 @@
     '<label for="est-t">' + t("Для чего сайт или приложение") + '</label><textarea id="est-t" maxlength="500" placeholder="' + t("Например: барбершоп, нужна запись клиентов и заявки в WhatsApp") + '"></textarea>' +
     '<p class="est-lab">' + t("Тип") + '</p><div class="tags" id="est-types">' + chips(TYPES) + '<button type="button" data-k="pwa" aria-pressed="false">' + t(PWA.name) + "</button></div>" +
     '<p class="est-lab">' + t("Что добавить") + '</p><div class="tags" id="est-add">' + chips(ADD) + "</div>" +
-    '<button class="btn ghost" type="button" id="est-ai">' + t("Уточнить с ИИ") + "</button></div>" +
+    "</div>" +
     '<div class="est-out" id="est-out" aria-live="polite"></div>';
 
-  var ta = host.querySelector("textarea"), out = host.querySelector("#est-out"), aiBtn = host.querySelector("#est-ai");
+  var ta = host.querySelector("textarea"), out = host.querySelector("#est-out");
 
   function money(n) { return "$" + n; }
 
@@ -113,7 +113,7 @@
       swap(
         '<div class="est-top"><span>' + t("Ориентир") + "</span><span>—</span></div>" +
         '<div><div class="est-sum ghost">$— – $—</div><p class="est-days">' + t("Срок") + ": —</p></div>" +
-        '<ol class="est-steps"><li>' + t("Выберите тип сайта или приложения") + "</li><li>" + t("Отметьте, что нужно добавить") + "</li><li>" + t("Опишите проект словами, и ИИ уточнит расчёт") + "</li></ol>"
+        '<ol class="est-steps"><li>' + t("Выберите тип сайта или приложения") + "</li><li>" + t("Отметьте, что нужно добавить") + "</li><li>" + t("Опишите проект словами, оно попадёт в вашу заявку") + "</li></ol>"
       );
       return;
     }
@@ -192,26 +192,6 @@
       .then(function (r) { clearTimeout(timer); if (!r.ok) return r.json().catch(function () { return {}; }).then(function (j) { throw new Error("http " + r.status + (j.error ? " " + j.error : "")); }); return r.json(); })
       .then(function (d) { if (d.error === "off_topic") return d; if (d.error || !d.min) throw new Error("bad"); d.src = "ai"; return d; });
   }
-
-  aiBtn.addEventListener("click", function () {
-    var purpose = ta.value.trim();
-    if (purpose.length < 8) { ta.focus(); out.innerHTML = '<p class="est-empty">' + t("Опишите, для чего нужен проект, чтобы уточнить расчёт с ИИ.") + "</p>"; return; }
-    var tg = [];
-    if (st.type) tg.push("тип: " + TYPES.filter(function (x) { return x.id === st.type; })[0].name);
-    if (st.pwa) tg.push("PWA-приложение");
-    ADD.forEach(function (a) { if (st.add[a.id]) tg.push(a.name); });
-    var text = purpose + (tg.length ? ". Выбрано: " + tg.join(", ") : "");
-    aiBtn.disabled = true;
-    out.innerHTML = '<div class="est-load"><i></i>' + t("Считаю…") + '</div><div class="est-sk" aria-hidden="true"><b></b><s></s><s></s><s></s></div>';
-    ask(text).then(function (d) {
-      if (d.error === "off_topic") { out.innerHTML = '<p class="est-empty">' + t("Я оцениваю только сайты и PWA-приложения. Опишите, что нужно сделать на сайте или в приложении.") + "</p>"; return; }
-      ai = d; show(d);
-    }).catch(function (e) {
-      if (window.console) console.warn("estimate: ИИ недоступен,", e && e.message);
-      var d = calc();
-      if (d) { d.why = (e && e.message) || "error"; show(d); } else out.innerHTML = '<p class="est-empty">' + t("Не получилось уточнить с ИИ. Выберите тип, и я посчитаю по прайсу.") + "</p>";
-    }).then(function () { aiBtn.disabled = false; });
-  });
 
   applyRules();
   show(null);
