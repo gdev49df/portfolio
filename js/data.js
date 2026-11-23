@@ -60,7 +60,7 @@ window.PROJECTS = [
   {
     id: "ddx-ai",
     spec: { kb: 627, req: 11 },
-    demo: { url: "https://gdev49df.github.io/ddx-ai/app/", device: "phone" },
+    demo: { url: "https://gdev49df.github.io/ddx-ai/app/", device: "laptop" },
     img: "img/ddx-ai.jpg",
     hero: "img/ddx-ai-case.jpg",
     points: ["Чат с фото, файлами, голосом и поиском по интернету", "История чатов, проекты-папки, закрепление и персонализация", "Три модели на выбор, тарифы, версия для телефона и компьютера"],
