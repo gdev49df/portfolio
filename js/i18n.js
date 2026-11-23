@@ -504,6 +504,9 @@
     "Манифест, иконки, офлайн-режим через Service Worker и установка на экран телефона": ["Манифест, белгішелер, Service Worker арқылы офлайн-режим және телефон экранына орнату", "Manifest, icons, offline mode via a Service Worker and installing to the phone home screen"],
     "Если договорились на дату — сдам в срок. Лендинг от 5 дней, многостраничный от 7.": ["Күнге келіссек — уақытында тапсырамын. Лендинг 5 күннен, көпбетті сайт 7 күннен.", "If we agree on a date, I deliver on time. A landing page from 5 days, a multi-page site from 7."],
     "Разработано": ["Әзірлеген", "Developed by"],
+    "Открыть приложение": ["Қосымшаны ашу", "Open the app"],
+    "Чат с историей и голосовым вводом": ["Тарихы және дауыспен енгізуі бар чат", "Chat with history and voice input"],
+    "Мои проекты: сайты для школы английского, стоматологии и шаурмечной, рабочее пространство Tasqly.": ["Менің жобаларым: ағылшын мектебі, стоматология және шаурмахана сайттары, Tasqly жұмыс кеңістігі.", "My projects: sites for an English school, a dental clinic and a shawarma place, and the Tasqly workspace."],
     "Все работы": ["Барлық жұмыстар", "All work"],
 
     /* ---------- обо мне ---------- */
