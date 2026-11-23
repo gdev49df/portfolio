@@ -503,6 +503,7 @@
     "Недоступно для лендинга": ["Лендинг үшін қолжетімсіз", "Not available for a landing page"],
     "Манифест, иконки, офлайн-режим через Service Worker и установка на экран телефона": ["Манифест, белгішелер, Service Worker арқылы офлайн-режим және телефон экранына орнату", "Manifest, icons, offline mode via a Service Worker and installing to the phone home screen"],
     "Если договорились на дату — сдам в срок. Лендинг от 5 дней, многостраничный от 7.": ["Күнге келіссек — уақытында тапсырамын. Лендинг 5 күннен, көпбетті сайт 7 күннен.", "If we agree on a date, I deliver on time. A landing page from 5 days, a multi-page site from 7."],
+    "Разработано": ["Әзірлеген", "Developed by"],
     "Все работы": ["Барлық жұмыстар", "All work"],
 
     /* ---------- обо мне ---------- */

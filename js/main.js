@@ -300,6 +300,7 @@
       [t("Тип проекта"), t(p.type)],
       [t("Направление"), t(CAT[p.cat] || p.cat)],
       [t("Год"), "2026"],
+      [t("Разработано"), "GwebStudio"],
       [t("Технологии"), p.stack.join(", ")]
     ];
     if (host0) facts.push([t("Ссылка"), '<a href="' + p.links[0].url + '" target="_blank" rel="noopener">' + host0 + "</a>"]);
