@@ -3,7 +3,7 @@
    Адрес воркера прописан в js/estimate.js (API). Пока воркера нет, сайт считает сам по прайсу. */
 
 const GROQ = "https://api.groq.com/openai/v1/chat/completions";
-const MODELS = ["llama-3.3-70b-versatile", "llama-3.1-8b-instant"];
+const MODELS = ["openai/gpt-oss-20b", "openai/gpt-oss-120b"];
 const ORIGINS = ["https://portfolio.w-smp.in", "https://numberrolly1111.github.io", "http://localhost:8099"];
 
 // ориентиры владельца студии, в долларах. модель не должна выходить за них без причины
@@ -15,6 +15,7 @@ const PRICE_LIST = `
 - Корпоративный сайт: 190, 7
 - Интернет-магазин: 310, 14
 - PWA-приложение (установка на экран, офлайн-режим): 130, 7
+- PWA-версия к сайту (манифест, офлайн, установка на экран): +50, +3 дня
 Дополнения (ориентир): онлайн-запись +60, онлайн-оплата +80, личный кабинет и вход +120, админ-панель +100,
 дополнительный язык +30, push-уведомления +40, ИИ-чат или помощник +90, сложные анимации и уникальный дизайн +40, SEO-основы +25.
 Заявки в Telegram и WhatsApp, адаптивность, размещение на GitHub Pages входят в базу.`;
@@ -75,7 +76,7 @@ export default {
           method: "POST",
           headers: { Authorization: "Bearer " + env.GROQ_API_KEY, "Content-Type": "application/json" },
           body: JSON.stringify({
-            model, temperature: 0.2, max_tokens: 600,
+            model, temperature: 0.2, max_tokens: 1500, reasoning_effort: "low",
             response_format: { type: "json_object" },
             messages: [{ role: "system", content: SYSTEM }, { role: "user", content: "lang: " + lang + "\nописание проекта:\n" + text }],
           }),
