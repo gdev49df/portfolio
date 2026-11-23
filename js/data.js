@@ -21,6 +21,7 @@ window.PROJECTS = [
   },
   {
     id: "dinastiyastomclinic",
+    real: true,
     spec: { kb: 135, req: 6 },
     demo: { url: "https://dinastiyastomclinic.w-smp.in/", device: "laptop" },
     img: "img/dinastiyastomclinic.jpg",
@@ -59,6 +60,7 @@ window.PROJECTS = [
   },
   {
     id: "tasqly",
+    real: true,
     spec: { kb: 411, req: 5 },
     demo: { url: "https://tasqly.w-smp.in/", device: "laptop" },
     img: "img/tasqly.jpg",

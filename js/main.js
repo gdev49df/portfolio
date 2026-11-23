@@ -250,21 +250,28 @@
     if (host.hasAttribute("data-showcase")) { renderShowcase(host); return; }
     var list = window.PROJECTS.filter(function (p) { return host.hasAttribute("data-featured") ? p.featured : true; });
     host.innerHTML = list.map(function (p, i) {
-      return '<a class="work" href="/work/' + p.id + '" data-cat="' + p.cat + '" data-reveal style="--d:' + ((i % 2) * 0.12) + 's">' +
+      return '<a class="work" href="/work/' + p.id + '" data-cat="' + p.cat + '" data-real="' + (p.real ? 1 : 0) + '" data-reveal style="--d:' + ((i % 2) * 0.12) + 's">' +
         coverHTML(p) +
         '<div class="work-info"><div class="t">' + t(p.type) + "</div><h3>" + t(p.title) + ARROW + "</h3><p>" + t(p.short) + "</p></div></a>";
     }).join("");
 
     var f = document.getElementById("filters");
     if (f) {
+      var cat = "all", real = false;
+      var apply = function () {
+        host.querySelectorAll(".work").forEach(function (w) {
+          var hide = (cat !== "all" && w.getAttribute("data-cat") !== cat) || (real && w.getAttribute("data-real") !== "1");
+          w.classList.toggle("hide", hide);
+        });
+      };
       f.addEventListener("click", function (e) {
+        var sw = e.target.closest(".sw");
+        if (sw) { real = sw.getAttribute("aria-checked") !== "true"; sw.setAttribute("aria-checked", String(real)); apply(); return; }
         var c = e.target.closest(".chip");
         if (!c) return;
         f.querySelectorAll(".chip").forEach(function (x) { x.setAttribute("aria-pressed", x === c ? "true" : "false"); });
-        var cat = c.getAttribute("data-cat");
-        host.querySelectorAll(".work").forEach(function (w) {
-          w.classList.toggle("hide", cat !== "all" && w.getAttribute("data-cat") !== cat);
-        });
+        cat = c.getAttribute("data-cat");
+        apply();
       });
     }
   }

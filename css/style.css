@@ -888,3 +888,11 @@ a.work { color: inherit; }
   .est-lab { font-size: 14px; margin: 20px 0 8px; }
 }
 .est-in label { display: block; margin-bottom: 8px; color: var(--muted); font-size: 15px; }
+.sw { display: inline-flex; align-items: center; gap: 12px; margin-left: auto; padding: 11px 6px 11px 0; color: var(--muted); font-size: 15px; transition: color .4s var(--ease); }
+.sw:hover, .sw[aria-checked="true"] { color: var(--text); }
+.sw i { position: relative; width: 40px; height: 24px; border-radius: 999px; border: 1px solid var(--line2); background: rgba(255,255,255,.04); transition: background .4s var(--ease), border-color .4s var(--ease); }
+.sw i::after { content: ""; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: var(--muted); transition: transform .4s var(--ease), background .4s var(--ease); }
+.sw[aria-checked="true"] i { background: rgba(167,139,250,.25); border-color: rgba(167,139,250,.6); }
+.sw[aria-checked="true"] i::after { transform: translateX(16px); background: var(--accent); }
+.sw:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 8px; }
+@media (max-width: 560px) { .sw { margin-left: 0; width: 100%; padding-top: 4px; } }
