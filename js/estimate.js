@@ -110,7 +110,11 @@
   function show(d) {
     if (!d) {
       shown = null;
-      swap('<p class="est-empty">' + t("Выберите тип и дополнения, и здесь появится ориентир по цене и срокам.") + "</p>");
+      swap(
+        '<div class="est-top"><span>' + t("Ориентир") + "</span><span>—</span></div>" +
+        '<div><div class="est-sum ghost">$— – $—</div><p class="est-days">' + t("Срок") + ": —</p></div>" +
+        '<ol class="est-steps"><li>' + t("Выберите тип сайта или приложения") + "</li><li>" + t("Отметьте, что нужно добавить") + "</li><li>" + t("Опишите проект словами, и ИИ уточнит расчёт") + "</li></ol>"
+      );
       return;
     }
     var unit = lang === "kk" ? "күн" : lang === "en" ? "days" : "дней";

@@ -896,3 +896,8 @@ a.work { color: inherit; }
 .sw[aria-checked="true"] i::after { transform: translateX(16px); background: var(--accent); }
 .sw:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 8px; }
 @media (max-width: 560px) { .sw { margin-left: 0; width: 100%; padding-top: 4px; } }
+.est-sum.ghost { color: rgba(167,139,250,.3); }
+.est-steps { list-style: none; counter-reset: st; padding: 0; margin: 0; border-top: 1px solid var(--line); }
+.est-steps li { counter-increment: st; display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 15px; }
+.est-steps li::before { content: counter(st); flex: none; width: 24px; height: 24px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--line2); font: 400 12px/1 var(--mono); }
+.tags button { font-size: 15px; }
