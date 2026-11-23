@@ -27,7 +27,6 @@
     { id: "adm", name: "Админ-панель", price: 100, days: 4 },
     { id: "lang", name: "Дополнительный язык", price: 30, days: 2 },
     { id: "push", name: "Push-уведомления", price: 40, days: 2 },
-    { id: "ai", name: "ИИ-помощник", price: 90, days: 4 },
     { id: "des", name: "Сложный дизайн и анимации", price: 40, days: 2 },
     { id: "seo", name: "SEO-основы", price: 25, days: 1 }
   ];
@@ -157,7 +156,7 @@
   // что с чем несовместимо: недоступное затемняем, а уже выбранное снимаем
   function blocked(id) {
     if (id === "push" && !st.pwa) return "Нужно PWA-приложение";
-    if (st.type === "card" && ["pay", "acc", "adm", "ai"].indexOf(id) > -1) return "Недоступно для сайта-визитки";
+    if (st.type === "card" && ["pay", "acc", "adm"].indexOf(id) > -1) return "Недоступно для сайта-визитки";
     if (st.type === "land" && ["acc", "adm"].indexOf(id) > -1) return "Недоступно для лендинга";
     return "";
   }
