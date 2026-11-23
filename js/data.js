@@ -3,7 +3,7 @@ window.PROJECTS = [
   {
     id: "study-on",
     spec: { kb: 116, req: 5 },
-    demo: { url: "https://gdev49df.github.io/study-on/", device: "laptop" },
+    demo: { url: "https://study-on.w-smp.in/", device: "laptop" },
     img: "img/study-on.jpg",
     hero: "img/study-on-case.jpg",
     points: ["Данные из карточки школы в 2ГИС", "Оформление в стиле школы", "Заявки с сайта уходят прямо в WhatsApp"],
@@ -22,7 +22,7 @@ window.PROJECTS = [
   {
     id: "dinastiyastomclinic",
     spec: { kb: 135, req: 6 },
-    demo: { url: "https://gdev49df.github.io/dinastiyastomclinic", device: "laptop" },
+    demo: { url: "https://dinastiyastomclinic.w-smp.in/", device: "laptop" },
     img: "img/dinastiyastomclinic.jpg",
     hero: "img/dinastiyastomclinic-case.jpg",
     points: ["Страницы услуг: имплантация, брекеты, лечение, ортопедия, детская стоматология", "Цены, рассрочка 0-0-24, команда и отзывы с оценками из 2ГИС", "Запись на приём и быстрая связь через WhatsApp"],
@@ -41,7 +41,7 @@ window.PROJECTS = [
   {
     id: "shawarma",
     spec: { kb: 301, req: 17 },
-    demo: { url: "https://gdev49df.github.io/shawarma/", device: "laptop" },
+    demo: { url: "https://shawarma.w-smp.in/", device: "laptop" },
     img: "img/shawarma.jpg",
     hero: "img/shawarma-case.jpg",
     points: ["Меню с фильтрами и конструктор «Собери свою» с подсчётом цены", "Корзина и оформление заказа через WhatsApp", "Статус «открыто / закрыто», условия доставки и контакты"],
@@ -60,7 +60,7 @@ window.PROJECTS = [
   {
     id: "ddx-ai",
     spec: { kb: 627, req: 11 },
-    demo: { url: "https://gdev49df.github.io/ddx-ai/app/", device: "laptop" },
+    demo: { url: "https://gdev49df.github.io/ddx-ai/", device: "laptop" },
     img: "img/ddx-ai.jpg",
     hero: "img/ddx-ai-case.jpg",
     points: ["Чат с фото, файлами, голосом и поиском по интернету", "История чатов, проекты-папки, закрепление и персонализация", "Три модели на выбор, тарифы, версия для телефона и компьютера"],
@@ -79,7 +79,7 @@ window.PROJECTS = [
   {
     id: "tasqly",
     spec: { kb: 411, req: 5 },
-    demo: { url: "https://tasqly.wsmp.workers.dev", device: "laptop" },
+    demo: { url: "https://tasqly.w-smp.in/", device: "laptop" },
     img: "img/tasqly.jpg",
     hero: "img/tasqly-case.jpg",
     points: ["Задачи, проекты, заметки, чат и диск в одном месте", "Трекер времени, календарь и ИИ-помощник сбоку", "Строгий монохром с одним лаймовым акцентом"],
