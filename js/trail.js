@@ -20,6 +20,7 @@
   addEventListener("resize", size);
 
   var cells = {}, last = null, run = false;
+  function active() { var l = document.getElementById("theme-css"); return !!l && /light\.css/.test(l.getAttribute("href") || ""); }
 
   /* цвет символа подбираем под то, что лежит под курсором: тёмный на светлом, светлый на тёмном и на фото */
   function mode(x, y) {
@@ -44,6 +45,7 @@
 
   addEventListener("pointermove", function (e) {
     if (e.pointerType && e.pointerType !== "mouse") return;
+    if (!active()) { last = null; return; }
     var x = e.clientX, y = e.clientY;
     var x0 = last ? last.x : x, y0 = last ? last.y : y;
     var d = Math.max(Math.abs(x - x0) / CW, Math.abs(y - y0) / CHT), n = Math.max(1, Math.ceil(d));
@@ -61,6 +63,7 @@
   document.addEventListener("pointerleave", function () { last = null; });
 
   function tick(now) {
+    if (!active()) { cells = {}; run = false; cx.clearRect(0, 0, W, H); return; }
     cx.clearRect(0, 0, W, H);
     cx.textAlign = "center"; cx.textBaseline = "middle";
     cx.font = '700 16px "Pixelify Sans", ui-monospace, Menlo, Consolas, monospace';
