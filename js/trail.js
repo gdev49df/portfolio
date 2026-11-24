@@ -6,7 +6,7 @@
   var CH = "@0DA/\\:.", CW = 9, CHT = 16, LIFE = 1000;
   var cv = document.createElement("canvas");
   cv.setAttribute("aria-hidden", "true");
-  cv.style.cssText = "position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:90;mix-blend-mode:difference";
+  cv.style.cssText = "position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:90";
   document.body.appendChild(cv);
   var cx = cv.getContext("2d"), dpr = 1, W = 0, H = 0;
 
@@ -21,10 +21,23 @@
 
   var cells = {}, last = null, run = false;
 
+  /* цвет символа подбираем под то, что лежит под курсором: тёмный на светлом, светлый на тёмном и на фото */
+  function mode(x, y) {
+    var el = document.elementFromPoint(Math.max(0, Math.min(W - 1, x)), Math.max(0, Math.min(H - 1, y)));
+    for (var d = 0; el && d < 9; d++, el = el.parentElement) {
+      var tg = el.tagName;
+      if (tg === "IMG" || tg === "VIDEO" || tg === "IFRAME") return 2;
+      var cs = getComputedStyle(el), m = cs.backgroundColor.match(/[\d.]+/g);
+      if (cs.backgroundImage !== "none") return 2;
+      if (m && (m.length < 4 || +m[3] > .5)) return (0.299 * m[0] + 0.587 * m[1] + 0.114 * m[2]) < 128 ? 1 : 0;
+    }
+    return 0;
+  }
+
   function put(col, row) {
     var k = col + "_" + row, now = performance.now();
     if (cells[k] && now - cells[k].t < LIFE * .35) return;
-    cells[k] = { col: col, row: row, c: CH.charAt((Math.random() * CH.length) | 0), t: now };
+    cells[k] = { col: col, row: row, c: CH.charAt((Math.random() * CH.length) | 0), t: now, m: mode(col * CW + CW / 2, row * CHT + CHT / 2) };
   }
 
   addEventListener("pointermove", function (e) {
@@ -48,14 +61,16 @@
     cx.clearRect(0, 0, W, H);
     cx.textAlign = "center"; cx.textBaseline = "middle";
     cx.font = '400 13px "Pixelify Sans", ui-monospace, Menlo, Consolas, monospace';
-    cx.fillStyle = "#ffffff";
     var any = false;
     for (var k in cells) {
       var p = cells[k], a = 1 - (now - p.t) / LIFE;
       if (a <= 0) { delete cells[k]; continue; }
       any = true;
       cx.globalAlpha = a * .9;
-      cx.fillText(p.c, p.col * CW + CW / 2, p.row * CHT + CHT / 2);
+      var gx = p.col * CW + CW / 2, gy = p.row * CHT + CHT / 2;
+      if (p.m === 2) { cx.strokeStyle = "rgba(0,0,0,.6)"; cx.lineWidth = 3; cx.lineJoin = "round"; cx.strokeText(p.c, gx, gy); }
+      cx.fillStyle = p.m ? "#ffffff" : "#151514";
+      cx.fillText(p.c, gx, gy);
     }
     cx.globalAlpha = 1;
     if (any) requestAnimationFrame(tick); else { run = false; cx.clearRect(0, 0, W, H); }

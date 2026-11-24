@@ -115,7 +115,7 @@ body.leaving .veil { opacity: 1; -webkit-backdrop-filter: blur(22px); backdrop-f
 .logo i { font-style: normal; color: var(--accent); }
 .logo:hover { color: var(--accent); }
 .hdr .logo { margin-right: auto; }
-.clock { display: flex; gap: 20px; font: 400 13px/1 ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; color: var(--muted); letter-spacing: .03em; }
+.clock { display: flex; gap: 20px; font: 400 13px/1 var(--mono); color: var(--muted); letter-spacing: .03em; }
 .clock b { font-weight: 400; color: #6f6d67; margin-left: 8px; }
 .menu-btn { display: inline-flex; align-items: center; gap: 16px; padding: 10px 0 10px 8px; font-size: 16px; transition: color 0.38s var(--ease); }
 .menu-btn:hover { color: var(--accent); }
@@ -469,7 +469,7 @@ a.svc:hover { border-color: rgba(21,21,20,.5); background: linear-gradient(90deg
 }
 
 /* ---------- переключатель языка ---------- */
-.lang { display: flex; align-items: center; font: 400 13px/1 ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; letter-spacing: .03em; }
+.lang { display: flex; align-items: center; font: 400 13px/1 var(--mono); letter-spacing: .03em; }
 .lang button { padding: 8px 6px; color: var(--muted); transition: color 0.38s var(--ease); }
 .lang button + button::before { content: "·"; margin-right: 12px; margin-left: -6px; color: #b9b7b0; pointer-events: none; }
 .lang button:hover { color: var(--text); }
@@ -1025,3 +1025,5 @@ html { -webkit-font-smoothing: none; font-smooth: never; }
 body, button, input, textarea, select { font-family: var(--body); }
 b, strong { font-weight: 600; }
 body { font-size: 17px; }
+
+*, *::before, *::after { font-family: "Pixelify Sans", ui-monospace, Menlo, Consolas, monospace; }
