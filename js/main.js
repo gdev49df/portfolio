@@ -54,18 +54,7 @@
         '<button class="menu-btn" type="button" aria-label="' + t("Открыть меню") + '" aria-expanded="false"><span class="lbl">' + t("Меню") + '</span><span class="lines"><i></i><i></i></span></button>' +
         "</header>" +
         '<nav class="mnav" aria-label="' + t("Основное меню") + '" aria-hidden="true">' + mlinks +
-        '<div class="mstyle" style="--i:' + items.length + '"><span>' + t("Выбор стиля") + "</span>" +
-        ["dark", "light"].map(function (k) { return '<button type="button" data-s="' + k + '" aria-pressed="' + (curStyle() === k) + '">' + t(k === "dark" ? "Тёмный" : "Светлый") + "</button>"; }).join("") + "</div>" +
-        '<div class="soc">' + soc("tg", items.length + 1) + soc("wa", items.length + 2) + soc("ig", items.length + 3) + soc("tt", items.length + 4) + "</div></nav>";
-      hdr.querySelectorAll(".mstyle button").forEach(function (b) {
-        b.addEventListener("click", function () {
-          var k = b.getAttribute("data-s");
-          try { localStorage.setItem("gws-style", k); } catch (e) {}
-          var l = document.getElementById("theme-css");
-          if (l) l.setAttribute("href", "/css/" + k + ".css");
-          hdr.querySelectorAll(".mstyle button").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
-        });
-      });
+        '<div class="soc">' + soc("tg", items.length) + soc("wa", items.length + 1) + soc("ig", items.length + 2) + soc("tt", items.length + 3) + "</div></nav>";
       hdr.querySelectorAll(".lang button").forEach(function (b) {
         b.addEventListener("click", function () {
           if (b.getAttribute("data-l") !== cur) window.setLang(b.getAttribute("data-l"));
@@ -95,8 +84,6 @@
     veil.className = "veil";
     document.body.appendChild(veil);
   }
-
-  function curStyle() { var l = document.getElementById("theme-css"); return l && /light\.css/.test(l.getAttribute("href")) ? "light" : "dark"; }
 
   /* ---------- меню ---------- */
   function initMenu() {
@@ -523,10 +510,4 @@
     s.addEventListener("click", function () { on(s); });
   });
   on(items[0]);
-})();
-
-(function () {
-  var s = document.createElement("script");
-  s.src = "/js/trail.js"; s.defer = true;
-  document.body.appendChild(s);
 })();
