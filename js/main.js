@@ -73,7 +73,7 @@
         '<div class="ftr-brand"><a class="ftr-mark" href="/" aria-label="GwebStudio, ' + t("на главную") + '">' + LOGO + "</a><p>" + t("Делаю современные сайты для бизнеса в Казахстане и России: от первой идеи до результата, который приводит клиентов и заявки.") + "</p></div>" +
         '<nav class="ftr-col" aria-label="' + t("Разделы") + '"><h4>' + t("Разделы") + "</h4>" + flinks + "</nav>" +
         '<div class="ftr-col"><h4>' + t("Связаться") + "</h4>" + cons + "</div></div>" +
-        '<div class="ftr-bot"><span>© <span id="y"></span> GwebStudio. ' + t("Создано") + ' <a href="' + IG + '" target="_blank" rel="noopener">@bauyrzhanov_12_</a></span>' +
+        '<div class="ftr-bot"><span>© <span id="y"></span> ' + t("Разработано") + ' GwebStudio</span>' +
         '<a href="/privacy">' + t("Политика конфиденциальности") + "</a></div>" +
         "</div></footer>";
       var y = document.getElementById("y");
