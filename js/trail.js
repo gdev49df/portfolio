@@ -37,7 +37,7 @@
   function put(col, row) {
     var k = col + "_" + row, now = performance.now();
     if (cells[k] && now - cells[k].t < LIFE * .35) return;
-    var md = mode(col * CW + CW / 2, row * CHT + CHT / 2);
+    var md = mode(col * CW + CW / 2, row * CHT + CHT / 2 - (window.pageYOffset || 0));
     if (md === 2) return;
     cells[k] = { col: col, row: row, c: CH.charAt((Math.random() * CH.length) | 0), t: now, sp: 35 + Math.random() * 55, wb: Math.random() * 6.28, m: md };
   }
@@ -49,7 +49,7 @@
     var d = Math.max(Math.abs(x - x0) / CW, Math.abs(y - y0) / CHT), n = Math.max(1, Math.ceil(d));
     for (var i = 1; i <= n; i++) {
       var px = x0 + (x - x0) * i / n, py = y0 + (y - y0) * i / n;
-      var col = Math.floor(px / CW), row = Math.floor(py / CHT);
+      var col = Math.floor(px / CW), row = Math.floor((py + (window.pageYOffset || 0)) / CHT);
       put(col, row);
       if (Math.random() < .7) put(col + (Math.random() < .5 ? -1 : 1), row);
       if (Math.random() < .4) put(col, row + (Math.random() < .5 ? -1 : 1));
@@ -57,13 +57,14 @@
     last = { x: x, y: y };
     if (!run) { run = true; requestAnimationFrame(tick); }
   }, { passive: true });
+  addEventListener("scroll", function () { if (!run && Object.keys(cells).length) { run = true; requestAnimationFrame(tick); } }, { passive: true });
   document.addEventListener("pointerleave", function () { last = null; });
 
   function tick(now) {
     cx.clearRect(0, 0, W, H);
     cx.textAlign = "center"; cx.textBaseline = "middle";
     cx.font = '700 16px "Pixelify Sans", ui-monospace, Menlo, Consolas, monospace';
-    var any = false;
+    var any = false, snapY = Math.round((window.pageYOffset || 0) / CHT) * CHT;
     for (var k in cells) {
       var p = cells[k], a = 1 - (now - p.t) / LIFE;
       if (a <= 0) { delete cells[k]; continue; }
@@ -72,7 +73,7 @@
       var age = (now - p.t) / 1000;
       if (Math.random() < .04) p.c = CH.charAt((Math.random() * CH.length) | 0);
       var up = Math.floor(age * p.sp * (1 + age) / CHT), sway = Math.round(Math.sin(age * 4 + p.wb) * Math.min(1, age * 2) * .9);
-      var gx = (p.col + sway) * CW + CW / 2, gy = (p.row - up) * CHT + CHT / 2;
+      var gx = (p.col + sway) * CW + CW / 2, gy = (p.row - up) * CHT + CHT / 2 - snapY;
       if (p.m === 2) { cx.strokeStyle = "rgba(0,0,0,.6)"; cx.lineWidth = 3; cx.lineJoin = "round"; cx.strokeText(p.c, gx, gy); }
       cx.fillStyle = p.m ? "#ffffff" : "#151514";
       cx.fillText(p.c, gx, gy);
