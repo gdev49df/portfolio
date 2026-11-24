@@ -69,7 +69,8 @@
       cx.globalAlpha = Math.min(.8, a * 1.4);
       var age = (now - p.t) / 1000;
       if (Math.random() < .04) p.c = CH.charAt((Math.random() * CH.length) | 0);
-      var gx = p.col * CW + CW / 2 + Math.sin(age * 5 + p.wb) * 2.5 * age, gy = p.row * CHT + CHT / 2 - age * p.sp * (1 + age);
+      var up = Math.floor(age * p.sp * (1 + age) / CHT), sway = Math.round(Math.sin(age * 4 + p.wb) * Math.min(1, age * 2) * .9);
+      var gx = (p.col + sway) * CW + CW / 2, gy = (p.row - up) * CHT + CHT / 2;
       if (p.m === 2) { cx.strokeStyle = "rgba(0,0,0,.6)"; cx.lineWidth = 3; cx.lineJoin = "round"; cx.strokeText(p.c, gx, gy); }
       cx.fillStyle = p.m ? "#ffffff" : "#151514";
       cx.fillText(p.c, gx, gy);
