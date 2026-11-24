@@ -3,7 +3,7 @@
   if (!matchMedia("(hover: hover) and (pointer: fine)").matches) return;
   if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-  var CH = "@0DA/\\:.", CW = 9, CHT = 16, LIFE = 1000;
+  var CH = "@0DA/\\:.", CW = 9, CHT = 16, LIFE = 1500;
   var cv = document.createElement("canvas");
   cv.setAttribute("aria-hidden", "true");
   cv.style.cssText = "position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:90";
@@ -49,8 +49,8 @@
       var px = x0 + (x - x0) * i / n, py = y0 + (y - y0) * i / n;
       var col = Math.floor(px / CW), row = Math.floor(py / CHT);
       put(col, row);
-      if (Math.random() < .45) put(col + (Math.random() < .5 ? -1 : 1), row);
-      if (Math.random() < .2) put(col, row + (Math.random() < .5 ? -1 : 1));
+      if (Math.random() < .7) put(col + (Math.random() < .5 ? -1 : 1), row);
+      if (Math.random() < .4) put(col, row + (Math.random() < .5 ? -1 : 1));
     }
     last = { x: x, y: y };
     if (!run) { run = true; requestAnimationFrame(tick); }
@@ -60,15 +60,16 @@
   function tick(now) {
     cx.clearRect(0, 0, W, H);
     cx.textAlign = "center"; cx.textBaseline = "middle";
-    cx.font = '400 13px "Pixelify Sans", ui-monospace, Menlo, Consolas, monospace';
+    cx.font = '700 16px "Pixelify Sans", ui-monospace, Menlo, Consolas, monospace';
     var any = false;
     for (var k in cells) {
       var p = cells[k], a = 1 - (now - p.t) / LIFE;
       if (a <= 0) { delete cells[k]; continue; }
       any = true;
-      cx.globalAlpha = a * .9;
+      cx.globalAlpha = Math.min(1, a * 1.6);
       var gx = p.col * CW + CW / 2, gy = p.row * CHT + CHT / 2;
       if (p.m === 2) { cx.strokeStyle = "rgba(0,0,0,.6)"; cx.lineWidth = 3; cx.lineJoin = "round"; cx.strokeText(p.c, gx, gy); }
+      if (p.m === 0) { cx.strokeStyle = "rgba(244,243,239,.95)"; cx.lineWidth = 4; cx.lineJoin = "round"; cx.strokeText(p.c, gx, gy); }
       cx.fillStyle = p.m ? "#ffffff" : "#151514";
       cx.fillText(p.c, gx, gy);
     }
