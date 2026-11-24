@@ -37,7 +37,7 @@
   function put(col, row) {
     var k = col + "_" + row, now = performance.now();
     if (cells[k] && now - cells[k].t < LIFE * .35) return;
-    cells[k] = { col: col, row: row, c: CH.charAt((Math.random() * CH.length) | 0), t: now, m: mode(col * CW + CW / 2, row * CHT + CHT / 2) };
+    cells[k] = { col: col, row: row, c: CH.charAt((Math.random() * CH.length) | 0), t: now, sp: 35 + Math.random() * 55, wb: Math.random() * 6.28, m: mode(col * CW + CW / 2, row * CHT + CHT / 2) };
   }
 
   addEventListener("pointermove", function (e) {
@@ -67,7 +67,9 @@
       if (a <= 0) { delete cells[k]; continue; }
       any = true;
       cx.globalAlpha = Math.min(.8, a * 1.4);
-      var gx = p.col * CW + CW / 2, gy = p.row * CHT + CHT / 2;
+      var age = (now - p.t) / 1000;
+      if (Math.random() < .04) p.c = CH.charAt((Math.random() * CH.length) | 0);
+      var gx = p.col * CW + CW / 2 + Math.sin(age * 5 + p.wb) * 2.5 * age, gy = p.row * CHT + CHT / 2 - age * p.sp * (1 + age);
       if (p.m === 2) { cx.strokeStyle = "rgba(0,0,0,.6)"; cx.lineWidth = 3; cx.lineJoin = "round"; cx.strokeText(p.c, gx, gy); }
       cx.fillStyle = p.m ? "#ffffff" : "#151514";
       cx.fillText(p.c, gx, gy);
