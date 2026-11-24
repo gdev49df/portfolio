@@ -1011,3 +1011,8 @@ a.work { color: inherit; }
 /* мета-блок на главной по центру */
 .hmeta { margin: 36px auto 0; max-width: 680px; text-align: center; }
 .hero .cta { margin-top: 36px; }
+
+/* заголовки: без висячих слов и узких колонок */
+h1, h2, h3 { text-wrap: balance; }
+.ftr-top h2 { max-width: 22ch; font-size: clamp(28px, 4vw, 56px); }
+.faq-side h2 { max-width: 14ch; }
