@@ -37,7 +37,9 @@
   function put(col, row) {
     var k = col + "_" + row, now = performance.now();
     if (cells[k] && now - cells[k].t < LIFE * .35) return;
-    cells[k] = { col: col, row: row, c: CH.charAt((Math.random() * CH.length) | 0), t: now, sp: 35 + Math.random() * 55, wb: Math.random() * 6.28, m: mode(col * CW + CW / 2, row * CHT + CHT / 2) };
+    var md = mode(col * CW + CW / 2, row * CHT + CHT / 2);
+    if (md === 2) return;
+    cells[k] = { col: col, row: row, c: CH.charAt((Math.random() * CH.length) | 0), t: now, sp: 35 + Math.random() * 55, wb: Math.random() * 6.28, m: md };
   }
 
   addEventListener("pointermove", function (e) {
