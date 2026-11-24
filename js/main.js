@@ -68,7 +68,7 @@
       var cons = [["Telegram", TG], ["WhatsApp", WA], ["Instagram", IG], ["TikTok", TT]].map(function (c) { return '<a href="' + c[1] + '" target="_blank" rel="noopener">' + c[0] + "</a>"; }).join("");
       ftr.innerHTML =
         '<footer class="ftr"><div class="wrap">' +
-        '<div class="ftr-top"><h2>' + t("Есть задача? Давайте обсудим") + '</h2><a class="btn light" href="/quiz">' + t("Обсудить проект") + "</a></div>" +
+        '<div class="ftr-top"><h2>' + t("Нужен сайт для бизнеса?") + '</h2><a class="btn light" href="/quiz">' + t("Обсудить проект") + "</a></div>" +
         '<div class="ftr-grid">' +
         '<div class="ftr-brand"><a class="ftr-mark" href="/" aria-label="GwebStudio, ' + t("на главную") + '">' + LOGO + "</a><p>" + t("Делаю современные сайты для бизнеса в Казахстане и России: от первой идеи до результата, который приводит клиентов и заявки.") + "</p></div>" +
         '<nav class="ftr-col" aria-label="' + t("Разделы") + '"><h4>' + t("Разделы") + "</h4>" + flinks + "</nav>" +
