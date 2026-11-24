@@ -49,7 +49,6 @@
         '<div class="aurora" aria-hidden="true"><i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i></div>' +
         '<header class="hdr">' +
         '<a class="logo" href="/" aria-label="GwebStudio, ' + t("на главную") + '">' + LOGO + "</a>" +
-        '<div class="clock" aria-hidden="true"><span>АСТ<b data-tz="5">--:--</b></span></div>' +
         '<div class="lang" role="group" aria-label="' + t("Язык") + '">' + langs + "</div>" +
         '<a class="btn light hdr-cta" href="/quiz">' + t("Обсудить проект") + "</a>" +
         '<button class="menu-btn" type="button" aria-label="' + t("Открыть меню") + '" aria-expanded="false"><span class="lbl">' + t("Меню") + '</span><span class="lines"><i></i><i></i></span></button>' +
@@ -315,19 +314,30 @@
       return '<a class="btn ghost" href="' + l.url + '" target="_blank" rel="noopener">' + t(l.label) + ARROW.replace("<svg", '<svg width="16" height="16"') + "</a>";
     }).join("");
 
+    var chips = p.stack.map(function (s) { return "<em>" + s + "</em>"; }).join("");
+    var did = p.points.map(function (x) { return "<li>" + t(x) + "</li>"; }).join("");
+    var cyr = /[А-Яа-я]/.test(t(p.title));
+    if (h1 && !cyr) h1.classList.add("px");
     host.innerHTML =
-      '<div class="case-cover" data-reveal>' + coverHTML(p, true) + "</div>" +
-      '<div class="case-grid">' +
-      '<aside class="case-side" data-reveal><ul class="case-facts">' + facts.map(function (f) { return "<li><span>" + f[0] + "</span><b>" + f[1] + "</b></li>"; }).join("") + "</ul>" +
-      (more ? '<div class="sheet-links">' + more + "</div>" : "") +
-      "</aside>" +
-      '<div data-reveal style="--d:.12s"><h2>' + t("О проекте") + '</h2><p class="case-desc">' + t(p.desc) + "</p>" +
-      "<h3>" + t("Что внутри") + '</h3><ul class="pts">' + p.points.map(function (x) { return "<li>" + t(x) + "</li>"; }).join("") + "</ul></div></div>" +
-      '<div class="case-nav" data-reveal>' +
-      '<a class="link-card" href="/work/' + prev.id + '"><div><span>' + t("Предыдущий проект") + "</span><b>" + t(prev.title) + "</b></div>" + ARROW + "</a>" +
-      '<a class="link-card" href="/work/' + next.id + '"><div><span>' + t("Следующий проект") + "</span><b>" + t(next.title) + "</b></div>" + ARROW + "</a></div>" +
-      '<div class="case-cta" data-reveal><div><h2>' + t("Нужен похожий проект?") + "</h2><p>" + t("Расскажите о задаче, и я предложу подходящий формат и следующий шаг.") + '</p></div><a class="btn light" href="/quiz">' + t("Обсудить проект") + "</a></div>";
-    if (p.demo) initDemo(host.querySelector(".case-cover"), p);
+      '<div class="cmeta" data-reveal>' +
+      '<div><dl><dt>' + t("Тип проекта") + "</dt><dd>" + t(p.type) + "</dd><dt>" + t("Направление") + "</dt><dd>" + t(CAT[p.cat] || p.cat) + "</dd></dl></div>" +
+      '<div><dl><dt>' + t("Год") + "</dt><dd>2026</dd><dt>" + t("Разработано") + "</dt><dd>GwebStudio</dd>" + (host0 ? "<dt>" + t("Ссылка") + '</dt><dd><a href="' + p.links[0].url + '" target="_blank" rel="noopener">' + host0 + "</a></dd>" : "") + "</dl></div>" +
+      '<div><dl><dt>' + t("Технологии") + '</dt><dd class="chips">' + chips + "</dd></dl></div></div>" +
+      '<div class="ctwo"><div class="ctabs" data-reveal><div class="ctab-list" role="tablist">' +
+      '<button type="button" role="tab" aria-selected="true" data-t="o">' + t("Обзор") + "</button>" +
+      '<button type="button" role="tab" aria-selected="false" data-t="d">' + t("Что внутри") + "</button>" +
+      '<button type="button" role="tab" aria-selected="false" data-t="s">' + t("Ссылки") + "</button></div>" +
+      '<div class="ctab-body" data-p="o"><p class="case-desc">' + t(p.desc) + "</p></div>" +
+      '<div class="ctab-body" data-p="d" hidden><ul class="pts">' + did + "</ul></div>" +
+      '<div class="ctab-body" data-p="s" hidden><div class="sheet-links">' + (p.links[0] ? '<a class="btn light" href="' + p.links[0].url + '" target="_blank" rel="noopener">' + t(p.links[0].label) + "</a>" : "") + more + "</div></div></div>" +
+      '<div class="case-pic" data-reveal style="--d:.12s">' + ((p.img || p.hero) ? '<img src="/' + (p.img || p.hero) + '" alt="' + t(p.title) + '">' : "") + "</div></div>" +
+      '<div class="cnav" data-reveal><a class="cn-back" href="/portfolio">‹ ' + t("Все работы") + '</a><a class="cn-next" href="/work/' + next.id + '">' + t("Следующий проект") + ": " + t(next.title) + "</a></div>"
+    host.querySelector(".ctab-list").addEventListener("click", function (e) {
+      var b = e.target.closest("button");
+      if (!b) return;
+      host.querySelectorAll(".ctab-list button").forEach(function (x) { x.setAttribute("aria-selected", String(x === b)); });
+      host.querySelectorAll(".ctab-body").forEach(function (x) { x.hidden = x.getAttribute("data-p") !== b.getAttribute("data-t"); });
+    });
   }
 
   /* живой предпросмотр: сайт открывается прямо в рамке ноутбука или телефона */
@@ -360,7 +370,7 @@
     var tk = document.getElementById("ticker");
     if (!tk || !window.STACK) return;
     var items = window.STACK.map(function (s) { return "<span>" + t(s) + "</span>"; }).join("");
-    tk.innerHTML = '<div class="ticker-track" aria-hidden="true">' + items + items + "</div>";
+    tk.innerHTML = '<div class="stack">' + items + "</div>";
   }
 
   /* ---------- faq ---------- */
