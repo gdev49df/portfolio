@@ -46,8 +46,8 @@
       var p = P[i], a = 1 - (now - p.t) / LIFE;
       if (a <= 0) { P.splice(i, 1); continue; }
       p.x += p.vx; p.y += p.vy;
-      cx.globalAlpha = a * .95;
-      cx.fillStyle = "#c4b5fd";
+      cx.globalAlpha = a * .8;
+      cx.fillStyle = "#151514";
       cx.font = "400 " + p.s + 'px "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace';
       cx.fillText(p.c, p.x, p.y);
     }
