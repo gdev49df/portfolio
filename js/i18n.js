@@ -534,7 +534,7 @@
     "С чего начнём?": ["Неден бастаймыз?", "Where do we start?"],
     "Выберите формат под задачу: в карточке сразу цена и срок. Не уверены — пройдите короткий квиз.": ["Міндетке сай форматты таңдаңыз: карточкада баға мен мерзім бірден көрсетілген. Сенімсіз болсаңыз — қысқа квизден өтіңіз.", "Pick a format for your task: each card shows the price and timeline. Not sure? Take the short quiz."],
     "Все форматы": ["Барлық форматтар", "All formats"],
-    "Что спрашивают перед стартом": ["Бастамас бұрын не сұрайды", "What people ask before we start"],
+    "Вопросы перед стартом": ["Бастамас бұрын сұрақтар", "Questions before we start"],
     "Нет вашего вопроса? Напишите в Telegram или пройдите квиз.": ["Сұрағыңыз жоқ па? Telegram-ға жазыңыз немесе квизден өтіңіз.", "Your question is not here? Write on Telegram or take the quiz."],
     "Что вы получите на выходе": ["Нәтижесінде не аласыз", "What you get in the end"],
     "Беру проект целиком: структура, дизайн, код и запуск. Цена и срок указаны в карточках, точную сумму называю после короткого разговора.": ["Жобаны толық аламын: құрылым, дизайн, код және іске қосу. Баға мен мерзім карточкаларда көрсетілген, нақты соманы қысқа әңгімеден кейін айтамын.", "I take the whole project: structure, design, code and launch. The price and timeline are on the cards; I name the exact amount after a short conversation."],
