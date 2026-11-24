@@ -66,10 +66,9 @@
       var p = cells[k], a = 1 - (now - p.t) / LIFE;
       if (a <= 0) { delete cells[k]; continue; }
       any = true;
-      cx.globalAlpha = Math.min(1, a * 1.6);
+      cx.globalAlpha = Math.min(.8, a * 1.4);
       var gx = p.col * CW + CW / 2, gy = p.row * CHT + CHT / 2;
       if (p.m === 2) { cx.strokeStyle = "rgba(0,0,0,.6)"; cx.lineWidth = 3; cx.lineJoin = "round"; cx.strokeText(p.c, gx, gy); }
-      if (p.m === 0) { cx.strokeStyle = "rgba(244,243,239,.95)"; cx.lineWidth = 4; cx.lineJoin = "round"; cx.strokeText(p.c, gx, gy); }
       cx.fillStyle = p.m ? "#ffffff" : "#151514";
       cx.fillText(p.c, gx, gy);
     }
