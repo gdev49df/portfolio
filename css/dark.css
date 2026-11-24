@@ -1014,3 +1014,7 @@ a.work { color: inherit; }
 .mstyle button { padding: 8px 14px; border: 1px solid var(--line2); border-radius: 8px; font-size: 14px; color: var(--muted); transition: color .3s, border-color .3s, background .3s; }
 .mstyle button:hover { color: var(--text); }
 .mstyle button[aria-pressed="true"] { color: var(--text); border-color: var(--text); }
+
+/* тёмный стиль: мета-блок по центру */
+.hmeta { margin: 36px auto 0; max-width: 680px; text-align: center; }
+.hero .cta { margin-top: 36px; }
