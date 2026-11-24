@@ -1,3 +1,4 @@
+@font-face { font-family: "Pixelify Sans"; src: url("/fonts/PixelifySans.ttf") format("truetype"); font-weight: 400 700; font-style: normal; font-display: swap; }
 /* GwebStudio portfolio */
 :root {
   --bg: #f4f3ef;
@@ -13,9 +14,9 @@
   --slow: .88s;
   --wrap: 1080px;
   --r: 10px;
-  --display: "Pixelify Sans", "IBM Plex Mono", ui-monospace, monospace;
-  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
-  --body: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --display: "Pixelify Sans", ui-monospace, monospace;
+  --mono: "Pixelify Sans", ui-monospace, Menlo, Consolas, monospace;
+  --body: "Pixelify Sans", ui-monospace, Menlo, Consolas, monospace;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -1018,3 +1019,9 @@ em { font-style: normal; }
   .skills { grid-template-columns: 1fr; }
   .skill, .skill + .skill { padding: 20px 0; border-left: 0; border-bottom: 1px solid var(--line); }
 }
+
+/* пиксельный шрифт везде */
+html { -webkit-font-smoothing: none; font-smooth: never; }
+body, button, input, textarea, select { font-family: var(--body); }
+b, strong { font-weight: 600; }
+body { font-size: 17px; }

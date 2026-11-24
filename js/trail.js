@@ -6,7 +6,7 @@
   var CH = "@0DA/\\:.", CW = 9, CHT = 16, LIFE = 1000;
   var cv = document.createElement("canvas");
   cv.setAttribute("aria-hidden", "true");
-  cv.style.cssText = "position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:90";
+  cv.style.cssText = "position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:90;mix-blend-mode:difference";
   document.body.appendChild(cv);
   var cx = cv.getContext("2d"), dpr = 1, W = 0, H = 0;
 
@@ -47,8 +47,8 @@
   function tick(now) {
     cx.clearRect(0, 0, W, H);
     cx.textAlign = "center"; cx.textBaseline = "middle";
-    cx.font = '400 13px "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace';
-    cx.fillStyle = "#151514";
+    cx.font = '400 13px "Pixelify Sans", ui-monospace, Menlo, Consolas, monospace';
+    cx.fillStyle = "#ffffff";
     var any = false;
     for (var k in cells) {
       var p = cells[k], a = 1 - (now - p.t) / LIFE;
