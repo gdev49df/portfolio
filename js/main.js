@@ -54,7 +54,18 @@
         '<button class="menu-btn" type="button" aria-label="' + t("Открыть меню") + '" aria-expanded="false"><span class="lbl">' + t("Меню") + '</span><span class="lines"><i></i><i></i></span></button>' +
         "</header>" +
         '<nav class="mnav" aria-label="' + t("Основное меню") + '" aria-hidden="true">' + mlinks +
-        '<div class="soc">' + soc("tg", items.length) + soc("wa", items.length + 1) + soc("ig", items.length + 2) + soc("tt", items.length + 3) + "</div></nav>";
+        '<div class="mstyle" style="--i:' + items.length + '"><span>' + t("Выбор стиля") + "</span>" +
+        ["dark", "light"].map(function (k) { return '<button type="button" data-s="' + k + '" aria-pressed="' + (curStyle() === k) + '">' + t(k === "dark" ? "Тёмный" : "Светлый") + "</button>"; }).join("") + "</div>" +
+        '<div class="soc">' + soc("tg", items.length + 1) + soc("wa", items.length + 2) + soc("ig", items.length + 3) + soc("tt", items.length + 4) + "</div></nav>";
+      hdr.querySelectorAll(".mstyle button").forEach(function (b) {
+        b.addEventListener("click", function () {
+          var k = b.getAttribute("data-s");
+          try { localStorage.setItem("gws-style", k); } catch (e) {}
+          var l = document.getElementById("theme-css");
+          if (l) l.setAttribute("href", "/css/" + k + ".css");
+          hdr.querySelectorAll(".mstyle button").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+        });
+      });
       hdr.querySelectorAll(".lang button").forEach(function (b) {
         b.addEventListener("click", function () {
           if (b.getAttribute("data-l") !== cur) window.setLang(b.getAttribute("data-l"));
@@ -84,6 +95,8 @@
     veil.className = "veil";
     document.body.appendChild(veil);
   }
+
+  function curStyle() { var l = document.getElementById("theme-css"); return l && /light\.css/.test(l.getAttribute("href")) ? "light" : "dark"; }
 
   /* ---------- меню ---------- */
   function initMenu() {
@@ -211,7 +224,7 @@
 
   /* главная: одна большая работа, остальные маленькие; клик по маленькой открывает её в большой карточке */
   function renderShowcase(host) {
-    var all = window.PROJECTS, cur = all[Math.floor(Math.random() * all.length)].id, busy = false;
+    var all = window.PROJECTS, cur = (all.filter(function (x) { return x.id === "tasqly"; })[0] || all[0]).id, busy = false;
     host.innerHTML = '<div class="sc-main" id="sc-main" data-reveal></div><div class="sc-grid" id="sc-grid" data-reveal style="--d:.1s"></div>';
     var main = document.getElementById("sc-main"), grid = document.getElementById("sc-grid");
     function cv(p) { return '<div class="cover" style="--c1:' + p.c1 + ";--c2:" + p.c2 + '">' + (p.hero || p.img ? '<img src="/' + (p.hero || p.img) + '" alt="' + t(p.title) + '" loading="lazy">' : '<span class="glyph" aria-hidden="true">' + p.glyph + "</span>") + "</div>"; }
