@@ -324,22 +324,12 @@
       '<div><dl><dt>' + t("Тип проекта") + "</dt><dd>" + t(p.type) + "</dd><dt>" + t("Направление") + "</dt><dd>" + t(CAT[p.cat] || p.cat) + "</dd></dl></div>" +
       '<div><dl><dt>' + t("Год") + "</dt><dd>2026</dd><dt>" + t("Разработано") + "</dt><dd>gDev</dd>" + (host0 ? "<dt>" + t("Ссылка") + '</dt><dd><a href="' + p.links[0].url + '" target="_blank" rel="noopener">' + host0 + "</a></dd>" : "") + "</dl></div>" +
       '<div><dl><dt>' + t("Технологии") + '</dt><dd class="chips">' + chips + "</dd></dl></div></div>" +
-      '<div class="ctwo"><div class="ctabs" data-reveal><div class="ctab-list" role="tablist">' +
-      '<button type="button" role="tab" aria-selected="true" data-t="o">' + t("Обзор") + "</button>" +
-      '<button type="button" role="tab" aria-selected="false" data-t="d">' + t("Что внутри") + "</button>" +
-      '<button type="button" role="tab" aria-selected="false" data-t="s">' + t("Ссылки") + "</button></div>" +
-      '<div class="ctab-body" data-p="o"><p class="case-desc">' + t(p.desc) + "</p></div>" +
-      '<div class="ctab-body" data-p="d" hidden><ul class="pts">' + did + "</ul></div>" +
-      '<div class="ctab-body" data-p="s" hidden><div class="sheet-links">' + (p.links[0] ? '<a class="btn light" href="' + p.links[0].url + '" target="_blank" rel="noopener">' + t(p.links[0].label) + "</a>" : "") + more + "</div></div></div>" +
-      '<div class="case-pic" data-reveal style="--d:.12s">' + ((p.img || p.hero) ? '<img src="/' + (p.img || p.hero) + '" alt="' + t(p.title) + '">' : "") + "</div></div>" +
+      '<div class="ctwo"><div class="case-pic" data-reveal style="--d:.12s">' + ((p.img || p.hero) ? '<img src="/' + (p.img || p.hero) + '" alt="' + t(p.title) + '">' : "") + "</div>" +
+      '<div class="csec" data-reveal><h2>' + t("Обзор") + '</h2><p class="case-desc">' + t(p.desc) + "</p></div>" +
+      '<div class="csec" data-reveal><h2>' + t("Что внутри") + '</h2><ul class="pts">' + did + "</ul></div>" +
+      '<div class="csec" data-reveal><h2>' + t("Ссылки") + '</h2><div class="sheet-links">' + (p.links[0] ? '<a class="btn light" href="' + p.links[0].url + '" target="_blank" rel="noopener">' + t(p.links[0].label) + "</a>" : "") + more + "</div></div></div>" +
       '<div class="cnav" data-reveal><a class="cn-back" href="/portfolio">‹ ' + t("Все работы") + '</a><a class="cn-next" href="/work/' + next.id + '">' + t("Следующий проект") + ": " + t(next.title) + "</a></div>"
     if (p.demo) initDemo(host.querySelector(".case-pic"), p);
-    host.querySelector(".ctab-list").addEventListener("click", function (e) {
-      var b = e.target.closest("button");
-      if (!b) return;
-      host.querySelectorAll(".ctab-list button").forEach(function (x) { x.setAttribute("aria-selected", String(x === b)); });
-      host.querySelectorAll(".ctab-body").forEach(function (x) { x.hidden = x.getAttribute("data-p") !== b.getAttribute("data-t"); });
-    });
   }
 
   /* ---------- страница отзывов ---------- */
