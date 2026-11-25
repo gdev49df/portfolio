@@ -218,11 +218,12 @@
     function draw() {
       var p = all.filter(function (x) { return x.id === cur; })[0];
       main.innerHTML = '<a class="sc-pic" href="/work/' + p.id + '" aria-label="' + t(p.title) + '">' + cv(p) + "</a>" +
-        '<div class="sc-info"><p class="sc-type">' + t(p.type) + "</p><h3>" + t(p.title) + "</h3><p class=\"sc-text\">" + t(p.short) + '</p><a class="btn" href="/work/' + p.id + '">' + t("Открыть проект") + " " + ARROW + "</a></div>";
+        '<div class="sc-info"><p class="sc-type">' + t(p.type) + "</p><h3>" + t(p.title) + "</h3><p class=\"sc-text\">" + t(p.short) + '</p><a class="btn" href="/work/' + p.id + '">' + t("Открыть проект") + " " + ARROW + "</a>" + (p.reviews ? '<a class="sc-rev" href="' + p.reviews + '">' + t("Отзывы клиентов") + "</a>" : "") + "</div>";
       var rest = all.filter(function (x) { return x.id !== cur; });
       grid.style.setProperty("--cols", Math.min(rest.length, 4));
       grid.innerHTML = rest.map(function (x) {
-        return '<button type="button" class="sc-card" data-id="' + x.id + '">' + cv(x) + '<span class="sc-name">' + t(x.title) + '</span><span class="sc-sub">' + t(x.type) + "</span></button>";
+        var card = '<button type="button" class="sc-card" data-id="' + x.id + '">' + cv(x) + '<span class="sc-name">' + t(x.title) + '</span><span class="sc-sub">' + t(x.type) + "</span></button>";
+        return x.reviews ? '<div class="sc-cell">' + card + '<a class="sc-rev sc-rev-s" href="' + x.reviews + '">' + t("Отзывы клиентов") + "</a></div>" : card;
       }).join("");
     }
     draw();
@@ -298,6 +299,7 @@
     var act = document.getElementById("case-actions");
     if (act) {
       act.innerHTML = (p.links[0] ? '<a class="btn light" href="' + p.links[0].url + '" target="_blank" rel="noopener">' + t(p.links[0].label) + ARROW.replace("<svg", '<svg width="16" height="16"') + "</a>" : "") +
+        (p.reviews ? '<a class="btn ghost" href="' + p.reviews + '">' + t("Отзывы клиентов") + "</a>" : "") +
         '<a class="btn ghost" href="/portfolio">' + t("Все работы") + "</a>";
     }
 
@@ -339,6 +341,27 @@
       host.querySelectorAll(".ctab-body").forEach(function (x) { x.hidden = x.getAttribute("data-p") !== b.getAttribute("data-t"); });
     });
   }
+
+  /* ---------- страница отзывов ---------- */
+  function renderReviews() {
+    var host = document.getElementById("reviews-list");
+    if (!host || !window.REVIEWS) return;
+    var R = window.REVIEWS.dinastiyastomclinic;
+    var star = '<svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.500l6.100-.9L12 3Z"/></svg>';
+    if (!R.items.length) {
+      host.innerHTML = '<div class="rev-empty" data-reveal><h3>' + t("Отзывы скоро появятся") + "</h3><p>" + t("Мы собираем отзывы пациентов клиники. Загляните сюда позже.") + '</p><a class="btn ghost" href="/work/dinastiyastomclinic">' + t("К кейсу") + "</a></div>";
+      return;
+    }
+    host.innerHTML = R.items.map(function (r, i) {
+      var n = Math.max(0, Math.min(5, r.rating || 0)), st = "";
+      for (var k = 0; k < n; k++) st += star;
+      return '<figure class="rev" data-reveal style="--d:' + ((i % 3) * 0.08) + 's">' +
+        (n ? '<div class="rev-stars" aria-label="' + n + ' / 5">' + st + "</div>" : "") +
+        "<blockquote>" + esc2(r.text) + "</blockquote>" +
+        "<figcaption><b>" + esc2(r.name) + "</b>" + (r.date || r.source ? "<span>" + esc2([r.date, r.source].filter(Boolean).join(", ")) + "</span>" : "") + "</figcaption></figure>";
+    }).join("");
+  }
+  function esc2(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
 
   /* живой предпросмотр: сайт открывается прямо в рамке ноутбука или телефона */
   function initDemo(cover, p) {
@@ -401,6 +424,7 @@
   renderServices();
   renderWorks();
   renderCase();
+  renderReviews();
   renderTicker();
   initFaq();
   splitWords();

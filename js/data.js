@@ -22,6 +22,7 @@ window.PROJECTS = [
   {
     id: "dinastiyastomclinic",
     real: true,
+    reviews: "/reviews",
     spec: { kb: 135, req: 6 },
     demo: { url: "https://dinastiyastomclinic.w-smp.in/", device: "laptop" },
     img: "img/dinastiyastomclinic.jpg",
@@ -101,3 +102,12 @@ window.STACK = ["HTML", "CSS", "JavaScript", "PWA", "Service Worker", "Cloudflar
     mail: s('<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>')
   };
 })();
+
+/* Отзывы клиентов. Формат: { name: "Имя", text: "Текст отзыва", rating: 5, date: "Ноябрь 2026", source: "2ГИС" } */
+window.REVIEWS = {
+  dinastiyastomclinic: {
+    title: "Dinastiya Stom Clinic",
+    site: "https://dinastiyastomclinic.w-smp.in/",
+    items: []
+  }
+};

@@ -552,6 +552,13 @@
     "Расскажите о задаче": ["Міндетіңіз туралы айтыңыз", "Tell me about your task"],
     "Напишите в Telegram или WhatsApp либо пройдите квиз: я получу готовое описание задачи и вернусь с ценой и сроком.": ["Telegram немесе WhatsApp-қа жазыңыз немесе квизден өтіңіз: мен міндеттің дайын сипаттамасын аламын және баға мен мерзіммен қайтып келемін.", "Write on Telegram or WhatsApp, or take the quiz: I will get a ready description of your task and come back with a price and timeline."],
     "Нужен сайт для бизнеса?": ["Бизнеске сайт керек пе?", "Need a website for your business?"],
+    "Отзывы клиентов": ["Клиенттер пікірлері", "Client reviews"],
+    "Отзывы скоро появятся": ["Пікірлер жақында шығады", "Reviews are coming soon"],
+    "Мы собираем отзывы пациентов клиники. Загляните сюда позже.": ["Клиника емделушілерінің пікірлерін жинап жатырмыз. Кейінірек қайта кіріңіз.", "We are collecting reviews from the clinic's patients. Please check back later."],
+    "К кейсу": ["Кейске", "To the case"],
+    "Отзывы о Dinastiya Stom Clinic": ["Dinastiya Stom Clinic туралы пікірлер", "Reviews of Dinastiya Stom Clinic"],
+    "Что пациенты говорят о клинике, для которой я сделал сайт.": ["Емделушілер сайтын жасаған клиника туралы не дейді.", "What patients say about the clinic I built the site for."],
+    "Отзывы": ["Пікірлер", "Reviews"],
     "Все работы": ["Барлық жұмыстар", "All work"],
 
     /* ---------- обо мне ---------- */
