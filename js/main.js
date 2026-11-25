@@ -12,11 +12,11 @@
 
   var TG = "https://t.me/ddwwks";
   var IG = "https://www.instagram.com/bauyrzhanov_12_/";
-  var TT = "https://www.tiktok.com/@bauyrzhanov_12_";
+  var MAIL = "mailto:work@gdev.uk";
   var WA = "https://wa.me/77751213271";
   var t = window.t || function (x) { return x; };
-  var LABEL = { tg: "Telegram", wa: "WhatsApp", ig: "Instagram", tt: "TikTok" };
-  var LINK = { tg: TG, wa: WA, ig: IG, tt: TT };
+  var LABEL = { tg: "Telegram", wa: "WhatsApp", ig: "Instagram", mail: "Email" };
+  var LINK = { tg: TG, wa: WA, ig: IG, mail: MAIL };
   function soc(key, i) {
     return '<a href="' + LINK[key] + '"' + (i == null ? "" : ' style="--i:' + i + '"') + ' target="_blank" rel="noopener" aria-label="' + LABEL[key] + '">' + window.ICONS[key] + "</a>";
   }
@@ -54,7 +54,7 @@
         '<button class="menu-btn" type="button" aria-label="' + t("Открыть меню") + '" aria-expanded="false"><span class="lbl">' + t("Меню") + '</span><span class="lines"><i></i><i></i></span></button>' +
         "</header>" +
         '<nav class="mnav" aria-label="' + t("Основное меню") + '" aria-hidden="true">' + mlinks +
-        '<div class="soc">' + soc("tg", items.length) + soc("wa", items.length + 1) + soc("ig", items.length + 2) + soc("tt", items.length + 3) + "</div></nav>";
+        '<div class="soc">' + soc("tg", items.length) + soc("wa", items.length + 1) + soc("ig", items.length + 2) + soc("mail", items.length + 3) + "</div></nav>";
       hdr.querySelectorAll(".lang button").forEach(function (b) {
         b.addEventListener("click", function () {
           if (b.getAttribute("data-l") !== cur) window.setLang(b.getAttribute("data-l"));
@@ -65,7 +65,7 @@
     var ftr = document.getElementById("site-footer");
     if (ftr) {
       var flinks = NAV.map(function (n) { return '<a href="' + n[1] + '">' + n[2] + "</a>"; }).join("");
-      var cons = [["Telegram", TG], ["WhatsApp", WA], ["Instagram", IG], ["TikTok", TT]].map(function (c) { return '<a href="' + c[1] + '" target="_blank" rel="noopener">' + c[0] + "</a>"; }).join("");
+      var cons = [["Telegram", TG], ["WhatsApp", WA], ["Instagram", IG], ["work@gdev.uk", MAIL]].map(function (c) { return '<a href="' + c[1] + '" target="_blank" rel="noopener">' + c[0] + "</a>"; }).join("");
       ftr.innerHTML =
         '<footer class="ftr"><div class="wrap">' +
         '<div class="ftr-top"><h2>' + t("Нужен сайт для бизнеса?") + '</h2><a class="btn light" href="/quiz">' + t("Обсудить проект") + "</a></div>" +

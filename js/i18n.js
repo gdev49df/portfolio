@@ -574,7 +574,6 @@
     "Город": ["Қала", "City"],
     "Направления": ["Бағыттар", "Focus"],
     "Сайты, Telegram Mini App, боты, плагины": ["Сайттар, Telegram Mini App, боттар, плагиндер", "Websites, Telegram Mini App, bots, plugins"],
-    "Instagram и TikTok": ["Instagram және TikTok", "Instagram and TikTok"],
     "Чем я работаю": ["Мен немен жұмыс істеймін", "What I work with"],
     "Инструменты, которыми собраны проекты из портфолио.": ["Портфолиодағы жобалар құрастырылған құралдар.", "The tools behind the projects in the portfolio."],
     "HTML и CSS": ["HTML және CSS", "HTML and CSS"],
@@ -630,9 +629,9 @@
       "The site uses browser storage for the interface language you chose, a mark that you have already seen the intro screen on your first visit, and your best score in the mini-game. This is not personal data and you can delete it in your browser settings."
     ],
     "Сторонние сервисы": ["Үшінші тарап сервистері", "Third-party services"],
-    "Шрифты загружаются с Google Fonts, поэтому браузер обращается к серверам Google. Сайт размещён на GitHub Pages, и хостинг может записывать технические данные запросов, например IP-адрес. Ссылки на Telegram, WhatsApp, Instagram, TikTok и GitHub ведут на сторонние сайты со своими правилами.": [
-      "Қаріптер Google Fonts-тан жүктеледі, сондықтан браузер Google серверлеріне жүгінеді. Сайт GitHub Pages-те орналасқан, хостинг сұраулардың техникалық деректерін, мысалы IP-мекенжайды жазуы мүмкін. Telegram, WhatsApp, Instagram, TikTok және GitHub-қа сілтемелер өз ережелері бар үшінші тарап сайттарына апарады.",
-      "Fonts are loaded from Google Fonts, so your browser contacts Google servers. The site is hosted on GitHub Pages, and the host may record technical request data such as the IP address. Links to Telegram, WhatsApp, Instagram, TikTok and GitHub lead to third-party sites with their own rules."
+    "Шрифты загружаются с Google Fonts, поэтому браузер обращается к серверам Google. Сайт размещён на GitHub Pages, и хостинг может записывать технические данные запросов, например IP-адрес. Ссылки на Telegram, WhatsApp, Instagram и GitHub ведут на сторонние сайты со своими правилами.": [
+      "Қаріптер Google Fonts-тан жүктеледі, сондықтан браузер Google серверлеріне жүгінеді. Сайт GitHub Pages-те орналасқан, хостинг сұраулардың техникалық деректерін, мысалы IP-мекенжайды жазуы мүмкін. Telegram, WhatsApp, Instagram және GitHub-қа сілтемелер өз ережелері бар үшінші тарап сайттарына апарады.",
+      "Fonts are loaded from Google Fonts, so your browser contacts Google servers. The site is hosted on GitHub Pages, and the host may record technical request data such as the IP address. Links to Telegram, WhatsApp, Instagram and GitHub lead to third-party sites with their own rules."
     ],
     "Как использую данные из заявки": ["Өтінімдегі деректерді қалай қолданамын", "How I use request data"],
     "Информацию из сообщения использую только для того, чтобы ответить вам и обсудить проект. Не передаю её третьим лицам и не использую для рассылок.": [

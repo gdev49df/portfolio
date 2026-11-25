@@ -98,6 +98,6 @@ window.STACK = ["HTML", "CSS", "JavaScript", "PWA", "Service Worker", "Cloudflar
     tg: s('<path d="M21 4 3 11l6 2.2L11 20l3-4.2 5 3.7L21 4Z"/><path d="m9 13.2 12-9.2"/>'),
     ig: s('<rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/>'),
     wa: s('<path d="M3.5 20.5l1.4-4.6A8.5 8.5 0 1 1 8.2 19.2l-4.7 1.3Z"/><path d="M9.2 8.8c.2 2.2 2.8 4.8 5 5l1.2-1.2-1.7-1-.8.7c-.8-.3-1.4-.9-1.7-1.7l.7-.8-1-1.7-1.7 1.7Z"/>'),
-    tt: s('<path d="M14 4v10.2a3.6 3.6 0 1 1-3.6-3.6"/><path d="M14 4c.3 2.4 2 4 4.6 4.2"/>')
+    mail: s('<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>')
   };
 })();

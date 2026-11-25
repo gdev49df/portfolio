@@ -8,7 +8,7 @@
   var lastText = "";
   var TG = "https://t.me/ddwwks";
   var IG = "https://www.instagram.com/bauyrzhanov_12_/";
-  var TT = "https://www.tiktok.com/@bauyrzhanov_12_";
+  var MAIL = "mailto:work@gdev.uk";
 
   var DIRS = [
     ["Сайт", "Лендинг, многостраничный сайт, визитка, корпоративный сайт"],
@@ -169,7 +169,7 @@
       '<a href="' + TG + '" target="_blank" rel="noopener" aria-label="Telegram">' + window.ICONS.tg + "</a>" +
       '<a href="' + WA + '" target="_blank" rel="noopener" aria-label="WhatsApp">' + window.ICONS.wa + "</a>" +
       '<a href="' + IG + '" target="_blank" rel="noopener" aria-label="Instagram">' + window.ICONS.ig + "</a>" +
-      '<a href="' + TT + '" target="_blank" rel="noopener" aria-label="TikTok">' + window.ICONS.tt + "</a></div></div>";
+      '<a href="' + MAIL + '" aria-label="Email">' + window.ICONS.mail + "</a></div></div>";
   }
 
   function render(swap) {
