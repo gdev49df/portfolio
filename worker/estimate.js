@@ -4,7 +4,7 @@
 
 const GROQ = "https://api.groq.com/openai/v1/chat/completions";
 const MODELS = ["openai/gpt-oss-20b", "openai/gpt-oss-120b"];
-const ORIGINS = ["https://site.gdev.uk", "https://numberrolly1111.github.io", "http://localhost:8099"];
+const ORIGINS = ["https://site.gdev.uk", "https://gdev49df.github.io", "http://localhost:8099"];
 
 // ориентиры владельца студии, в долларах. модель не должна выходить за них без причины
 const PRICE_LIST = `
