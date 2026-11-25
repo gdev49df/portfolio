@@ -1032,3 +1032,6 @@ h1, h2, h3 { text-wrap: balance; }
 .sc-cell { display: flex; flex-direction: column; align-items: flex-start; }
 .sc-cell .sc-card { width: 100%; }
 .sc-rev-s { margin: 12px 0 0; font-size: 14px; }
+.case-pic.demo-on { border: 0; background: none; overflow: visible; }
+.case-pic.demo-on > img { display: none; }
+.case-pic .demo { padding: 0; background: none; animation: none; }
