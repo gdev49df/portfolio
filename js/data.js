@@ -3,7 +3,7 @@ window.PROJECTS = [
   {
     id: "study-on",
     spec: { kb: 116, req: 5 },
-    demo: { url: "https://study-on.w-smp.in/", device: "laptop" },
+    demo: { url: "https://gdev49df.github.io/study-on/", device: "laptop" },
     img: "img/study-on.jpg",
     hero: "img/study-on-case.jpg",
     points: ["Данные из карточки школы в 2ГИС", "Оформление в стиле школы", "Заявки с сайта уходят прямо в WhatsApp"],
@@ -17,14 +17,14 @@ window.PROJECTS = [
     short: "Сайт школы английского в Астане, заявки уходят в WhatsApp.",
     desc: "Сайт школы английского языка в Астане на чистых HTML, CSS и JavaScript. Данные взяты из карточки школы в 2ГИС, оформление повторяет стиль школы, заявки с сайта отправляются прямо в WhatsApp.",
     stack: ["HTML", "CSS", "JavaScript", "GitHub Pages"],
-    links: [{ label: "Открыть сайт", url: "https://study-on.w-smp.in/" }]
+    links: [{ label: "Открыть сайт", url: "https://gdev49df.github.io/study-on/" }]
   },
   {
     id: "dinastiyastomclinic",
     real: true,
     reviews: "/reviews",
     spec: { kb: 135, req: 6 },
-    demo: { url: "https://dinastiyastomclinic.w-smp.in/", device: "laptop" },
+    demo: { url: "https://gdev49df.github.io/dinastiyastomclinic/", device: "laptop" },
     img: "img/dinastiyastomclinic.jpg",
     hero: "img/dinastiyastomclinic-case.jpg",
     points: ["Страницы услуг: имплантация, брекеты, лечение, ортопедия, детская стоматология", "Цены, рассрочка 0-0-24, команда и отзывы с оценками из 2ГИС", "Запись на приём и быстрая связь через WhatsApp"],
@@ -38,12 +38,12 @@ window.PROJECTS = [
     short: "Сайт стоматологии в Астане: услуги, цены, рассрочка и запись на приём.",
     desc: "Сайт стоматологической клиники Dinastiya Stom Clinic в Астане на чистых HTML, CSS и JavaScript. Отдельные страницы для имплантации, брекетов, лечения, ортопедии и детской стоматологии, блок с ценами и рассрочкой, команда врачей, отзывы и быстрая запись на приём. Оформление выдержано в золотых тонах логотипа клиники.",
     stack: ["HTML", "CSS", "JavaScript"],
-    links: [{ label: "Открыть сайт", url: "https://dinastiyastomclinic.w-smp.in/" }]
+    links: [{ label: "Открыть сайт", url: "https://gdev49df.github.io/dinastiyastomclinic/" }]
   },
   {
     id: "shawarma",
     spec: { kb: 301, req: 17 },
-    demo: { url: "https://shawarma.w-smp.in/", device: "laptop" },
+    demo: { url: "https://gdev49df.github.io/shawarma/", device: "laptop" },
     img: "img/shawarma.jpg",
     hero: "img/shawarma-case.jpg",
     points: ["Меню с фильтрами и конструктор «Собери свою» с подсчётом цены", "Корзина и оформление заказа через WhatsApp", "Статус «открыто / закрыто», условия доставки и контакты"],
@@ -57,13 +57,13 @@ window.PROJECTS = [
     short: "Сайт шаурмечной в Астане: меню, конструктор шаурмы и заказ через WhatsApp.",
     desc: "Сайт шаурмечной «Шаурма Ашота» в Астане на чистых HTML, CSS и JavaScript. Яркий главный экран, меню с фильтрами, конструктор, где гость собирает шаурму сам, корзина и оформление заказа в WhatsApp, условия доставки и контакты. Статус «открыто / закрыто» считается автоматически по часам работы.",
     stack: ["HTML", "CSS", "JavaScript"],
-    links: [{ label: "Открыть сайт", url: "https://shawarma.w-smp.in/" }]
+    links: [{ label: "Открыть сайт", url: "https://gdev49df.github.io/shawarma/" }]
   },
   {
     id: "tasqly",
     real: true,
     spec: { kb: 411, req: 5 },
-    demo: { url: "https://tasqly.w-smp.in/", device: "laptop" },
+    demo: { url: "https://gdev49df.github.io/tasqly/", device: "laptop" },
     img: "img/tasqly.jpg",
     hero: "img/tasqly-case.jpg",
     points: ["Задачи, проекты, заметки, чат и диск в одном месте", "Трекер времени, календарь и ИИ-помощник сбоку", "Строгий монохром с одним лаймовым акцентом"],
@@ -77,7 +77,7 @@ window.PROJECTS = [
     short: "Рабочее пространство для команд: задачи, заметки, чат, диск и ИИ.",
     desc: "Tasqly — рабочее пространство для команд в духе ClickUp: проекты трёх типов, задачи, заметки, чат, диск, трекер времени, календарь и ИИ-помощник в боковой панели. Строгий монохромный дизайн с одним лаймовым акцентом, лендинг с тарифами и личный кабинет.",
     stack: ["HTML", "CSS", "JavaScript", "Cloudflare Workers", "D1"],
-    links: [{ label: "Открыть приложение", url: "https://tasqly.w-smp.in/" }]
+    links: [{ label: "Открыть приложение", url: "https://gdev49df.github.io/tasqly/" }]
   }
 ];
 
