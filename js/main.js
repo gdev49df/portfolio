@@ -299,7 +299,6 @@
     var act = document.getElementById("case-actions");
     if (act) {
       act.innerHTML = (p.links[0] ? '<a class="btn light" href="' + p.links[0].url + '" target="_blank" rel="noopener">' + t(p.links[0].label) + ARROW.replace("<svg", '<svg width="16" height="16"') + "</a>" : "") +
-        (p.reviews ? '<a class="btn ghost" href="' + p.reviews + '">' + t("Отзывы клиентов") + "</a>" : "") +
         '<a class="btn ghost" href="/portfolio">' + t("Все работы") + "</a>";
     }
 
@@ -346,10 +345,10 @@
   function renderReviews() {
     var host = document.getElementById("reviews-list");
     if (!host || !window.REVIEWS) return;
-    var R = window.REVIEWS.dinastiyastomclinic;
+    var R = { items: window.REVIEWS };
     var star = '<svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.500l6.100-.9L12 3Z"/></svg>';
     if (!R.items.length) {
-      host.innerHTML = '<div class="rev-empty" data-reveal><h3>' + t("Отзывы скоро появятся") + "</h3><p>" + t("Мы собираем отзывы пациентов клиники. Загляните сюда позже.") + '</p><a class="btn ghost" href="/work/dinastiyastomclinic">' + t("К кейсу") + "</a></div>";
+      host.innerHTML = '<div class="rev-empty" data-reveal><h3>' + t("Отзывы скоро появятся") + "</h3><p>" + t("Мы собираем отзывы клиентов о моих работах. Загляните сюда позже.") + '</p><a class="btn ghost" href="/portfolio">' + t("Все работы") + "</a></div>";
       return;
     }
     host.innerHTML = R.items.map(function (r, i) {
@@ -358,7 +357,7 @@
       return '<figure class="rev" data-reveal style="--d:' + ((i % 3) * 0.08) + 's">' +
         (n ? '<div class="rev-stars" aria-label="' + n + ' / 5">' + st + "</div>" : "") +
         "<blockquote>" + esc2(r.text) + "</blockquote>" +
-        "<figcaption><b>" + esc2(r.name) + "</b>" + (r.date || r.source ? "<span>" + esc2([r.date, r.source].filter(Boolean).join(", ")) + "</span>" : "") + "</figcaption></figure>";
+        "<figcaption><b>" + esc2(r.name) + "</b>" + (r.project || r.date || r.source ? "<span>" + esc2([r.project, r.date, r.source].filter(Boolean).join(", ")) + "</span>" : "") + "</figcaption></figure>";
     }).join("");
   }
   function esc2(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }

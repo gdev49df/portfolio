@@ -103,11 +103,5 @@ window.STACK = ["HTML", "CSS", "JavaScript", "PWA", "Service Worker", "Cloudflar
   };
 })();
 
-/* Отзывы клиентов. Формат: { name: "Имя", text: "Текст отзыва", rating: 5, date: "Ноябрь 2026", source: "2ГИС" } */
-window.REVIEWS = {
-  dinastiyastomclinic: {
-    title: "Dinastiya Stom Clinic",
-    site: "https://dinastiyastomclinic.w-smp.in/",
-    items: []
-  }
-};
+/* Отзывы клиентов о работе gDev. Формат: { name: "Имя", project: "Название проекта", text: "Текст", rating: 5, date: "Ноябрь 2026", source: "2ГИС" } */
+window.REVIEWS = [];
