@@ -23,7 +23,7 @@
   var page = document.body.getAttribute("data-page") || "";
 
   var ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>';
-  var LOGO = 'G<i>web</i>Studio';
+  var LOGO = 'g<i>Dev</i>';
 
   var NAV = [
     ["home", "/", t("Главная")],
@@ -48,7 +48,7 @@
       hdr.innerHTML =
         '<div class="aurora" aria-hidden="true"><i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i></div>' +
         '<header class="hdr">' +
-        '<a class="logo" href="/" aria-label="GwebStudio, ' + t("на главную") + '">' + LOGO + "</a>" +
+        '<a class="logo" href="/" aria-label="gDev, ' + t("на главную") + '">' + LOGO + "</a>" +
         '<div class="lang" role="group" aria-label="' + t("Язык") + '">' + langs + "</div>" +
         '<a class="btn light hdr-cta" href="/quiz">' + t("Обсудить проект") + "</a>" +
         '<button class="menu-btn" type="button" aria-label="' + t("Открыть меню") + '" aria-expanded="false"><span class="lbl">' + t("Меню") + '</span><span class="lines"><i></i><i></i></span></button>' +
@@ -70,10 +70,10 @@
         '<footer class="ftr"><div class="wrap">' +
         '<div class="ftr-top"><h2>' + t("Нужен сайт для бизнеса?") + '</h2><a class="btn light" href="/quiz">' + t("Обсудить проект") + "</a></div>" +
         '<div class="ftr-grid">' +
-        '<div class="ftr-brand"><a class="ftr-mark" href="/" aria-label="GwebStudio, ' + t("на главную") + '">' + LOGO + "</a><p>" + t("Делаю современные сайты для бизнеса в Казахстане и России: от первой идеи до результата, который приводит клиентов и заявки.") + "</p></div>" +
+        '<div class="ftr-brand"><a class="ftr-mark" href="/" aria-label="gDev, ' + t("на главную") + '">' + LOGO + "</a><p>" + t("Делаю современные сайты для бизнеса в Казахстане и России: от первой идеи до результата, который приводит клиентов и заявки.") + "</p></div>" +
         '<nav class="ftr-col" aria-label="' + t("Разделы") + '"><h4>' + t("Разделы") + "</h4>" + flinks + "</nav>" +
         '<div class="ftr-col"><h4>' + t("Связаться") + "</h4>" + cons + "</div></div>" +
-        '<div class="ftr-bot"><span>© <span id="y"></span> ' + t("Разработано") + ' GwebStudio</span>' +
+        '<div class="ftr-bot"><span>© <span id="y"></span> ' + t("Разработано") + ' gDev</span>' +
         '<a href="/privacy">' + t("Политика конфиденциальности") + "</a></div>" +
         "</div></footer>";
       var y = document.getElementById("y");
@@ -287,7 +287,7 @@
     var p = list[i];
     var prev = list[(i + list.length - 1) % list.length];
     var next = list[(i + 1) % list.length];
-    document.title = t(p.title) + " — " + t("Кейс") + " — GwebStudio";
+    document.title = t(p.title) + " — " + t("Кейс") + " — gDev";
 
     var crumbs = document.getElementById("case-crumbs");
     if (crumbs) crumbs.innerHTML = '<a href="/">' + t("Главная") + '</a><i>/</i><a href="/portfolio">' + t("Портфолио") + "</a><i>/</i><span>" + t(p.type) + "</span>";
@@ -306,7 +306,7 @@
       [t("Тип проекта"), t(p.type)],
       [t("Направление"), t(CAT[p.cat] || p.cat)],
       [t("Год"), "2026"],
-      [t("Разработано"), "GwebStudio"],
+      [t("Разработано"), "gDev"],
       [t("Технологии"), p.stack.join(", ")]
     ];
     if (host0) facts.push([t("Ссылка"), '<a href="' + p.links[0].url + '" target="_blank" rel="noopener">' + host0 + "</a>"]);
@@ -321,7 +321,7 @@
     host.innerHTML =
       '<div class="cmeta" data-reveal>' +
       '<div><dl><dt>' + t("Тип проекта") + "</dt><dd>" + t(p.type) + "</dd><dt>" + t("Направление") + "</dt><dd>" + t(CAT[p.cat] || p.cat) + "</dd></dl></div>" +
-      '<div><dl><dt>' + t("Год") + "</dt><dd>2026</dd><dt>" + t("Разработано") + "</dt><dd>GwebStudio</dd>" + (host0 ? "<dt>" + t("Ссылка") + '</dt><dd><a href="' + p.links[0].url + '" target="_blank" rel="noopener">' + host0 + "</a></dd>" : "") + "</dl></div>" +
+      '<div><dl><dt>' + t("Год") + "</dt><dd>2026</dd><dt>" + t("Разработано") + "</dt><dd>gDev</dd>" + (host0 ? "<dt>" + t("Ссылка") + '</dt><dd><a href="' + p.links[0].url + '" target="_blank" rel="noopener">' + host0 + "</a></dd>" : "") + "</dl></div>" +
       '<div><dl><dt>' + t("Технологии") + '</dt><dd class="chips">' + chips + "</dd></dl></div></div>" +
       '<div class="ctwo"><div class="ctabs" data-reveal><div class="ctab-list" role="tablist">' +
       '<button type="button" role="tab" aria-selected="true" data-t="o">' + t("Обзор") + "</button>" +

@@ -38,41 +38,41 @@
     "Политика": ["Саясат", "Policy"],
 
     /* ---------- заголовки и описания страниц ---------- */
-    "GwebStudio — сайты и игры для Telegram Mini App": ["GwebStudio — сайттар мен Telegram Mini App ойындары", "GwebStudio — websites and Telegram Mini App games"],
+    "gDev — сайты и игры для Telegram Mini App": ["gDev — сайттар мен Telegram Mini App ойындары", "gDev — websites and Telegram Mini App games"],
     "Дизайнер и разработчик из Астаны. Делаю сайты на чистом коде, игры для Telegram Mini App и плагины для Minecraft.": [
       "Астанадан келген дизайнер және әзірлеуші. Таза кодпен сайттар, Telegram Mini App ойындарын және Minecraft плагиндерін жасаймын.",
       "Designer and developer from Astana. I build hand-coded websites, Telegram Mini App games and Minecraft plugins."
     ],
-    "Услуги — GwebStudio": ["Қызметтер — GwebStudio", "Services — GwebStudio"],
+    "Услуги — gDev": ["Қызметтер — gDev", "Services — gDev"],
     "Услуги: лендинг от $80, многостраничный сайт от $160, визитка от $60, корпоративный сайт от $160, Telegram Mini App от $130, плагин для Minecraft от $12, доработка проекта от $30.": [
       "Қызметтер: лендинг $80 бастап, көпбетті сайт $160 бастап, визитка $60 бастап, корпоративтік сайт $160 бастап, Telegram Mini App $130 бастап, Minecraft плагині $12 бастап, жобаны жетілдіру $30 бастап.",
       "Services: landing page from $80, multi-page website from $160, business card site from $60, corporate website from $160, Telegram Mini App from $130, Minecraft plugin from $12, project rework from $30."
     ],
-    "Портфолио — GwebStudio": ["Портфолио — GwebStudio", "Portfolio — GwebStudio"],
-    "Работы GwebStudio: сайты для бизнеса, игры для Telegram Mini App, боты и плагины для Minecraft.": [
-      "GwebStudio жұмыстары: бизнеске арналған сайттар, Telegram Mini App ойындары, боттар және Minecraft плагиндері.",
-      "GwebStudio work: business websites, Telegram Mini App games, bots and Minecraft plugins."
+    "Портфолио — gDev": ["Портфолио — gDev", "Portfolio — gDev"],
+    "Работы gDev: сайты для бизнеса, игры для Telegram Mini App, боты и плагины для Minecraft.": [
+      "gDev жұмыстары: бизнеске арналған сайттар, Telegram Mini App ойындары, боттар және Minecraft плагиндері.",
+      "gDev work: business websites, Telegram Mini App games, bots and Minecraft plugins."
     ],
-    "Обо мне — GwebStudio": ["Мен туралы — GwebStudio", "About — GwebStudio"],
-    "GwebStudio: дизайнер и разработчик из Астаны. Делаю сайты, игры для Telegram Mini App, боты и плагины.": [
-      "GwebStudio: Астанадан келген дизайнер және әзірлеуші. Сайттар, Telegram Mini App ойындары, боттар және плагиндер жасаймын.",
-      "GwebStudio: designer and developer from Astana. I make websites, Telegram Mini App games, bots and plugins."
+    "Обо мне — gDev": ["Мен туралы — gDev", "About — gDev"],
+    "gDev: дизайнер и разработчик из Астаны. Делаю сайты, игры для Telegram Mini App, боты и плагины.": [
+      "gDev: Астанадан келген дизайнер және әзірлеуші. Сайттар, Telegram Mini App ойындары, боттар және плагиндер жасаймын.",
+      "gDev: designer and developer from Astana. I make websites, Telegram Mini App games, bots and plugins."
     ],
-    "Контакты — GwebStudio": ["Байланыс — GwebStudio", "Contacts — GwebStudio"],
-    "Связаться с GwebStudio: Telegram, WhatsApp, Instagram и квиз для обсуждения проекта.": [
-      "GwebStudio-мен байланысу: Telegram, WhatsApp, Instagram және жобаны талқылауға арналған квиз.",
-      "Contact GwebStudio: Telegram, WhatsApp, Instagram and a quiz to discuss your project."
+    "Контакты — gDev": ["Байланыс — gDev", "Contacts — gDev"],
+    "Связаться с gDev: Telegram, WhatsApp, Instagram и квиз для обсуждения проекта.": [
+      "gDev-мен байланысу: Telegram, WhatsApp, Instagram және жобаны талқылауға арналған квиз.",
+      "Contact gDev: Telegram, WhatsApp, Instagram and a quiz to discuss your project."
     ],
-    "Обсудить проект — GwebStudio": ["Жобаны талқылау — GwebStudio", "Discuss a project — GwebStudio"],
+    "Обсудить проект — gDev": ["Жобаны талқылау — gDev", "Discuss a project — gDev"],
     "Ответьте на несколько вопросов, и я пойму, какой сайт, приложение или плагин вам нужен.": [
       "Бірнеше сұраққа жауап беріңіз, мен сізге қандай сайт, қосымша немесе плагин керек екенін түсінемін.",
       "Answer a few questions and I will understand what kind of website, app or plugin you need."
     ],
-    "Страница не найдена — GwebStudio": ["Бет табылмады — GwebStudio", "Page not found — GwebStudio"],
-    "Политика конфиденциальности — GwebStudio": ["Құпиялылық саясаты — GwebStudio", "Privacy policy — GwebStudio"],
-    "Какие данные использует сайт GwebStudio и как они хранятся.": [
-      "GwebStudio сайты қандай деректерді пайдаланады және олар қалай сақталады.",
-      "What data the GwebStudio website uses and how it is stored."
+    "Страница не найдена — gDev": ["Бет табылмады — gDev", "Page not found — gDev"],
+    "Политика конфиденциальности — gDev": ["Құпиялылық саясаты — gDev", "Privacy policy — gDev"],
+    "Какие данные использует сайт gDev и как они хранятся.": [
+      "gDev сайты қандай деректерді пайдаланады және олар қалай сақталады.",
+      "What data the gDev website uses and how it is stored."
     ],
 
     /* ---------- главная ---------- */
@@ -605,14 +605,14 @@
     "На главную": ["Басты бетке", "Back to home"],
 
     /* ---------- политика конфиденциальности ---------- */
-    "Эта страница объясняет, какие данные использует сайт GwebStudio и как они хранятся. Обновлено 8 ноября 2026.": [
-      "Бұл бет GwebStudio сайты қандай деректерді пайдаланатынын және олардың қалай сақталатынын түсіндіреді. 2026 жылғы 8 қарашада жаңартылды.",
-      "This page explains what data the GwebStudio website uses and how it is stored. Updated November 8, 2026."
+    "Эта страница объясняет, какие данные использует сайт gDev и как они хранятся. Обновлено 8 ноября 2026.": [
+      "Бұл бет gDev сайты қандай деректерді пайдаланатынын және олардың қалай сақталатынын түсіндіреді. 2026 жылғы 8 қарашада жаңартылды.",
+      "This page explains what data the gDev website uses and how it is stored. Updated November 8, 2026."
     ],
     "Кто отвечает за сайт": ["Сайт үшін кім жауап береді", "Who runs the site"],
-    "Сайт ведёт GwebStudio (Астана, Казахстан). По вопросам о данных пишите в Telegram @ddwwks или в WhatsApp +7 775 121 32 71.": [
-      "Сайтты GwebStudio жүргізеді (Астана, Қазақстан). Деректер туралы сұрақтар бойынша Telegram @ddwwks немесе WhatsApp +7 775 121 32 71 нөміріне жазыңыз.",
-      "The site is run by GwebStudio (Astana, Kazakhstan). For questions about data, write on Telegram @ddwwks or WhatsApp +7 775 121 32 71."
+    "Сайт ведёт gDev (Астана, Казахстан). По вопросам о данных пишите в Telegram @ddwwks или в WhatsApp +7 775 121 32 71.": [
+      "Сайтты gDev жүргізеді (Астана, Қазақстан). Деректер туралы сұрақтар бойынша Telegram @ddwwks немесе WhatsApp +7 775 121 32 71 нөміріне жазыңыз.",
+      "The site is run by gDev (Astana, Kazakhstan). For questions about data, write on Telegram @ddwwks or WhatsApp +7 775 121 32 71."
     ],
     "Какие данные есть на сайте": ["Сайтта қандай деректер бар", "What data the site has"],
     "На сайте нет аккаунтов, форм с отправкой на сервер, рекламных трекеров и аналитики. Сайт не сохраняет ваши данные на своих серверах.": [

@@ -1,4 +1,4 @@
-# GwebStudio portfolio
+# gDev portfolio
 
 Статический сайт-портфолио на чистых HTML, CSS и JavaScript.
 
