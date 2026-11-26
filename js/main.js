@@ -64,7 +64,7 @@
 
     var ftr = document.getElementById("site-footer");
     if (ftr) {
-      var flinks = NAV.map(function (n) { return '<a href="' + n[1] + '">' + n[2] + "</a>"; }).join("");
+      var flinks = NAV.map(function (n) { return '<a href="' + n[1] + '">' + n[2] + "</a>"; }).join("") + '<a href="/reviews">' + t("Отзывы") + "</a>";
       var cons = [["Telegram", TG], ["WhatsApp", WA], ["Instagram", IG], ["work@gdev.uk", MAIL]].map(function (c) { return '<a href="' + c[1] + '" target="_blank" rel="noopener">' + c[0] + "</a>"; }).join("");
       ftr.innerHTML =
         '<footer class="ftr"><div class="wrap">' +
