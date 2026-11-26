@@ -24,7 +24,7 @@ window.PROJECTS = [
     real: true,
     reviews: "/reviews",
     spec: { kb: 135, req: 6 },
-    demo: { url: "https://dinastiyastomclinic.gdev.uk/", device: "laptop" },
+    demo: { url: "https://dinastiyastomclinic.com/", device: "laptop" },
     img: "img/dinastiyastomclinic.jpg",
     hero: "img/dinastiyastomclinic-case.jpg",
     points: ["Страницы услуг: имплантация, брекеты, лечение, ортопедия, детская стоматология", "Цены, рассрочка 0-0-24, команда и отзывы с оценками из 2ГИС", "Запись на приём и быстрая связь через WhatsApp"],
@@ -38,7 +38,7 @@ window.PROJECTS = [
     short: "Сайт стоматологии в Астане: услуги, цены, рассрочка и запись на приём.",
     desc: "Сайт стоматологической клиники Dinastiya Stom Clinic в Астане на чистых HTML, CSS и JavaScript. Отдельные страницы для имплантации, брекетов, лечения, ортопедии и детской стоматологии, блок с ценами и рассрочкой, команда врачей, отзывы и быстрая запись на приём. Оформление выдержано в золотых тонах логотипа клиники.",
     stack: ["HTML", "CSS", "JavaScript"],
-    links: [{ label: "Открыть сайт", url: "https://dinastiyastomclinic.gdev.uk/" }]
+    links: [{ label: "Открыть сайт", url: "https://dinastiyastomclinic.com/" }]
   },
   {
     id: "shawarma",
