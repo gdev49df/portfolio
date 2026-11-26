@@ -1041,3 +1041,4 @@ h1, h2, h3 { text-wrap: balance; }
 .csec h2 { font-size: clamp(20px, 2.4vw, 28px); margin-bottom: 20px; }
 .csec .case-desc { color: var(--text); font-size: 17px; max-width: 70ch; margin: 0; }
 .csec .sheet-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.rev-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 560px)); }
