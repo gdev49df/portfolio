@@ -348,7 +348,7 @@
       return '<figure class="rev" data-reveal style="--d:' + ((i % 3) * 0.08) + 's">' +
         (n ? '<div class="rev-stars" aria-label="' + n + ' / 5">' + st + "</div>" : "") +
         "<blockquote>" + esc2(r.text) + "</blockquote>" +
-        "<figcaption><b>" + esc2(r.name) + "</b>" + (r.project || r.date || r.source ? "<span>" + esc2([r.project, r.date, r.source].filter(Boolean).join(", ")) + "</span>" : "") + "</figcaption></figure>";
+        "<figcaption><b>" + esc2(t(r.name)) + "</b>" + (r.project || r.date || r.source ? "<span>" + esc2([t(r.project), r.date, r.source].filter(Boolean).join(", ")) + "</span>" : "") + "</figcaption></figure>";
     }).join("");
   }
   function esc2(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }

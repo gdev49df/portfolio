@@ -379,7 +379,6 @@
     "Обновляется сразу": ["Бірден жаңарады", "Updates instantly"],
     "Правки появляются у всех без ожидания проверки в магазине.": ["Өзгерістер дүкеннің тексеруін күтпей, бәрінде бірден шығады.", "Changes reach everyone without waiting for store review."],
     "Примерная стоимость за минуту": ["Шамамен құны бір минутта", "A rough price in a minute"],
-    "Опишите, что нужно сделать. ИИ посчитает ориентир по моему прайсу. Точную цену назову после обсуждения.": ["Не істеу керегін сипаттаңыз. ЖИ менің прайсым бойынша бағдар есептейді. Нақты бағаны талқылаудан кейін айтамын.", "Describe what you need. AI will estimate a figure from my price list. I'll give the exact price after we talk."],
     "Что нужно сделать": ["Не істеу керек", "What do you need"],
     "Например: сайт для барбершопа с онлайн-записью и заявками в WhatsApp": ["Мысалы: онлайн-жазылуы және WhatsApp-қа өтінімдері бар барбершоп сайты", "For example: a barbershop site with online booking and WhatsApp requests"],
     "Лендинг для барбершопа с онлайн-записью": ["Онлайн-жазылуы бар барбершопқа лендинг", "Barbershop landing page with online booking"],
@@ -392,7 +391,6 @@
     "Считаю…": ["Есептеп жатырмын…", "Calculating…"],
     "Ориентир": ["Бағдар", "Estimate"],
     "ориентир": ["бағдар", "estimate"],
-    "Расчёт ИИ": ["ЖИ есебі", "AI estimate"],
     "Расчёт по прайсу": ["Прайс бойынша есеп", "Price list estimate"],
     "Срок": ["Мерзімі", "Time"],
     "Обсудить в Telegram": ["Telegram-да талқылау", "Discuss in Telegram"],
@@ -492,12 +490,8 @@
     "Для чего сайт или приложение": ["Сайт немесе қосымша не үшін", "What is the site or app for"],
     "Например: барбершоп, нужна запись клиентов и заявки в WhatsApp": ["Мысалы: барбершоп, клиенттерді жазу және WhatsApp-қа өтінімдер керек", "For example: a barbershop, needs client booking and WhatsApp requests"],
     "Что добавить": ["Не қосу керек", "What to add"],
-    "Уточнить с ИИ": ["ЖИ-мен нақтылау", "Refine with AI"],
     "Выберите тип и дополнения, и здесь появится ориентир по цене и срокам.": ["Түрін және қосымшаларды таңдаңыз, мұнда баға мен мерзім бағдары шығады.", "Pick a type and extras and a price and time estimate will appear here."],
-    "Опишите, для чего нужен проект, чтобы уточнить расчёт с ИИ.": ["Есепті ЖИ-мен нақтылау үшін жобаның не үшін керегін сипаттаңыз.", "Describe what the project is for to refine the estimate with AI."],
-    "Не получилось уточнить с ИИ. Выберите тип, и я посчитаю по прайсу.": ["ЖИ-мен нақтылау болмады. Түрін таңдаңыз, мен прайс бойынша есептеймін.", "Couldn't refine with AI. Pick a type and I'll calculate from the price list."],
     "PWA-версия сайта": ["Сайттың PWA-нұсқасы", "PWA version of the site"],
-    "Выберите тип и дополнения, цена посчитается сразу. Опишите проект словами, и ИИ уточнит расчёт. Точную цену назову после обсуждения.": ["Түрін және қосымшаларды таңдаңыз, баға бірден есептеледі. Жобаны сөзбен сипаттаңыз, ЖИ есепті нақтылайды. Нақты бағаны талқылаудан кейін айтамын.", "Pick a type and extras and the price is calculated instantly. Describe the project in words and AI will refine the estimate. I'll give the exact price after we talk."],
     "Нужно PWA-приложение": ["PWA-қосымша керек", "Needs the PWA app"],
     "Недоступно для сайта-визитки": ["Визитка сайт үшін қолжетімсіз", "Not available for a business card site"],
     "Недоступно для лендинга": ["Лендинг үшін қолжетімсіз", "Not available for a landing page"],
@@ -510,7 +504,6 @@
     "Только реальные": ["Тек нақты жобалар", "Real projects only"],
     "Выберите тип сайта или приложения": ["Сайт немесе қосымша түрін таңдаңыз", "Pick the type of site or app"],
     "Отметьте, что нужно добавить": ["Не қосу керегін белгілеңіз", "Mark what you want to add"],
-    "Опишите проект словами, и ИИ уточнит расчёт": ["Жобаны сөзбен сипаттаңыз, ИИ есепті нақтылайды", "Describe the project in words and the AI will refine the estimate"],
     "Опишите проект словами, оно попадёт в вашу заявку": ["Жобаны сөзбен сипаттаңыз, ол өтінішіңізге түседі", "Describe the project in words, it goes into your request"],
     "Выберите тип и дополнения, цена посчитается сразу. Точную цену назову после обсуждения.": ["Түрі мен қосымшаларды таңдаңыз, баға бірден есептеледі. Нақты бағаны талқылаудан кейін айтамын.", "Pick the type and extras and the price is calculated right away. I'll name the exact price after we talk."],
     "Где работаю": ["Қайда жұмыс істеймін", "Based in"],
@@ -609,10 +602,68 @@
     "Такой страницы нет. Возможно, ссылка устарела.": ["Мұндай бет жоқ. Мүмкін, сілтеме ескірген.", "This page does not exist. The link may be out of date."],
     "На главную": ["Басты бетке", "Back to home"],
 
+    /* ---------- заголовки вкладок, описания, подписи отзывов ---------- */
+    "gDev — сайты и PWA-приложения": [
+      "gDev — сайттар және PWA қосымшалары",
+      "gDev — websites and PWA apps"
+    ],
+    "Дизайнер и разработчик из Астаны. Делаю сайты и PWA-приложения на чистом коде: быстро, адаптивно, с заявками в Telegram и WhatsApp.": [
+      "Астаналық дизайнер және әзірлеуші. Таза кодпен сайттар мен PWA қосымшаларын жасаймын: жылдам, бейімделгіш, өтінімдер Telegram мен WhatsApp-қа келеді.",
+      "Designer and developer from Astana. I build hand-coded websites and PWA apps: fast, responsive, with leads going to Telegram and WhatsApp."
+    ],
+    "gDev: дизайнер и разработчик из Астаны. Делаю сайты и PWA-приложения на чистом коде.": [
+      "gDev: астаналық дизайнер және әзірлеуші. Таза кодпен сайттар мен PWA қосымшаларын жасаймын.",
+      "gDev: designer and developer from Astana. I build hand-coded websites and PWA apps."
+    ],
+    "Работы gDev: сайты для бизнеса и PWA-приложения.": [
+      "gDev жұмыстары: бизнеске арналған сайттар мен PWA қосымшалары.",
+      "gDev work: business websites and PWA apps."
+    ],
+    "Ответьте на несколько вопросов, и я пойму, какой сайт или PWA-приложение вам нужно, и подскажу цену.": [
+      "Бірнеше сұраққа жауап беріңіз, мен сізге қандай сайт немесе PWA қосымшасы керегін түсініп, бағасын айтамын.",
+      "Answer a few questions and I will understand which website or PWA app you need and suggest a price."
+    ],
+    "Отзывы клиентов — gDev": [
+      "Клиенттер пікірлері — gDev",
+      "Client reviews — gDev"
+    ],
+    "Отзывы клиентов о сайтах и приложениях gDev.": [
+      "gDev сайттары мен қосымшалары туралы клиенттер пікірлері.",
+      "Client reviews of gDev websites and apps."
+    ],
+    "Услуги: сайт-визитка от $70, лендинг от $80, PWA-приложение от $130, многостраничный и корпоративный сайт от $190, интернет-магазин от $310. Цена и срок указаны в каждой карточке.": [
+      "Қызметтер: визитка-сайт $70 бастап, лендинг $80 бастап, PWA қосымшасы $130 бастап, көпбетті және корпоративтік сайт $190 бастап, интернет-дүкен $310 бастап. Бағасы мен мерзімі әр карточкада көрсетілген.",
+      "Services: business card site from $70, landing page from $80, PWA app from $130, multi-page and corporate websites from $190, online store from $310. Price and timeline are shown on each card."
+    ],
+    "Dinastiya Stom Clinic — кейс — gDev": [
+      "Dinastiya Stom Clinic — кейс — gDev",
+      "Dinastiya Stom Clinic — case study — gDev"
+    ],
+    "Шаурма Ашота — кейс — gDev": [
+      "Шаурма Ашота — кейс — gDev",
+      "Shaurma Ashota — case study — gDev"
+    ],
+    "Study On — кейс — gDev": [
+      "Study On — кейс — gDev",
+      "Study On — case study — gDev"
+    ],
+    "Tasqly — кейс — gDev": [
+      "Tasqly — кейс — gDev",
+      "Tasqly — case study — gDev"
+    ],
+    "Клиент": [
+      "Тапсырыс беруші",
+      "Client"
+    ],
+    "Сайт Dinastiya Stom Clinic": [
+      "Dinastiya Stom Clinic сайты",
+      "Dinastiya Stom Clinic website"
+    ],
+
     /* ---------- политика конфиденциальности ---------- */
-    "Эта страница объясняет, какие данные использует сайт gDev и как они хранятся. Обновлено 8 ноября 2026.": [
-      "Бұл бет gDev сайты қандай деректерді пайдаланатынын және олардың қалай сақталатынын түсіндіреді. 2026 жылғы 8 қарашада жаңартылды.",
-      "This page explains what data the gDev website uses and how it is stored. Updated November 8, 2026."
+    "Эта страница объясняет, какие данные использует сайт gDev и как они хранятся. Обновлено 26 ноября 2026.": [
+      "Бұл бет gDev сайты қандай деректерді пайдаланатынын және олардың қалай сақталатынын түсіндіреді. 2026 жылғы 26 қарашада жаңартылды.",
+      "This page explains what data the gDev website uses and how it is stored. Updated November 26, 2026."
     ],
     "Кто отвечает за сайт": ["Сайт үшін кім жауап береді", "Who runs the site"],
     "Сайт ведёт gDev (Астана, Казахстан). По вопросам о данных пишите в Telegram @ddwwks или в WhatsApp +7 775 121 32 71.": [
@@ -625,19 +676,19 @@
       "The site has no accounts, no forms that send data to a server, no advertising trackers and no analytics. The site does not store your data on its own servers."
     ],
     "Квиз и заявка": ["Квиз және өтінім", "Quiz and request"],
-    "В квизе вы вводите имя, контакт и описание проекта. Эти ответы остаются в вашем браузере. Когда вы нажимаете «Отправить», сайт собирает текст сообщения и открывает Telegram с этим текстом. Сообщение попадает ко мне, только если вы сами отправите его в Telegram или WhatsApp.": [
-      "Квизде сіз атыңызды, байланысты және жоба сипаттамасын енгізесіз. Бұл жауаптар браузеріңізде қалады. «Жіберу» түймесін басқанда, сайт хабарлама мәтінін жинап, Telegram-ды осы мәтінмен ашады. Хабарлама маған тек сіз оны Telegram немесе WhatsApp-қа өзіңіз жіберсеңіз ғана түседі.",
-      "In the quiz you enter your name, contact and a project description. These answers stay in your browser. When you press “Send”, the site assembles the message text and opens Telegram with it. The message reaches me only if you send it yourself in Telegram or WhatsApp."
+    "В квизе вы вводите имя, контакт и описание проекта, а в блоке расчёта стоимости выбираете тип сайта и можете описать задачу. Сайт никуда не отправляет эти данные сам. Когда вы нажимаете «Отправить» в квизе или «Обсудить в Telegram» в расчёте, сайт собирает текст сообщения и открывает Telegram с этим текстом (в квизе текст также копируется в буфер обмена). Сообщение попадает ко мне, только если вы сами отправите его в Telegram или WhatsApp.": [
+      "Квизде сіз атыңызды, байланысты және жоба сипаттамасын енгізесіз, ал құнын есептеу блогында сайт түрін таңдап, міндетті сипаттай аласыз. Сайт бұл деректерді өздігінен ешқайда жібермейді. Квизде «Жіберу» немесе есептеуде «Telegram-да талқылау» түймесін басқанда, сайт хабарлама мәтінін жинап, Telegram-ды осы мәтінмен ашады (квизде мәтін алмасу буферіне де көшіріледі). Хабарлама маған тек сіз оны Telegram немесе WhatsApp-қа өзіңіз жіберсеңіз ғана түседі.",
+      "In the quiz you enter your name, contact and a project description, and in the cost estimate block you choose a site type and can describe the task. The site does not send this data anywhere by itself. When you press “Send” in the quiz or “Discuss in Telegram” in the estimate, the site assembles the message text and opens Telegram with it (in the quiz the text is also copied to the clipboard). The message reaches me only if you send it yourself in Telegram or WhatsApp."
     ],
     "Что сохраняется в браузере": ["Браузерде не сақталады", "What is saved in your browser"],
-    "Для работы сайта используется память браузера: выбранный язык интерфейса, отметка о том, что вы уже видели заставку при первом заходе, и ваш рекорд в мини-игре. Это не персональные данные, их можно удалить в настройках браузера.": [
-      "Сайт жұмысы үшін браузер жады қолданылады: таңдалған интерфейс тілі, алғашқы кіргенде қосылу экранын көргеніңіз туралы белгі және шағын ойындағы рекордыңыз. Бұл жеке деректер емес, оларды браузер баптауларында жоюға болады.",
-      "The site uses browser storage for the interface language you chose, a mark that you have already seen the intro screen on your first visit, and your best score in the mini-game. This is not personal data and you can delete it in your browser settings."
+    "Для работы сайта используется память браузера: выбранный язык интерфейса и отметка о том, что вы уже видели заставку при первом заходе. Это не персональные данные, их можно удалить в настройках браузера.": [
+      "Сайт жұмысы үшін браузер жады қолданылады: таңдалған интерфейс тілі және алғашқы кіргенде кіріспе экранын көргеніңіз туралы белгі. Бұл жеке деректер емес, оларды браузер баптауларында жоюға болады.",
+      "The site uses browser storage for the interface language you chose and a mark that you have already seen the intro screen on your first visit. This is not personal data and you can delete it in your browser settings."
     ],
     "Сторонние сервисы": ["Үшінші тарап сервистері", "Third-party services"],
-    "Шрифты загружаются с Google Fonts, поэтому браузер обращается к серверам Google. Сайт размещён на GitHub Pages, и хостинг может записывать технические данные запросов, например IP-адрес. Ссылки на Telegram, WhatsApp, Instagram и GitHub ведут на сторонние сайты со своими правилами.": [
-      "Қаріптер Google Fonts-тан жүктеледі, сондықтан браузер Google серверлеріне жүгінеді. Сайт GitHub Pages-те орналасқан, хостинг сұраулардың техникалық деректерін, мысалы IP-мекенжайды жазуы мүмкін. Telegram, WhatsApp, Instagram және GitHub-қа сілтемелер өз ережелері бар үшінші тарап сайттарына апарады.",
-      "Fonts are loaded from Google Fonts, so your browser contacts Google servers. The site is hosted on GitHub Pages, and the host may record technical request data such as the IP address. Links to Telegram, WhatsApp, Instagram and GitHub lead to third-party sites with their own rules."
+    "Шрифты загружаются с Google Fonts, поэтому браузер обращается к серверам Google. Сайт размещён на GitHub Pages, и хостинг может записывать технические данные запросов, например IP-адрес. На страницах кейсов сайты проектов открываются во встроенном окне, поэтому браузер обращается и к их серверам. Эти сайты, а также Telegram, WhatsApp и Instagram, работают по своим правилам.": [
+      "Қаріптер Google Fonts-тан жүктеледі, сондықтан браузер Google серверлеріне жүгінеді. Сайт GitHub Pages-те орналасқан, хостинг сұраулардың техникалық деректерін, мысалы IP-мекенжайды жазуы мүмкін. Кейс беттерінде жобалардың сайттары кіріктірілген терезеде ашылады, сондықтан браузер олардың серверлеріне де жүгінеді. Бұл сайттар, сондай-ақ Telegram, WhatsApp және Instagram өз ережелері бойынша жұмыс істейді.",
+      "Fonts are loaded from Google Fonts, so your browser contacts Google servers. The site is hosted on GitHub Pages, and the host may record technical request data such as the IP address. Case pages open the project websites in an embedded window, so your browser also contacts their servers. Those sites, as well as Telegram, WhatsApp and Instagram, follow their own rules."
     ],
     "Как использую данные из заявки": ["Өтінімдегі деректерді қалай қолданамын", "How I use request data"],
     "Информацию из сообщения использую только для того, чтобы ответить вам и обсудить проект. Не передаю её третьим лицам и не использую для рассылок.": [
@@ -683,9 +734,9 @@
     "Помогу выбрать формат": ["Форматты таңдауға көмектесемін", "I will help you pick a format"],
 
     "Запуск услуги, акции или продукта, от $80": ["Қызметті, акцияны немесе өнімді іске қосу, $80 бастап", "Launching a service, promotion or product, from $80"],
-    "Несколько разделов, от $160": ["Бірнеше бөлім, $160 бастап", "Several sections, from $160"],
-    "Компактное представительство, от $60": ["Шағын өкілдік, $60 бастап", "A compact presence, from $60"],
-    "Услуги, команда, проекты и контакты, от $160": ["Қызметтер, команда, жобалар және байланыстар, $160 бастап", "Services, team, projects and contacts, from $160"],
+    "Несколько разделов, от $190": ["Бірнеше бөлім, $190 бастап", "Several sections, from $190"],
+    "Компактное представительство, от $70": ["Шағын өкілдік, $70 бастап", "A compact presence, from $70"],
+    "Услуги, команда, проекты и контакты, от $190": ["Қызметтер, команда, жобалар және байланыстар, $190 бастап", "Services, team, projects and contacts, from $190"],
     "Пока не знаю": ["Әзірге білмеймін", "Not sure yet"],
     "Подскажу подходящий вариант": ["Қолайлы нұсқаны ұсынамын", "I will suggest a suitable option"],
     "Игра": ["Ойын", "Game"],

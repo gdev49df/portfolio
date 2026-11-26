@@ -1,4 +1,0 @@
-name = "gws-estimate"
-main = "worker/estimate.js"
-compatibility_date = "2025-01-01"
-# секрет ключа: wrangler secret put GROQ_API_KEY

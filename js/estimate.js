@@ -1,16 +1,15 @@
 /* Оценка стоимости. Тип и дополнения выбираются тегами, цена считается сразу по прайсу.
-   Описание «для чего» уходит в ИИ (Groq через воркер gws-estimate) по кнопке «Уточнить с ИИ». */
+   Описание «для чего» попадает в текст сообщения для Telegram. */
 (function () {
   "use strict";
   var host = document.getElementById("estimate");
   if (!host) return;
 
-  var API = window.GWS_ESTIMATE_API || "https://gws-estimate.wsmp.workers.dev/";
   var t = window.t || function (x) { return x; };
   var lang = (window.I18N && window.I18N.lang) || "ru";
   var TG = "https://t.me/ddwwks";
 
-  // прайс студии, доллары. те же числа в воркере и в карточках услуг
+  // прайс студии, доллары. те же числа в карточках услуг
   var TYPES = [
     { id: "card", name: "Сайт-визитка", price: 70, days: 4 },
     { id: "land", name: "Лендинг", price: 80, days: 5 },
@@ -32,7 +31,6 @@
   ];
 
   var st = { type: null, pwa: false, add: {} };
-  var ai = null; // результат ИИ, пока выбор не менялся
 
   function calc() {
     var type = TYPES.filter(function (x) { return x.id === st.type; })[0];
@@ -42,7 +40,7 @@
     if (type) put(type);
     if (st.pwa) put(type ? PWA_SITE : PWA);
     ADD.forEach(function (a) { if (st.add[a.id]) put(a); });
-    return { min: sum, max: Math.round(sum * 1.3 / 10) * 10, dmin: days, dmax: Math.ceil(days * 1.4), items: items, note: t("Цена зависит от объёма текстов, дизайна и числа страниц."), src: "price" };
+    return { min: sum, max: Math.round(sum * 1.3 / 10) * 10, dmin: days, dmax: Math.ceil(days * 1.4), items: items, note: t("Цена зависит от объёма текстов, дизайна и числа страниц.") };
   }
 
   function chips(list, cls) { return list.map(function (x) { return '<button type="button" data-k="' + x.id + '" aria-pressed="false">' + t(x.name) + "</button>"; }).join(""); }
@@ -119,7 +117,7 @@
     var unit = lang === "kk" ? "күн" : lang === "en" ? "days" : "дней";
     var tags = (st.type ? [t(TYPES.filter(function (x) { return x.id === st.type; })[0].name)] : []).concat(st.pwa ? [t(PWA.name)] : [], ADD.filter(function (a) { return st.add[a.id]; }).map(function (a) { return t(a.name); }));
     var msg = t("Здравствуйте! Хочу заказать:") + " " + (ta.value.trim() ? ta.value.trim() + ". " : "") + tags.join(", ") + " (" + t("ориентир") + " " + money(d.min) + "–" + money(d.max) + ")";
-    var label = d.src === "ai" ? t("Расчёт ИИ") : t("Расчёт по прайсу") + (d.why ? " · " + d.why : "");
+    var label = t("Расчёт по прайсу");
     var note = (d.note ? d.note + " " : "") + t("Это ориентир, не оферта. Точную цену назову после обсуждения.");
     var href = TG + "?text=" + encodeURIComponent(msg);
 
@@ -168,7 +166,7 @@
       if (why) b.title = t(why); else b.removeAttribute("title");
     });
   }
-  function refresh() { ai = null; applyRules(); show(calc()); }
+  function refresh() { applyRules(); show(calc()); }
 
   host.addEventListener("click", function (e) {
     var b = e.target.closest(".tags button");
@@ -183,14 +181,6 @@
     b.setAttribute("aria-pressed", String(on));
     refresh();
   });
-
-  function ask(text) {
-    var ctl = window.AbortController ? new AbortController() : null;
-    var timer = setTimeout(function () { if (ctl) ctl.abort(); }, 9000);
-    return fetch(API, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ text: text, lang: lang }), signal: ctl ? ctl.signal : undefined })
-      .then(function (r) { clearTimeout(timer); if (!r.ok) return r.json().catch(function () { return {}; }).then(function (j) { throw new Error("http " + r.status + (j.error ? " " + j.error : "")); }); return r.json(); })
-      .then(function (d) { if (d.error === "off_topic") return d; if (d.error || !d.min) throw new Error("bad"); d.src = "ai"; return d; });
-  }
 
   applyRules();
   show(null);
