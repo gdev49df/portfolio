@@ -500,7 +500,10 @@
     "Разработано": ["Әзірлеген", "Developed by"],
     "Открыть приложение": ["Қосымшаны ашу", "Open the app"],
     "Чат с историей и голосовым вводом": ["Тарихы және дауыспен енгізуі бар чат", "Chat with history and voice input"],
-    "Мои проекты: сайты для школы английского, стоматологии и шаурмечной, рабочее пространство Tasqly.": ["Менің жобаларым: ағылшын мектебі, стоматология және шаурмахана сайттары, Tasqly жұмыс кеңістігі.", "My projects: sites for an English school, a dental clinic and a shawarma place, and the Tasqly workspace."],
+    "Мои проекты: сайты для школы английского, стоматологии и шаурмечной, маркет объявлений tapty. и рабочее пространство Tasqly.": [
+      "Менің жобаларым: ағылшын тілі мектебіне, стоматологияға және шаурма дүкеніне арналған сайттар, tapty. хабарландыру маркеті және Tasqly жұмыс кеңістігі.",
+      "My projects: websites for an English school, a dental clinic and a shawarma shop, the tapty. classifieds marketplace and the Tasqly workspace."
+    ],
     "Только реальные": ["Тек нақты жобалар", "Real projects only"],
     "Выберите тип сайта или приложения": ["Сайт немесе қосымша түрін таңдаңыз", "Pick the type of site or app"],
     "Отметьте, что нужно добавить": ["Не қосу керегін белгілеңіз", "Mark what you want to add"],
@@ -522,7 +525,10 @@
     "Сайт под ключ: дизайн, код, запуск": ["Кілтке дейін сайт: дизайн, код, іске қосу", "A turnkey site: design, code, launch"],
     "Первая версия": ["Бірінші нұсқа", "First version"],
     "Что я уже сделал для бизнеса": ["Бизнес үшін не жасадым", "What I have built for businesses"],
-    "Проекты для клиники, школы и шаурмечной, а также свой продукт. Откройте кейс: задача, решение и ссылки.": ["Клиника, мектеп және шаурмахана жобалары, сондай-ақ өз өнімім. Кейсті ашыңыз: міндет, шешім және сілтемелер.", "Projects for a clinic, a school and a shawarma shop, plus my own product. Open a case: the task, the solution and links."],
+    "Проекты для клиники, школы и шаурмечной, а также свои продукты. Откройте кейс: задача, решение и ссылки.": [
+      "Клиникаға, мектепке және шаурма дүкеніне арналған жобалар, сондай-ақ өз өнімдерім. Кейсті ашыңыз: міндет, шешім және сілтемелер.",
+      "Projects for a clinic, a school and a shawarma shop, plus my own products. Open a case study: the task, the solution and links."
+    ],
     "Все проекты": ["Барлық жобалар", "All projects"],
     "С чего начнём?": ["Неден бастаймыз?", "Where do we start?"],
     "Выберите формат под задачу: в карточке сразу цена и срок. Не уверены — пройдите короткий квиз.": ["Міндетке сай форматты таңдаңыз: карточкада баға мен мерзім бірден көрсетілген. Сенімсіз болсаңыз — қысқа квизден өтіңіз.", "Pick a format for your task: each card shows the price and timeline. Not sure? Take the short quiz."],
@@ -541,7 +547,10 @@
     "Технологии, на которых сделаны проекты из портфолио.": ["Портфолиодағы жобалар жасалған технологиялар.", "The technologies behind the projects in the portfolio."],
     "Я Ғалым, дизайнер и разработчик из Астаны. Делаю сайты и PWA-приложения для бизнеса. Готовые шаблоны не беру: стиль, структуру и анимации подбираю под ваш проект.": ["Мен Ғалыммын, Астанадан дизайнер және әзірлеушімін. Бизнес үшін сайттар мен PWA-қосымшалар жасаймын. Дайын үлгілерді алмаймын: стильді, құрылымды және анимацияны жобаңызға қарай таңдаймын.", "I am Ғalym, a designer and developer from Astana. I build websites and PWA apps for business. I do not use ready-made templates: I choose the style, structure and animation for your project."],
     "Работы для бизнеса": ["Бизнеске арналған жұмыстар", "Work for businesses"],
-    "Клиника, школа, шаурмечная и свой продукт. Откройте кейс: описание, технологии и ссылки.": ["Клиника, мектеп, шаурмахана және өз өнімім. Кейсті ашыңыз: сипаттама, технологиялар және сілтемелер.", "A clinic, a school, a shawarma shop and my own product. Open a case: description, technologies and links."],
+    "Клиника, школа, шаурмечная и свои продукты. Откройте кейс: описание, технологии и ссылки.": [
+      "Клиника, мектеп, шаурма дүкені және өз өнімдерім. Кейсті ашыңыз: сипаттама, технологиялар және сілтемелер.",
+      "A clinic, a school, a shawarma shop and my own products. Open a case study: description, technologies and links."
+    ],
     "Расскажите о задаче": ["Міндетіңіз туралы айтыңыз", "Tell me about your task"],
     "Напишите в Telegram или WhatsApp либо пройдите квиз: я получу готовое описание задачи и вернусь с ценой и сроком.": ["Telegram немесе WhatsApp-қа жазыңыз немесе квизден өтіңіз: мен міндеттің дайын сипаттамасын аламын және баға мен мерзіммен қайтып келемін.", "Write on Telegram or WhatsApp, or take the quiz: I will get a ready description of your task and come back with a price and timeline."],
     "Нужен сайт для бизнеса?": ["Бизнеске сайт керек пе?", "Need a website for your business?"],
@@ -658,6 +667,39 @@
     "Сайт Dinastiya Stom Clinic": [
       "Dinastiya Stom Clinic сайты",
       "Dinastiya Stom Clinic website"
+    ],
+
+    "tapty.": [
+      "tapty.",
+      "tapty."
+    ],
+    "tapty. — кейс — gDev": [
+      "tapty. — кейс — gDev",
+      "tapty. — case study — gDev"
+    ],
+    "Маркет объявлений": [
+      "Хабарландыру маркеті",
+      "Classifieds marketplace"
+    ],
+    "Объявления по Казахстану: сайт и приложение для телефона.": [
+      "Қазақстан бойынша хабарландырулар: сайт және телефонға арналған қосымша.",
+      "Classifieds across Kazakhstan: a website and a phone app."
+    ],
+    "tapty. — объявления по Казахстану: сайт и PWA-приложение на чистых HTML, CSS и JavaScript с сервером на Cloudflare Workers и базой D1. Объявления можно искать и фильтровать по городам и районам, а своё подать с фото: нейросеть подскажет категорию, заголовок и описание. Внутри есть чат с продавцом, отзывы, избранное, русский и казахский языки.": [
+      "tapty. — Қазақстан бойынша хабарландырулар: таза HTML, CSS және JavaScript-пен жасалған сайт пен PWA қосымшасы, сервері Cloudflare Workers-те, деректер базасы D1. Хабарландыруларды қала мен аудан бойынша іздеуге және сүзуге болады, ал өзіңіздікін фотомен беруге болады: нейрожелі санатты, тақырыпты және сипаттаманы ұсынады. Ішінде сатушымен чат, пікірлер, таңдаулылар, орыс және қазақ тілдері бар.",
+      "tapty. is a classifieds service for Kazakhstan: a website and PWA app built with plain HTML, CSS and JavaScript, with a Cloudflare Workers backend and a D1 database. You can search and filter listings by city and district, and post your own with photos: AI suggests the category, title and description. It includes chat with sellers, reviews, favourites, and Russian and Kazakh languages."
+    ],
+    "Подача объявления с фото и кнопка «Заполнить по фото»": [
+      "Фотомен хабарландыру беру және «Фото бойынша толтыру» түймесі",
+      "Posting with photos and a “Fill from photo” button"
+    ],
+    "Чат с продавцом, отзывы и избранное": [
+      "Сатушымен чат, пікірлер және таңдаулылар",
+      "Chat with sellers, reviews and favourites"
+    ],
+    "Поиск по городам и районам, русский и казахский языки": [
+      "Қалалар мен аудандар бойынша іздеу, орыс және қазақ тілдері",
+      "Search by city and district, Russian and Kazakh languages"
     ],
 
     /* ---------- политика конфиденциальности ---------- */
